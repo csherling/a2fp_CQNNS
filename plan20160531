@@ -1,0 +1,43 @@
+Everything:
+
+Units: 
+Ground: Infantry, Mech, Recon, Tank, Medium Tank, Artillery, Rockets, Missiles, APC
+Air: Fighter, Bomber, Battle copter, Transport copter
+Space:
+
+Building:
+HQ, City, Base, Airport
+
+Terrain:
+Road, Plains, Woods, Mountains
+
+Gameplay:
+Money
+Build menu: sorting units
+Turns
+Moving units
+Terrain hinderance
+Capturing
+Ground-Air-Space interaction
+
+Basic needs:
+-Making a map (Space[] Board) 
+-Unit movement (Path finding algorithm - TREE)
+-Standard ground units, (infantry, tanks)
+-working turns (CLL of phases? Or just use booleans)
+
+Intermediate stage:
+-buildings
+-Terrain
+-Terrain hinderance
+-Buildings
+-Basic build menu
+
+Advanced stage:
+-Standard Air units (battlecopter)
+-Ranged ground units
+-Transport units
+-Space
+-Sorting build menu
+-Capturing
+-Cycling through units
