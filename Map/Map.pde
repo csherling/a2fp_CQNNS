@@ -10,7 +10,7 @@ void setup(){
   //for(int i=0; i < TestUnit.length; i++){
   //  TestUnit[i] = new TestUnit(10);
   //}  
-  unit.add(new Unit());
+  unit.add(new Infantry());
   sel = unit.get(0);
   selNum = 0;
   CLL<String> test = new CLL<String>();
@@ -71,6 +71,6 @@ void keyPressed(){
      }
    }
    else if(keyCode == BACKSPACE){
-     unit.add(new Unit());
+     unit.add(new Infantry());
    }
 }

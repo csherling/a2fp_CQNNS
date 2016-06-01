@@ -27,6 +27,7 @@ Ground-Air-Space interaction
 
 Basic (Core Functonality) needs:
 @@@@@-Making a map (Space[] Board)
+@@@@@-Create a Space class representing each tile on the board that adequately holds terrain, units and other information relevant to a given area.
 $$$-Unit movement (Path finding algorithm - TREE)
 $$$$$-Standard ground units, (infantry, tanks)
 $$$-Cycling through units(CLL to store units)
@@ -46,3 +47,5 @@ Advanced stage:
 -Space
 -Sorting build menu
 -Capturing
+-Improving general gameplay quality (nicer animations, nicer unit graphics)
+

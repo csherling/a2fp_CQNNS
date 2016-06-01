@@ -1,4 +1,4 @@
-class Unit{
+abstract class Unit{
  
   int x;
   int y;
