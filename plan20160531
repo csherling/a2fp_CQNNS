@@ -20,18 +20,21 @@ Terrain hinderance
 Capturing
 Ground-Air-Space interaction
 
-Basic needs:
--Making a map (Space[] Board) 
--Unit movement (Path finding algorithm - TREE)
--Standard ground units, (infantry, tanks)
--working turns (CLL of phases? Or just use booleans)
+@ indicates priority, more @ means more important. It is ideal to do the task in order.
+
+Basic (Core Functonality) needs:
+@@@@@-Making a map (Space[] Board)
+@@@-Unit movement (Path finding algorithm - TREE)
+@@@@@-Standard ground units, (infantry, tanks)
+@@@-Cycling through units(CLL to store units)
+@@-working turns (CLL of phases? Or just use booleans)
+@@-Unit Combat
 
 Intermediate stage:
--buildings
--Terrain
--Terrain hinderance
--Buildings
--Basic build menu
+@@@-buildings
+@@@@@-Terrain
+@@@@-Terrain hinderance
+@@-Basic build menu
 
 Advanced stage:
 -Standard Air units (battlecopter)
@@ -40,4 +43,3 @@ Advanced stage:
 -Space
 -Sorting build menu
 -Capturing
--Cycling through units
