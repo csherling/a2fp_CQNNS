@@ -8,6 +8,7 @@ abstract class Unit{
   int movement;
   float attack;
   float defense;
+  boolean moved;
   
   Unit(){
     x = ((int)random(width - 2*10))/10 * 10 + 10;
@@ -18,6 +19,7 @@ abstract class Unit{
     movement = 1;
     attack = 10;
     defense = 10;
+    moved = true;
   }
   
   Unit(int newMovement, float newAttack, float newDefense){
@@ -29,11 +31,19 @@ abstract class Unit{
     movement = newMovement;
     attack = newAttack;
     defense = newDefense;
+    moved = true;
   }
   
   void draw(){
      rect(x, y, edge, edge); 
      fill(c);
   }
+ 
+  void reset(){
+    moved = false;
+  }
   
+  void moved(){
+    moved = true;
+  }
 }
