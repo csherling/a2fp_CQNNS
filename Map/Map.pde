@@ -3,7 +3,7 @@ CLL<Unit> unit;
 CLL<Player> players;
 Player curr;
 int selNum;
-
+Space[][] _board; //work out space pixel size, how many spaces, rework balance for movement
 
 void setup(){ 
   size(500,500);
