@@ -5,6 +5,9 @@ Ground: Infantry, Mech, Recon, Tank, Medium Tank, Artillery, Rockets, Missiles, 
 Air: Fighter, Bomber, Battle copter, Transport copter
 Space:
 
+Unit Stats:
+Health, Movement, Attack, Defense, Level, CanGround
+
 Building:
 HQ, City, Base, Airport
 

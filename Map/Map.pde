@@ -1,14 +1,17 @@
-Unit[] unit;
+//TestUnit[] TestUnit;
 Unit sel;
+CLL<Unit> unit;
 int selNum;
 
 void setup(){ 
   size(500,500);
-  unit = new Unit[25];
-  for(int i=0; i < unit.length; i++){
-    unit[i] = new Unit(10);
-  }
-  sel = unit[0];
+  //TestUnit = new TestUnit[25];
+  unit = new CLL<Unit>();
+  //for(int i=0; i < TestUnit.length; i++){
+  //  TestUnit[i] = new TestUnit(10);
+  //}  
+  unit.add(new Unit());
+  sel = unit.get(0);
   selNum = 0;
   CLL<String> test = new CLL<String>();
   test.add("Test");
@@ -19,18 +22,29 @@ void setup(){
 
 void draw(){
   background(0);
-  for(int i = 0; i < unit.length; i++){
-    unit[i].draw(); 
+  //for(int i = 0; i < TestUnit.length; i++){
+  //  TestUnit[i].draw(); 
+  //}
+  for(int i = 0; i < unit.size(); i++){
+    unit.get(i).draw(); 
   }
+
 }
 
 void mouseClicked(){
-  for(int i = 0; i<unit.length; i++){
-    if((unit[i].x > mouseX - 10 && unit[i].x < mouseX + 10) && (unit[i].y > mouseY - 10 && unit[i].y < mouseY + 10)){ 
-      sel = unit[i];
+  //for(int i = 0; i<TestUnit.length; i++){
+  //  if((TestUnit[i].x + 10 > mouseX && TestUnit[i].x < mouseX) && (TestUnit[i].y + 10 > mouseY && TestUnit[i].y < mouseY)){ 
+  //    sel = TestUnit[i];
+  //    selNum = i;
+  //  }
+  //}
+  for(int i = 0; i<unit.size(); i++){
+    if((unit.get(i).x + 10 > mouseX && unit.get(i).x < mouseX) && (unit.get(i).y + 10 > mouseY && unit.get(i).y < mouseY)){ 
+      sel = unit.get(i);
       selNum = i;
     }
   }
+
 }
 
 void keyPressed(){
@@ -47,13 +61,16 @@ void keyPressed(){
      sel.x = sel.x + 10;
    }
    else if(keyCode == ENTER){
-     if(selNum == 24){
-       sel = unit[0];
+     if(selNum == unit.size() - 1){
+       sel = unit.get(0);
        selNum = 0;
      }
      else{     
        selNum++;
-       sel = unit[selNum];
+       sel = unit.get(selNum);
      }
+   }
+   else if(keyCode == BACKSPACE){
+     unit.add(new Unit());
    }
 }

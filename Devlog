@@ -5,4 +5,6 @@
 [05-31-16 20:07-20:31] 
     Added CLLLists and CLLNodes - Chris
 [05-31-16 20:31-20:40] 
-    Write the plan - Chris
+    Wrote the plan - Chris
+[05-31-16 21:01-10:30]
+    Wrote Unit, Ground, Infantry class, integrated unit selection/cycling/generation into CLL form. - Chris

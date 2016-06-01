@@ -4,12 +4,31 @@ class Unit{
   int y;
   int edge;
   color c;
+  float health;
+  int movement;
+  float attack;
+  float defense;
   
-  Unit(int newEdge){
-    x = ((int)random(width - 2*newEdge))/10 * 10 + newEdge;
-    y = ((int)random(width - 2*newEdge))/10 * 10 + newEdge;
-    c = color(100, 100, 100);
-    edge = newEdge;
+  Unit(){
+    x = ((int)random(width - 2*10))/10 * 10 + 10;
+    y = ((int)random(width - 2*10))/10 * 10 + 10;
+    c = color(100, 100, 255);
+    edge = 10;
+    health = 100;
+    movement = 1;
+    attack = 10;
+    defense = 10;
+  }
+  
+  Unit(int newMovement, float newAttack, float newDefense){
+    x = ((int)random(width - 2*10))/10 * 10 + 10;
+    y = ((int)random(width - 2*10))/10 * 10 + 10;
+    c = color(100, 100, 255);
+    edge = 10;
+    health = 100;
+    movement = newMovement;
+    attack = newAttack;
+    defense = newDefense;
   }
   
   void draw(){
