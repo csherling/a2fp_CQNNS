@@ -22,7 +22,7 @@ class Board{
    }
    
    void addUnit(int r, int c){
-     _board[r][c]._unitG = new Infantry(c,r);
+     _board[c][r]._unitG = new Infantry(r,c);
    }
                
   
