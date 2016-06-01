@@ -3,7 +3,7 @@ CLL<Unit> unit;
 CLL<Player> players;
 Player curr;
 int selNum;
-Space[][] _board; //work out space pixel size, how many spaces, rework balance for movement
+Board _board; //work out space pixel size, how many spaces, rework balance for movement
 
 void setup(){ 
   size(500,500);
@@ -14,13 +14,18 @@ void setup(){
   unit.add(new Infantry());
   sel = unit.get(0);
   selNum = 0;
+  _board = new Board(50);
+  _board.addUnit(1, 0);
 }
 
 void draw(){
   background(0);
+  /*
   for(int i = 0; i < unit.size(); i++){
     unit.get(i).draw(); 
   }
+  */
+  _board.draw();
 
 }
 

@@ -4,8 +4,8 @@ class Ground extends Unit{
    super(); 
   }
   
-  Ground(int newMovement, float newAttack, float newDefense){
-    super(newMovement, newAttack, newDefense);
+  Ground(int newx, int newy, int newMovement, float newAttack, float newDefense){
+    super(newx, newy, newMovement, newAttack, newDefense);
   }
   
   

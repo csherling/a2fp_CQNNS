@@ -22,9 +22,9 @@ abstract class Unit{
     moved = true;
   }
   
-  Unit(int newMovement, float newAttack, float newDefense){
-    x = ((int)random(width - 2*10))/10 * 10 + 10;
-    y = ((int)random(width - 2*10))/10 * 10 + 10;
+  Unit(int newx, int newy, int newMovement, float newAttack, float newDefense){
+    x = newx * 10;
+    y = newy * 10;
     c = color(100, 100, 255);
     edge = 10;
     health = 100;

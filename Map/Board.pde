@@ -1,13 +1,28 @@
 class Board{ 
    Space[][] _board; //moved into Map
    
-    
-   void draw(){
-       for(int i = 0; i< _board.length; i++){
-           for(int j = 0; j < _board[i].length; j++){
-               _board[i][j].draw();
+   Board(int size){
+     _board = new Space[size][size];
+       for(int r = 0; r< _board.length; r++){
+           for(int c = 0; c < _board[r].length; c++){
+             _board[r][c] = new Space();
            }
        }
+     
+   }
+    
+   void draw(){
+       for(int r = 0; r< _board.length; r++){
+           for(int c = 0; c < _board[r].length; c++){
+             if(_board[r][c]._unitG != null){
+               _board[r][c].draw();
+             }
+           }
+       }
+   }
+   
+   void addUnit(int r, int c){
+     _board[r][c]._unitG = new Infantry(c,r);
    }
                
   

@@ -25,8 +25,8 @@ class CLL<E>{
     }
     _size++;
   }
-  
-  public E get( int index ) {
+    
+   public E get( int index ) {
     CLLNode<E> temp = _head;
       for( int i = 0; i < index % size(); i++ ){
         temp = temp.getNext();
@@ -45,7 +45,7 @@ class CLL<E>{
       return ret;
     }
     
-    String toString() {
+    public String toString() {
       String ret = "HEAD-> ";
       CLLNode<E> temp = _head;
       for( int i = 0; i < _size; i++ ) {
