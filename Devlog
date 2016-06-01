@@ -8,8 +8,9 @@
     Wrote the plan - Chris
 [05-31-16 21:01-10:30]
     Wrote Unit, Ground, Infantry class, integrated unit selection/cycling/generation into CLL form. - Chris
-[05-31-16 11:45-12:15]	 
+[05-31-16 23:45-00:15]	 
     Edited plan, clarified work to be done. - Nick
-[06-01-16 12:15-12:45]
+[06-01-16 00:15-00:45]
     Worked on board. Worked on space class which the board holds. Created abstract class terrain, made unit abstract as well. - Nick
-    
+[06-01-16 00:51-01:17]
+    Made the player class, started laying base test code in driver file. Spent time trying to figure out unexplainable random error, worked upon restarting. - Chris
