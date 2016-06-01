@@ -1,5 +1,5 @@
-class Board{
-   Space[][] _board;
+class Board{ 
+   Space[][] _board; //moved into Map
    
     
    void draw(){
