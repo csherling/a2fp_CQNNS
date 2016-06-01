@@ -23,15 +23,15 @@ Terrain hinderance
 Capturing
 Ground-Air-Space interaction
 
-@ indicates priority, more @ means more important. It is ideal to do the task in order.
+@, # or $ indicates priority, more @, # or $ means more important. It is ideal to do the task in order of priority. @, # and $ indicate different paths we can take.
 
 Basic (Core Functonality) needs:
 @@@@@-Making a map (Space[] Board)
-@@@-Unit movement (Path finding algorithm - TREE)
-@@@@@-Standard ground units, (infantry, tanks)
-@@@-Cycling through units(CLL to store units)
-@@-working turns (CLL of phases? Or just use booleans)
-@@-Unit Combat
+$$$-Unit movement (Path finding algorithm - TREE)
+$$$$$-Standard ground units, (infantry, tanks)
+$$$-Cycling through units(CLL to store units)
+##-working turns (CLL of phases? Or just use booleans)
+$$-Unit Combat
 
 Intermediate stage:
 @@@-buildings
