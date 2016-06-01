@@ -1,13 +1,21 @@
 class Space{
-    Unit _unit;
-    Terrain _terrain;
+    Unit _unitG;
+    Unit _unitA;
+    Unit _unitS;
+    Terrain _ground;
+    Terrain _air;
+    Terrain _space;
     
     Space(){
-      _unit = null;
-      _terrain = null;
+      _unitG = null;
+      _unitA = null;
+      _unitS = null;
+      _ground = null;
+      _air = null;
+      _space = null;
     }
     
-    void draw(){
+    void draw(){ //booleans depending on phase
        if (_unit != null){
            _unit.draw();
        }
