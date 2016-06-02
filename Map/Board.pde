@@ -21,9 +21,18 @@ class Board{
        }
    }
    
-   void addUnit(int r, int c){
-     _board[c][r]._unitG = new Infantry(r,c);
+   void addUnit(Unit u, int r, int c){
+     _board[c][r]._unitG = u;
    }
-               
+   
+  void move(Unit u, int addx, int addy){
+    if(!(u.x + addx < 0 || u.x + addx > _board[0].length * 10 || u.y + addy < 0 || u.y + addy > _board.length * 10)){
+      u.move(addx, addy);
+    }
+    else{
+      System.out.println("Out of Bounds");
+    }
+  }
+
   
 }

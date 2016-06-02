@@ -46,4 +46,10 @@ abstract class Unit{
   void moved(){
     moved = true;
   }
+  
+  void move(int addx, int addy){
+    x += addx;
+    y += addy;
+  }
+    
 }

@@ -16,3 +16,7 @@
     Made the player class, started laying base test code in driver file. Spent time trying to figure out unexplainable random error, worked upon restarting. - Chris
 [06-01-16 01:00-01:35]
     Expanded space. Moved Board into Map. Iffy on Terrain variables. - Kevin
+[06-01-16 14:31-15:15]
+    Made board drawn, fixed location of units being generated - Chris
+[06-02-16 13:35-13:47]
+    Integrated movement into board - Chris
