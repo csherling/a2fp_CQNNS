@@ -20,3 +20,5 @@
     Made board drawn, fixed location of units being generated - Chris
 [06-02-16 13:35-13:47]
     Integrated movement into board - Chris
+[06-02-16 13:50-14:02]
+    Integrated unit adding/cycling into board. Error with ramming sides. - Chris

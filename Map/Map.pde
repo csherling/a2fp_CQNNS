@@ -62,6 +62,8 @@ void keyPressed(){
      }
    }
    else if(keyCode == BACKSPACE){
-     unit.add(new Infantry());
+     Unit newUnit = new Infantry(0,0);
+     unit.add(newUnit);
+     _board.addUnit(newUnit, 0, 0);
    }
 }
