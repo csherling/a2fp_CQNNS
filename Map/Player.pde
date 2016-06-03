@@ -26,13 +26,12 @@ class Player{
   }
   
   void cycle(){
-     if(selNum == unit.size() - 1){
-       sel = unit.get(0);
+     if(selNum == unit.size() - 1) {
        selNum = 0;
      }
-     else{     
+     else {
        selNum++;
-       sel = unit.get(selNum);
      }
+     sel = unit.get(selNum);
   }
 }

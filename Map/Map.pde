@@ -26,7 +26,7 @@ void draw(){
   }
   */
   _board.draw();
-  System.out.println(sel.x + ", " + sel.y);
+  //System.out.println(sel.x + ", " + sel.y);
 }
 
 void mouseClicked(){
@@ -52,14 +52,13 @@ void keyPressed(){
      _board.move(sel, 10, 0);
    }
    else if(keyCode == ENTER){
-     if(selNum == unit.size() - 1){
-       sel = unit.get(0);
+     if(selNum == unit.size() - 1) {
        selNum = 0;
      }
-     else{     
+     else {
        selNum++;
-       sel = unit.get(selNum);
      }
+     sel = unit.get(selNum);
    }
    else if(keyCode == BACKSPACE){
      Unit newUnit = new Infantry(0,0);

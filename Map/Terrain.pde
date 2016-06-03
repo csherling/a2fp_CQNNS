@@ -1,5 +1,5 @@
 abstract class Terrain{
-  int speed;
+  int[] hindrance;
   
   
   Terrain(){
