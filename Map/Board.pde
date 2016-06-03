@@ -26,12 +26,13 @@ class Board{
    }
    
   void move(Unit u, int addx, int addy){
-    if(!(u.x + addx < 0 || u.x + addx > _board[0].length * 10 || u.y + addy < 0 || u.y + addy > _board.length * 10)){
+    if(!(u.x + addx < 0 || u.x + addx > (_board[0].length - 1) * 10 || u.y + addy < 0 || u.y + addy > (_board[0].length - 1) * 10)){
       _board[u.y / 10][u.x / 10]._unitG = null;
-      System.out.println("ux uy" + u.x + " , " + u.y );
-      System.out.println("addx addy" + addx + " , " + addy );
+      //System.out.println("ux uy: " + u.x + " , " + u.y );
+      //System.out.println("addx addy: " + addx + " , " + addy );
       _board[(u.y + addy ) / 10][(u.x + addx) / 10]._unitG = u;
       u.move(addx, addy);
+      //System.out.println("ux uy: " + u.x + " , " + u.y ); 
     }
     else{
       System.out.println("Out of Bounds");

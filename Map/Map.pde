@@ -11,11 +11,11 @@ void setup(){
   players.add(new Player(0));
   curr = players.get(0);
   unit = new CLL<Unit>();
-  unit.add(new Infantry(1, 0));
+  unit.add(new Infantry());
   sel = unit.get(0);
   selNum = 0;
   _board = new Board(50);
-  _board.addUnit(sel, 1, 0);
+  _board.addUnit(1, 0);
 }
 
 void draw(){
@@ -26,7 +26,7 @@ void draw(){
   }
   */
   _board.draw();
-  //System.out.println(sel.x + ", " + sel.y);
+
 }
 
 void mouseClicked(){
@@ -40,29 +40,28 @@ void mouseClicked(){
 
 void keyPressed(){
    if(keyCode == UP){
-     _board.move(sel, 0, -10);
+     sel.y = sel.y - 10;
    }
    else if(keyCode == DOWN){
-     _board.move(sel, 0, 10);
+     sel.y = sel.y + 10;
    }
    else if(keyCode == LEFT){
-     _board.move(sel, -10, 0);
+     sel.x = sel.x - 10;
    }
    else if(keyCode == RIGHT){
-     _board.move(sel, 10, 0);
+     sel.x = sel.x + 10;
    }
    else if(keyCode == ENTER){
-     if(selNum == unit.size() - 1) {
+     if(selNum == unit.size() - 1){
+       sel = unit.get(0);
        selNum = 0;
      }
-     else {
+     else{     
        selNum++;
+       sel = unit.get(selNum);
      }
-     sel = unit.get(selNum);
    }
    else if(keyCode == BACKSPACE){
-     Unit newUnit = new Infantry(0,0);
-     unit.add(newUnit);
-     _board.addUnit(newUnit, 0, 0);
+     unit.add(new Infantry());
    }
 }
