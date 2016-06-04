@@ -5,9 +5,10 @@ class Tank extends Ground{
     c = color(255, 0, 0);
   }
 
-  Tank(int newx, int newy){
+  Tank(int newx, int newy, int PNum){
     super(newx, newy, 3, 10.0, 10.0);
     c = color(0, 0, 255);
+    pNum = PNum;
   }
   
   void draw(){

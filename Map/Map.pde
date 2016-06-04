@@ -8,18 +8,19 @@ Board _board; //work out space pixel size, how many spaces, rework balance for m
 
 void setup(){ 
   size(500,500);
+  fill(255,255,255);
   _board = new Board(50);
   players = new CLL<Player>();
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.units.add(new Infantry(2, 0));
+  curr.units.add(new Infantry(2, 0, 0));
   curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   _board.addUnit(curr.selected, 2, 0);
   
   curr = players.get(1);
-  curr.units.add(new Tank(1, 0));
+  curr.units.add(new Tank(1, 0, 1));
   curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   _board.addUnit(curr.selected, 1, 0);
@@ -49,7 +50,31 @@ void mouseClicked(){
 }
 
 void keyPressed(){
-   if(keyCode == UP){
+  if (key == 'w' || key == 'W') {
+      if (curr.selected.y != 0 && _board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG != null) {
+        curr.selected.attack(_board, _board._board[ (curr.selected.y - 10)/10][curr.selected.x/10]._unitG);
+      }
+      else System.out.println("No unit to attack.");
+  }
+  else if (key == 'a' || key == 'A') {
+    if (curr.selected.x != 0 && _board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG != null) {
+        curr.selected.attack(_board, _board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG);
+    }
+    else System.out.println("No unit to attack.");
+  }
+  else if (key == 's' || key == 'S') {
+    if (curr.selected.y != 490 && _board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG != null) {
+        curr.selected.attack(_board, _board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG);
+    }
+    else System.out.println("No unit to attack.");
+  }
+  else if (key == 'd' || key == 'D') {
+    if (curr.selected.x != 490 && _board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG != null) {
+        curr.selected.attack(_board, _board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG);
+    }
+    else System.out.println("No unit to attack.");
+  }
+   else if(keyCode == UP){
      _board.move(curr.selected, 0, -10);
    }
    else if(keyCode == DOWN){
@@ -75,12 +100,12 @@ void keyPressed(){
        for(int c = 0; c < _board._board[0].length; c++){
          if(_board._board[r][c]._unitG == null){
            if(playanum == 0){
-             Unit newUnit = new Infantry(c,r);
+             Unit newUnit = new Infantry(c,r, playanum);
              curr.units.add(newUnit);
              _board.addUnit(newUnit, c, r);
            }
            else if(playanum == 1){
-             Unit newUnit = new Tank(c,r);
+             Unit newUnit = new Tank(c,r,playanum);
              curr.units.add(newUnit);
              _board.addUnit(newUnit, c, r);
            } 

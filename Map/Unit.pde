@@ -1,5 +1,6 @@
 abstract class Unit{
- 
+  
+  int pNum;
   int x;
   int y;
   int edge;
@@ -50,6 +51,24 @@ abstract class Unit{
   void move(int addx, int addy){
     x += addx;
     y += addy;
+  }
+  
+  void attack(Board B, Unit target) {
+    if (pNum == target.pNum) {
+      System.out.println("Cannot attack own units");
+    }
+    else {
+      //target.defend( (attack * 100/100 + Math.random(10)) * (health/10) * ( (200 - (100 +_board[target.x/10][target.y/10].terrain.DTR * target.health) )/100 ) )
+      double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (200.0 - (100.0 + 0.0 * target.health) )/100.0 );
+      System.out.println("Damage: " + dmg);
+      target.defend(B, dmg);
+      System.out.println("Target's health: " + target.health);
+    }
+  }
+  
+  void defend(Board B, double damage) {
+    if (health - damage <= 0.0) B._board[y/10][x/10]._unitG = null;
+    else health -= damage;
   }
     
 }
