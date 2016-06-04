@@ -23,10 +23,11 @@ class Board{
            }
        }
        if (flash) {
-         rect(xcor, ycor, 10, 10); 
          fill(color(255, 255, 255));
+         rect(xcor, ycor, 10, 10); 
        }
        flash = !flash;
+       System.out.println("xcor: "+xcor+" ycor: "+ycor);
    }
    
    void addUnit(Unit u, int r, int c){
@@ -34,7 +35,7 @@ class Board{
    }
    
   void move(int addx, int addy){
-    if(!(xcor + addx < 0 || xcor + addx > _board[0].length * 10 || ycor + addy < 0 || ycor + addy > _board.length * 10)){
+    if(!(xcor + addx < 0 || xcor + addx > (_board[0].length - 1) * 10 || ycor + addy < 0 || ycor + addy > (_board[0].length - 1) * 10)){
       xcor+=addx;
       ycor+=addy;
     }

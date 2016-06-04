@@ -24,3 +24,5 @@
     Integrated unit adding/cycling into board. Error with ramming sides. - Chris
 [06-03-16 19:15-19:31]
     Fixed movement issue. - Kevin
+[06-04-16 10:31-11:16]
+    Debugged selection square and put it in a folder named Temp in Map. Fixed files with fill() putting it before rect() (that's how it works). - Kevin

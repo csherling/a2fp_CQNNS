@@ -11,8 +11,8 @@ class Infantry extends Ground{
   }
   
   void draw(){
-     rect(x, y, edge, edge); 
      fill(c);
+     rect(x, y, edge, edge); 
   }
   
 }

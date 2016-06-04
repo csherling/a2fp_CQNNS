@@ -26,7 +26,7 @@ void draw(){
   }
   */
   _board.draw();
-  System.out.println(sel.x + ", " + sel.y);
+  //System.out.println(sel.x + ", " + sel.y);
 }
 
 void mouseClicked(){
