@@ -6,11 +6,10 @@ class Tank extends Ground{
     attack = 7;
   }
 
-  Tank(int newx, int newy, int PNum, int UNum){
+  Tank(int newx, int newy, int PNum){
     super(newx, newy, 3, 10.0, 10.0);
-    c = color(0, 0, 255);
+    c = color(PNum * 80, 0, 255);
     pNum = PNum;
-    uNum = UNum;
     attack = 5;
   }
   

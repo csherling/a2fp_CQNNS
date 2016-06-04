@@ -35,7 +35,8 @@ class Player{
      selected = units.get(selectedNum);
   }
   
-  void removeUnit(int i){
+  void removeUnit(Board B, int i){
+    B._board[units.get(i).y/10][units.get(i).x/10]._unitG = null;
     units.remove(i);
     selected = units.get(i);
   }

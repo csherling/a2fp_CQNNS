@@ -64,6 +64,7 @@ class CLL<E>{
         ret = temp.getCar();
         temp.getNext().setPrev(temp.getPrev());
         temp.getPrev().setNext(temp.getNext());
+        temp = null;
       }
       _size--;
       return ret;

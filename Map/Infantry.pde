@@ -6,11 +6,10 @@ class Infantry extends Ground{
     attack = 1;
   }
 
-  Infantry(int newx, int newy, int PNum, int UNum){
+  Infantry(int newx, int newy, int PNum){
     super(newx, newy, 3, 10.0, 10.0);
-    c = color(255, 0, 0);
+    c = color(255, 0, PNum * 80);
     pNum = PNum;
-    uNum = UNum;
     attack = 1;
   }
   
