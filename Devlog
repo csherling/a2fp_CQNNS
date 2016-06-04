@@ -26,3 +26,7 @@
     Fixed movement issue. - Kevin
 [06-04-16 10:31-11:16]
     Debugged selection square and put it in a folder named Temp in Map. Fixed files with fill() putting it before rect() (that's how it works). - Kevin
+[06-04-16 13:45-13:47]
+    No more unit stack. -Chris
+[06-04-16 13:50-14:27]
+    Fully integrated Player into map. Basis for turns established. -Chris

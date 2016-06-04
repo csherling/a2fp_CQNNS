@@ -3,8 +3,8 @@ class Player{
   int pnum;
   color pcolor;
   CLL<Unit> units;
-  Unit sel;
-  int selNum;
+  Unit selected;
+  int selectedNum;
   
   Player(int newNum){
     pnum = newNum;
@@ -13,8 +13,8 @@ class Player{
     int b = (int)random(256);
     pcolor = color(r, g, b);
     units = new CLL<Unit>();
-    sel = null;
-    selNum = 0;
+    selected = null;
+    selectedNum = 0;
   }
   
   void addUnit(Unit u){
@@ -22,16 +22,16 @@ class Player{
   }
   
   void setSel(int i){
-    sel = units.get(i);
+    selected = units.get(i);
   }
   
   void cycle(){
-     if(selNum == unit.size() - 1) {
-       selNum = 0;
+     if(selectedNum == units.size() - 1) {
+       selectedNum = 0;
      }
      else {
-       selNum++;
+       selectedNum++;
      }
-     sel = unit.get(selNum);
+     selected = units.get(selectedNum);
   }
 }
