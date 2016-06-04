@@ -34,4 +34,10 @@ class Player{
      }
      selected = units.get(selectedNum);
   }
+  
+  void removeUnit(int i){
+    units.remove(i);
+    selected = units.get(i);
+  }
+  
 }
