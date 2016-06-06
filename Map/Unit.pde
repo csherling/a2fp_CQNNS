@@ -10,7 +10,6 @@ abstract class Unit{
   float attack;
   float defense;
   boolean moved;
-  boolean dead;
   
   Unit(){
     x = ((int)random(width - 2*10))/10 * 10 + 10;
@@ -22,7 +21,6 @@ abstract class Unit{
     attack = 10;
     defense = 10;
     moved = true;
-    dead = false;
   }
   
   Unit(int newx, int newy, int newMovement, float newAttack, float newDefense){
@@ -35,7 +33,6 @@ abstract class Unit{
     attack = newAttack;
     defense = newDefense;
     moved = true;
-    dead = false;
   }
   
   void draw(){
@@ -66,24 +63,12 @@ abstract class Unit{
       System.out.println("Damage: " + dmg);
       target.defend(B, dmg);
       System.out.println("Target's health: " + target.health);
-      //if(target.dead == false){
-      //  health -= (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + 0.0 * health) )/100.0 );
-      //  if(health <= 0){
-      //    dead = true;
-      //  }
-      //}
     }
   }
   
-  
   void defend(Board B, double damage) {
-    if (health - damage <= 0.0){
-      B._board[y/10][x/10]._unitG = null;
-      dead = true;
-    }
-    else{
-      health -= damage;
-    }
+    if (health - damage <= 0.0) B._board[y/10][x/10]._unitG = null;
+    else health -= damage;
   }
     
 }

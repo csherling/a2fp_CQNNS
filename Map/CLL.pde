@@ -27,17 +27,12 @@ class CLL<E>{
   }
     
    public E get( int index ) {
-     if(_size == 0){
-       return null;
-     }
-     else{
-       CLLNode<E> temp = _head;
-         for( int i = 0; i < index % size(); i++ ){
-           temp = temp.getNext();
-         }
-       return temp.getCar();
+    CLLNode<E> temp = _head;
+      for( int i = 0; i < index % size(); i++ ){
+        temp = temp.getNext();
+      }
+      return temp.getCar();
     }
-   }
 
 
     public E set( int index, E newCar ) {
@@ -49,27 +44,6 @@ class CLL<E>{
       ret = temp.setCar(newCar);
       return ret;
     }
- 
-    public E remove(int index){
-      E ret;
-      if(size() <= 1){
-        ret = _head.getCar();
-        _head.setCar(null);
-      }
-      else{
-        CLLNode<E> temp = _head;
-        for( int i = 0; i < index % size(); i++ ){
-          temp = temp.getNext();
-        }
-        ret = temp.getCar();
-        temp.getNext().setPrev(temp.getPrev());
-        temp.getPrev().setNext(temp.getNext());
-        temp = null;
-      }
-      _size--;
-      return ret;
-  }
-    
     
     public String toString() {
       String ret = "HEAD-> ";
