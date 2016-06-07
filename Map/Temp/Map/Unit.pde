@@ -7,7 +7,6 @@ abstract class Unit{
   color c;
   float health;
   int movement;
-  int moveLeft;
   float attack;
   float defense;
   boolean moved;
@@ -24,7 +23,6 @@ abstract class Unit{
     defense = 10;
     moved = true;
     dead = false;
-    moveLeft = 0;
   }
   
   Unit(int newx, int newy, int newMovement, float newAttack, float newDefense){
@@ -38,7 +36,6 @@ abstract class Unit{
     defense = newDefense;
     moved = true;
     dead = false;
-    moveLeft = 0;
   }
   
   void draw(){
@@ -54,23 +51,9 @@ abstract class Unit{
     moved = true;
   }
   
-  boolean move(int addx, int addy){
-    System.out.println("Move active");
-    if(moveLeft == 0){
-      moved = true;
-      System.out.println("Unit no more move");
-      return false;
-    }
-    else{
-      x += addx;
-      System.out.println("x:" + x);
-      y += addy;
-      System.out.println("y:" + y);
-      moveLeft--;
-      System.out.println("Unit can move " + moveLeft + " more spaces\n");
-      return true;
-    }
-    
+  void move(int addx, int addy){
+    x += addx;
+    y += addy;
   }
   
   void attack(Board B, Unit target) {
@@ -102,4 +85,7 @@ abstract class Unit{
       health -= damage;
     }
   }
+  
+
+    
 }

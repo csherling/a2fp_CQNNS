@@ -94,15 +94,19 @@ void keyPressed(){
       else System.out.println("No unit to attack.");
     }
      else if(keyCode == UP){
+       System.out.println("up");
        _board.move(curr.selected, 0, -10);
      }
      else if(keyCode == DOWN){
+       System.out.println("down");
        _board.move(curr.selected, 0, 10);
      }
      else if(keyCode == LEFT){
+       System.out.println("left");
        _board.move(curr.selected, -10, 0);
      }
      else if(keyCode == RIGHT){
+       System.out.println("right");
        _board.move(curr.selected, 10, 0);
      }
   else if(keyCode == ENTER){
@@ -159,6 +163,9 @@ void keyPressed(){
      curr = players.get(playanum);
      for(int i = 0; i < curr.units.size(); i++){
        curr.units.get(i).moved = false;
+     }
+     for(int i = 0; i < curr.units.size(); i++){
+       curr.units.get(i).moveLeft = curr.units.get(i).movement;
      }
    }
    if(curr.selected == null){
