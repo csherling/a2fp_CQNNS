@@ -26,7 +26,7 @@ class Player{
   }
   
   void cycle(){
-     if(selectedNum == units.size() - 1) {
+     if(selectedNum != 0 && selectedNum % (units.size() - 1) == 0) {
        selectedNum = 0;
      }
      else {
@@ -34,4 +34,11 @@ class Player{
      }
      selected = units.get(selectedNum);
   }
+  
+  void removeUnit(Board B, int i){
+    B._board[units.get(i).y/10][units.get(i).x/10]._unitG = null;
+    units.remove(i);
+    selected = units.get(i);
+  }
+  
 }
