@@ -64,7 +64,7 @@ void mouseClicked(){
 }
 
 void keyPressed(){
-  if(curr.selected != null){
+  if(curr.selected != null && curr.movedAll() == false){
     if (key == 'w' || key == 'W') {
         if (curr.selected.y != 0 && _board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG != null) {
         //Player opponent = players.get(_board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG.pNum);
@@ -106,14 +106,8 @@ void keyPressed(){
        _board.move(curr.selected, 10, 0);
      }
   else if(keyCode == ENTER){
-    if(curr.selectedNum == curr.units.size() - 1) {
-      curr.selectedNum = 0;
-    }
-    else {
-      curr.selectedNum++;
-    }
-    curr.selected = curr.units.get(curr.selectedNum);
-    }
+    curr.cycle();
+  }
    for(int p = 0; p < players.size(); p++){
      if(players.get(p).units.size() == 0){
        break;
@@ -163,6 +157,9 @@ void keyPressed(){
        playanum++;
      }
      curr = players.get(playanum);
+     for(int i = 0; i < curr.units.size(); i++){
+       curr.units.get(i).moved = false;
+     }
    }
    if(curr.selected == null){
      if(curr.units.size() == 0){
