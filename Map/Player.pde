@@ -25,6 +25,9 @@ class Player{
     selected = units.get(i);
   }
   
+  boolean movedAll(){
+    return true;
+  }
   void cycle(){
      if(selectedNum != 0 && selectedNum % (units.size() - 1) == 0) {
        selectedNum = 0;
