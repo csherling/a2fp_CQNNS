@@ -33,6 +33,16 @@ class Player{
     }
     return true;
   }
+  
+  boolean attackedAll(){
+    for(int i = 0; i < units.size(); i++){
+      if(units.get(i).attacked == false){
+        return false;
+      }
+    }
+    return true;
+  }
+  
   void cycle(){
     if(movedAll()){
       System.out.println("all moved, please end turn");
