@@ -38,6 +38,8 @@
     Began improving unit cycling. Revised code to make more modular. - Nick
 [06-07-16 09:45-10:05]	
     Check for if units have already moved is in place. Fixed cycling code bug. - Chris
+[06-07-16 09:30-10:15]
+    Worked on movement limitation by checking for unit movement and created a reset method. -Nick
 [06-07-16 14:20-15:14]	
     Movement limitation works -Chris
 [06-07-16 18:25-18:57, 21:01-21:35]	
@@ -46,3 +48,5 @@
     Added pictures. - Kevin
 [06-08-16 21:37-21:45]
     New Plan - Chris
+[06-08-16 23:30-01:00]
+    Created framework for selection square method of choosing units and bugfixed movement. -Nick
