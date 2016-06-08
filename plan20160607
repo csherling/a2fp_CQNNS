@@ -1,0 +1,59 @@
+aEverything:
+
+Units: 
+Ground: Infantry, Mech, Recon, Tank, Medium Tank, Artillery, Rockets, Missiles, APC
+Air: Fighter, Bomber, Battle copter, Transport copter
+Space:
+
+Unit Stats:
+Health, Movement, Attack, Defense, Level, CanGround
+
+Building:
+HQ, City, Base, Airport
+
+Terrain:
+Road, Plains, Woods, Mountains
+
+Gameplay:
+Money
+Build menu: sorting units
+Turns
+Moving units
+Terrain hinderance
+Capturing
+Ground-Air-Space interaction
+
+Basic (Core Functonality) needs:
+FINISHED
+
+Intermediate stage:
+Chris:
+-Write classes for all ground units, terrain/buildings
+-Procure unit images: infantry, mech, recon, tank, med tank, AA
+
+Nick:
+-Selection square
+-Money
+
+Kevin:
+-Procure terrain images, road x7, plains x1, forest x1, mountains x1
+-Buildings, RBGY HQ, RGBYN: City, Base, Airport
+-Pathfinding
+
+
+Not given out:
+1-Terrain hinderance
+2-Basic build menu
+3-Convenience Gui
+
+Advanced stage:
+-Standard Air units (battlecopter)
+-Ranged ground units
+-Transport units
+-Sorting build menu
+-Capturing
+-Improving general gameplay quality (nicer animations, nicer unit graphics)
+
+Super advanced:
+-directional unit images
+-Space
