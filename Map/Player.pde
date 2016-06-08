@@ -25,14 +25,44 @@ class Player{
     selected = units.get(i);
   }
   
+  boolean movedAll(){
+    for(int i = 0; i < units.size(); i++){
+      if(units.get(i).moved == false){
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  boolean attackedAll(){
+    for(int i = 0; i < units.size(); i++){
+      if(units.get(i).attacked == false){
+        return false;
+      }
+    }
+    return true;
+  }
+  
   void cycle(){
-     if(selectedNum != 0 && selectedNum % (units.size() - 1) == 0) {
-       selectedNum = 0;
-     }
-     else {
-       selectedNum++;
-     }
-     selected = units.get(selectedNum);
+    if(movedAll()){
+      System.out.println("all moved, please end turn");
+      return;
+    }
+    if(selectedNum == units.size() - 1) {
+      selectedNum = 0;
+    }
+    else {
+      selectedNum++;
+    }
+    while(units.get(selectedNum).moved){
+      if(selectedNum == units.size() - 1) {
+        selectedNum = 0;
+      }
+      else {
+        selectedNum++;
+      }
+    }
+    selected = units.get(selectedNum);
   }
   
   void removeUnit(Board B, int i){

@@ -7,9 +7,12 @@ abstract class Unit{
   color c;
   float health;
   int movement;
+  int moveLeft;
   float attack;
   float defense;
   boolean moved;
+  boolean attacked;
+  boolean captured;
   boolean dead;
   
   Unit(){
@@ -23,6 +26,9 @@ abstract class Unit{
     defense = 10;
     moved = true;
     dead = false;
+    moveLeft = 0;
+    attacked = true;
+    captured = true;
   }
   
   Unit(int newx, int newy, int newMovement, float newAttack, float newDefense){
@@ -36,6 +42,9 @@ abstract class Unit{
     defense = newDefense;
     moved = true;
     dead = false;
+    moveLeft = 0;
+    attacked = true;
+    captured = true;
   }
   
   void draw(){
@@ -51,27 +60,48 @@ abstract class Unit{
     moved = true;
   }
   
-  void move(int addx, int addy){
-    x += addx;
-    y += addy;
+  boolean move(int addx, int addy){
+    System.out.println("Move active");
+    if(moveLeft == 0 || moved == true){
+      moved = true;
+      System.out.println("Unit no more move");
+      return false;
+    }
+    else{
+      x += addx;
+      System.out.println("x:" + x);
+      y += addy;
+      System.out.println("y:" + y);
+      moveLeft--;
+      System.out.println("Unit can move " + moveLeft + " more spaces\n");
+      return true;
+    }
+    
   }
   
   void attack(Board B, Unit target) {
-    if (pNum == target.pNum) {
-      System.out.println("Cannot attack own units");
-    }
-    else {
-      //target.defend( (attack * 100/100 + Math.random(10)) * (health/10) * ( (200 - (100 +_board[target.x/10][target.y/10].terrain.DTR * target.health) )/100 ) )
-      double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (200.0 - (100.0 + 0.0 * target.health) )/100.0 );
-      System.out.println("Damage: " + dmg);
-      target.defend(B, dmg);
-      System.out.println("Target's health: " + target.health);
-      if( ! target.dead ) {
-        dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + 0.0 * health) )/100.0 );
-        System.out.println("Damage Taken: " + dmg);
-        defend(B, dmg);
-        System.out.println("Own health: " + health+"\n");
+    if(attacked == false){
+      if (pNum == target.pNum) {
+        System.out.println("Cannot attack own units");
       }
+      else {
+        //target.defend( (attack * 100/100 + Math.random(10)) * (health/10) * ( (200 - (100 +_board[target.x/10][target.y/10].terrain.DTR * target.health) )/100 ) )
+        double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (200.0 - (100.0 + 0.0 * target.health) )/100.0 );
+        System.out.println("Damage: " + dmg);
+        target.defend(B, dmg);
+        System.out.println("Target's health: " + target.health);
+        if( ! target.dead ) {
+          dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + 0.0 * health) )/100.0 );
+          System.out.println("Damage Taken: " + dmg);
+          defend(B, dmg);
+          System.out.println("Own health: " + health+"\n");
+        }
+        attacked = true;
+        moved = true;
+      }
+    }
+    else{
+      System.out.println("Already attacked");
     }
   }
   
@@ -85,7 +115,4 @@ abstract class Unit{
       health -= damage;
     }
   }
-  
-
-    
 }

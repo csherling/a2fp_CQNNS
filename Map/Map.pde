@@ -14,10 +14,9 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.addUnit(new Infantry(0, 10, 0));  
-  System.out.println(curr.units.size());
-  curr.addUnit(new Tank(10, 0, 0));
-  System.out.println(curr.units.size());
+  curr.addUnit(new Infantry(10, 13, 0));  
+  curr.addUnit(new Tank(7, 10, 0));
+  curr.addUnit(new Infantry(4, 13, 0));  
   curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -27,11 +26,10 @@ void setup(){
 
   
   curr = players.get(1);
-  curr.addUnit(new Infantry(0, 20, 1));  
-  System.out.println(curr.units.size());
-  curr.addUnit(new Tank(10, 10, 1));
-  System.out.println(curr.units.size());
-
+  curr.addUnit(new Infantry(10, 25, 1));  
+  curr.addUnit(new Tank(12, 27, 1));
+  curr.addUnit(new Infantry(14, 25, 1));  
+  curr.addUnit(new Infantry(7, 25, 1));  
   curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -41,6 +39,15 @@ void setup(){
 
   curr = players.get(0);
   playanum = 0;
+  for(int i = 0; i < curr.units.size(); i++){
+    curr.units.get(i).moved = false;
+  }
+  for(int i = 0; i < curr.units.size(); i++){
+    curr.units.get(i).attacked = false;
+  }
+  for(int i = 0; i < curr.units.size(); i++){
+    curr.units.get(i).moveLeft = curr.units.get(i).movement;
+  }
 }
 
 void draw(){
@@ -65,76 +72,76 @@ void mouseClicked(){
 
 void keyPressed(){
   if(curr.selected != null){
-    if (key == 'w' || key == 'W') {
-        if (curr.selected.y != 0 && _board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG != null) {
-        //Player opponent = players.get(_board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG.pNum);
-          curr.selected.attack(_board, _board._board[ (curr.selected.y - 10)/10][curr.selected.x/10]._unitG);
+    if(curr.selected.attacked == false){
+        if(keyCode == UP && curr.selected.moved == false){
+          System.out.println("up");
+         _board.move(curr.selected, 0, -10);
+        }
+        else if(keyCode == DOWN && curr.selected.moved == false){
+          System.out.println("down");
+          _board.move(curr.selected, 0, 10);
+        }
+        else if(keyCode == LEFT && curr.selected.moved == false){
+          System.out.println("left");
+          _board.move(curr.selected, -10, 0);
+        }
+        else if(keyCode == RIGHT && curr.selected.moved == false){
+          System.out.println("right");
+          _board.move(curr.selected, 10, 0);
+        }
+      else if (key == 'w' || key == 'W') {
+          if (curr.selected.y != 0 && _board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG != null) {
+          //Player opponent = players.get(_board._board[(curr.selected.y - 10)/10][curr.selected.x/10]._unitG.pNum);
+            curr.selected.attack(_board, _board._board[ (curr.selected.y - 10)/10][curr.selected.x/10]._unitG);
+          }
+          else System.out.println("No unit to attack.");
+      }
+      else if (key == 'a' || key == 'A') {
+        if (curr.selected.x != 0 && _board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG != null) {
+          //Player opponent = players.get(_board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG.pNum);
+          curr.selected.attack(_board, _board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG);
         }
         else System.out.println("No unit to attack.");
-    }
-    else if (key == 'a' || key == 'A') {
-      if (curr.selected.x != 0 && _board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG != null) {
-        //Player opponent = players.get(_board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG.pNum);
-        curr.selected.attack(_board, _board._board[curr.selected.y/10][(curr.selected.x - 10)/10]._unitG);
       }
-      else System.out.println("No unit to attack.");
-    }
-    else if (key == 's' || key == 'S') {
-      if (curr.selected.y != 490 && _board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG != null) {
-        //Player opponent = players.get(_board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG.pNum);
-        curr.selected.attack(_board, _board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG);
+      else if (key == 's' || key == 'S') {
+        if (curr.selected.y != 490 && _board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG != null) {
+          //Player opponent = players.get(_board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG.pNum);
+          curr.selected.attack(_board, _board._board[(curr.selected.y + 10)/10][curr.selected.x/10]._unitG);
+        }
+        else System.out.println("No unit to attack.");
+      }  
+      else if (key == 'd' || key == 'D') {
+        if (curr.selected.y != 490 && _board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG != null) {
+          //Player opponent = players.get(_board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG.pNum);
+          curr.selected.attack(_board, _board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG);
+        }
+        else System.out.println("No unit to attack.");
       }
-      else System.out.println("No unit to attack.");
-    }  
-    else if (key == 'd' || key == 'D') {
-      if (curr.selected.y != 490 && _board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG != null) {
-        //Player opponent = players.get(_board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG.pNum);
-        curr.selected.attack(_board, _board._board[curr.selected.y/10][(curr.selected.x + 10)/10]._unitG);
-      }
-      else System.out.println("No unit to attack.");
-    }
-     else if(keyCode == UP){
-       _board.move(curr.selected, 0, -10);
-     }
-     else if(keyCode == DOWN){
-       _board.move(curr.selected, 0, 10);
-     }
-     else if(keyCode == LEFT){
-       _board.move(curr.selected, -10, 0);
-     }
-     else if(keyCode == RIGHT){
-       _board.move(curr.selected, 10, 0);
-     }
+   }
+  
   else if(keyCode == ENTER){
-    if(curr.selectedNum == curr.units.size() - 1) {
-      curr.selectedNum = 0;
+    curr.cycle();
+  }
+  for(int p = 0; p < players.size(); p++){
+    if(players.get(p).units.size() == 0){
+      break;
     }
-    else {
-      curr.selectedNum++;
-    }
-    curr.selected = curr.units.get(curr.selectedNum);
-    }
-   for(int p = 0; p < players.size(); p++){
-     if(players.get(p).units.size() == 0){
-       break;
-     }
-     else{
-       for(int u = 0; u < players.get(p).units.size(); u++){
-         if(players.get(p).units.get(u).dead){
-           System.out.println("Before: "+ players.get(p).units);
-           
-           players.get(p).removeUnit(_board, u); //remove
-           
-           System.out.println("After: "+players.get(p).units);
-           
-           System.out.println(curr.units.size());
-
-           System.out.println("true");
-         }
-       }
+    else{
+      for(int u = 0; u < players.get(p).units.size(); u++){
+        if(players.get(p).units.get(u).dead){
+          System.out.println("Before: "+ players.get(p).units);
+          
+          players.get(p).removeUnit(_board, u); //remove
+          
+          System.out.println("After: "+players.get(p).units);
+          
+          System.out.println(curr.units.size());
+          System.out.println("true");
+        }
+      }
      }
     }     
-   }
+  
    
     if(keyCode == BACKSPACE){
       for(int r = 0; r < _board._board.length; r++){
@@ -163,6 +170,15 @@ void keyPressed(){
        playanum++;
      }
      curr = players.get(playanum);
+     for(int i = 0; i < curr.units.size(); i++){
+       curr.units.get(i).moved = false;
+     }
+     for(int i = 0; i < curr.units.size(); i++){
+       curr.units.get(i).attacked = false;
+     }
+     for(int i = 0; i < curr.units.size(); i++){
+       curr.units.get(i).moveLeft = curr.units.get(i).movement;
+     }
    }
    if(curr.selected == null){
      if(curr.units.size() == 0){
@@ -174,5 +190,5 @@ void keyPressed(){
        curr.selectedNum = 0;
      }
    }
-  
+  }
 }
