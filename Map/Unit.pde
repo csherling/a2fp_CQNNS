@@ -14,6 +14,7 @@ abstract class Unit{
   boolean attacked;
   boolean captured;
   boolean dead;
+  PImage img;
   
   Unit(){
     x = ((int)random(width - 2*10))/10 * 10 + 10;

@@ -5,6 +5,7 @@ class Tank extends Ground{
     c = color(0, 0, 255);
     attack = 7;
     movement = 7;
+    img = loadImage("pokeball.png");
   }
 
   Tank(int newx, int newy, int PNum){
@@ -13,10 +14,12 @@ class Tank extends Ground{
     pNum = PNum;
     attack = 5;
     movement = 7;
+    img = loadImage("pokeball.png");
   }
   
   void draw(){
      fill(c);
+     //image(img, x, y);
      rect(x, y, edge, edge); 
   }
   
