@@ -119,7 +119,7 @@ void keyPressed(){
       }
    }
   
-  else if(keyCode == ENTER){
+  if(keyCode == ENTER){
     curr.cycle();
   }
   for(int p = 0; p < players.size(); p++){
