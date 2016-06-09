@@ -62,3 +62,5 @@
     Changed squares to 16x16, made board 40x30. -Chris
 [06-09-16 17:09-17:34]
     Put unit pictures into data folder. Renamed for convenient code. Loading images works. Current units load images. -Chris
+[06-09-16 17:34-18:05]
+    Made Road, Plains, Mountains classes. Drawn with images. Works. -Chris

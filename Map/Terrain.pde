@@ -21,8 +21,8 @@ abstract class Terrain{
   }
   
   void draw(){
-     fill(c);
-     rect(x, y, 16, 16); 
-     //image(img, x, y);
+     //fill(c);
+     //rect(x, y, 16, 16); 
+     image(img, x, y);
   }
 }

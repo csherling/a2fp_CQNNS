@@ -71,9 +71,9 @@ abstract class Unit{
     }
     else{
       x += addx;
-      System.out.println("x:" + x);
+      System.out.println("x:" + x + " x:" + x/16);
       y += addy;
-      System.out.println("y:" + y);
+      System.out.println("y:" + y + " y:" + y/16);
       moveLeft--;
       System.out.println("Unit can move " + moveLeft + " more spaces\n");
       return true;

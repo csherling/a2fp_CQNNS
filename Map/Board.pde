@@ -8,15 +8,17 @@ class Board{
              _board[r][c] = new Space();
            }
        }
-     
+       for(int r = 0; r< _board.length; r++){
+           for(int c = 0; c < _board[r].length; c++){
+             _board[r][c].terrain = new Plains(c, r);
+           }
+       }
    }
     
    void draw(){
        for(int r = 0; r< _board.length; r++){
            for(int c = 0; c < _board[r].length; c++){
-             if(_board[r][c]._unitG != null){
-               _board[r][c].draw();
-             }
+             _board[r][c].draw();
            }
        }
    }
