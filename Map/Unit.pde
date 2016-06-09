@@ -88,12 +88,14 @@ abstract class Unit{
       }
       else {
         //target.defend( (attack * 100/100 + Math.random(10)) * (health/10) * ( (200 - (100 +_board[target.x/10][target.y/10].terrain.DTR * target.health) )/100 ) )
-        double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (200.0 - (100.0 + 0.0 * target.health) )/100.0 );
+        //double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (200.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 );
+        double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;
         System.out.println("Damage: " + dmg);
         target.defend(B, dmg);
         System.out.println("Target's health: " + target.health);
         if( ! target.dead ) {
-          dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + 0.0 * health) )/100.0 );
+          //dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 );
+          dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
           System.out.println("Damage Taken: " + dmg);
           defend(B, dmg);
           System.out.println("Own health: " + health+"\n");
