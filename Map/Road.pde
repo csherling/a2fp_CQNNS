@@ -1,12 +1,15 @@
 class Road extends Terrain{
   Road(){
     super();
-    hindrance = 0;
+    footHindrance = 1;
+    wheelHindrance = 1;
+    treadHindrance = 1;
+    defense = 0;
     img = loadImage("road_h.png");
   }
   
   Road(int newx, int newy){
-    super(newx, newy, 0);
+    super(newx, newy, 1, 1, 1, 0);
     img = loadImage("road_h.png");
   }
 }
