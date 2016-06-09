@@ -5,7 +5,7 @@ class Mech extends Ground{
     c = color(255, 0, 0);
     attack = 4;
     movement = 2;
-    img = loadImage("pokeball.png");
+    img = loadImage(0 + "mec.png");
   }
 
   Mech(int newx, int newy, int PNum){
@@ -14,13 +14,13 @@ class Mech extends Ground{
     pNum = PNum;
     attack = 4;
     movement = 2;
-    img = loadImage("pokeball.png");
+    img = loadImage(PNum + "mec.png");
   }
   
   void draw(){
      fill(c);
-     //image(img, x, y);
-     rect(x, y, edge, edge); 
+     image(img, x, y);
+     //rect(x, y, edge, edge); 
   }
   
 }

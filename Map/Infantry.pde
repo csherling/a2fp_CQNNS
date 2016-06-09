@@ -5,7 +5,7 @@ class Infantry extends Ground{
     c = color(255, 0, 0);
     attack = 1;
     movement = 3;
-    img = loadImage("pokeball.png");
+    img = loadImage(0 + "inf.png");
   }
 
   Infantry(int newx, int newy, int PNum){
@@ -14,13 +14,13 @@ class Infantry extends Ground{
     pNum = PNum;
     attack = 1;
     movement = 3;
-    img = loadImage("pokeball.png");
+    img = loadImage(PNum + "inf.png");
   }
   
   void draw(){
      fill(c);
-     //image(img, x, y);
-     rect(x, y, edge, edge); 
+     image(img, x, y);
+     //rect(x, y, edge, edge); 
   }
   
 }

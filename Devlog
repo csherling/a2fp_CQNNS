@@ -58,5 +58,7 @@
     Made basic terrain framework. Not tested. -Chris
 [06-08-16 21:30-22:17]
     Added all unit pictures. -Chris
-[06-08-16 16:45-17:09]
+[06-09-16 16:45-17:09]
     Changed squares to 16x16, made board 40x30. -Chris
+[06-09-16 17:09-17:34]
+    Put unit pictures into data folder. Renamed for convenient code. Loading images works. Current units load images. -Chris

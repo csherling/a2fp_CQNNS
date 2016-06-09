@@ -50,6 +50,7 @@ abstract class Unit{
   
   void draw(){
      fill(c);
+     image(img, x, y);
      rect(x, y, edge, edge); 
   }
  

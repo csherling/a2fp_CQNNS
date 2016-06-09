@@ -5,7 +5,7 @@ class AA extends Ground{
     c = color(255, 0, 0);
     attack = 5;
     movement = 6;
-    img = loadImage("pokeball.png");
+    img = loadImage(0 + "ant.png");
   }
 
   AA(int newx, int newy, int PNum){
@@ -14,13 +14,13 @@ class AA extends Ground{
     pNum = PNum;
     attack = 5;
     movement = 6;
-    img = loadImage("pokeball.png");
+    img = loadImage(PNum + "ant.png");
   }
   
   void draw(){
      fill(c);
-     //image(img, x, y);
-     rect(x, y, edge, edge); 
+     image(img, x, y);
+     //rect(x, y, edge, edge); 
   }
   
 }

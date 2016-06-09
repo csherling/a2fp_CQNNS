@@ -5,7 +5,7 @@ class MedTank extends Ground{
     c = color(255, 0, 0);
     attack = 13;
     movement = 5;
-    img = loadImage("pokeball.png");
+    img = loadImage(0 + "med.png");
   }
 
   MedTank(int newx, int newy, int PNum){
@@ -14,13 +14,13 @@ class MedTank extends Ground{
     pNum = PNum;
     attack = 13;
     movement = 5;
-    img = loadImage("pokeball.png");
+    img = loadImage(PNum + "med.png");
   }
   
   void draw(){
      fill(c);
-     //image(img, x, y);
-     rect(x, y, edge, edge); 
+     image(img, x, y);
+     //rect(x, y, edge, edge); 
   }
   
 }

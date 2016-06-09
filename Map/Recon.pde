@@ -5,7 +5,7 @@ class Recon extends Ground{
     c = color(255, 0, 0);
     attack = 4;
     movement = 8;
-    img = loadImage("pokeball.png");
+    img = loadImage(0 + "rec.png");
   }
 
   Recon(int newx, int newy, int PNum){
@@ -14,13 +14,13 @@ class Recon extends Ground{
     pNum = PNum;
     attack = 4;
     movement = 8;
-    img = loadImage("pokeball.png");
+    img = loadImage(PNum + "rec.png");
   }
   
   void draw(){
      fill(c);
-     //image(img, x, y);
-     rect(x, y, edge, edge); 
+     image(img, x, y);
+     //rect(x, y, edge, edge); 
   }
   
 }
