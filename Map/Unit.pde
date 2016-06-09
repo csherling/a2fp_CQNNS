@@ -17,10 +17,10 @@ abstract class Unit{
   PImage img;
   
   Unit(){
-    x = ((int)random(width - 2*10))/10 * 10 + 10;
-    y = ((int)random(width - 2*10))/10 * 10 + 10;
+    x = ((int)random(width - 2*16))/16 * 16 + 16;
+    y = ((int)random(width - 2*16))/16 * 16 + 16;
     c = color(100, 100, 255);
-    edge = 10;
+    edge = 16;
     health = 100;
     movement = 1;
     attack = 10;
@@ -33,10 +33,10 @@ abstract class Unit{
   }
   
   Unit(int newx, int newy, int newMovement, float newAttack, float newDefense){
-    x = newx * 10;
-    y = newy * 10;
+    x = newx * 16;
+    y = newy * 16;
     c = color(100, 100, 255);
-    edge = 10;
+    edge = 16;
     health = 100;
     movement = newMovement;
     attack = newAttack;
@@ -109,7 +109,7 @@ abstract class Unit{
   
   void defend(Board B, double damage) {
     if (health - damage <= 0.0){
-      B._board[y/10][x/10]._unitG = null;
+      B._board[y/16][x/16]._unitG = null;
       dead = true;
     }
     else{
