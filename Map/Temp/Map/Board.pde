@@ -2,6 +2,7 @@ class Board{
    Space[][] _board; //moved into Map
    int xcor;
    int ycor;
+   int i = 0;
    boolean flash = true;
    
    Board(int size){
@@ -26,7 +27,11 @@ class Board{
          fill(color(255, 255, 255));
          rect(xcor, ycor, 10, 10); 
        }
-       flash = !flash;
+       if (i == 16) {
+        i = 0;
+        flash = !flash;
+       }
+       else i++;
        System.out.println("xcor: "+xcor+" ycor: "+ycor);
    }
    

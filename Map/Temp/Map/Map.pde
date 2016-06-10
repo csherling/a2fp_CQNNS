@@ -11,7 +11,7 @@ void setup(){
   players.add(new Player(0));
   curr = players.get(0);
   unit = new CLL<Unit>();
-  unit.add(new Infantry(1, 0));
+  unit.add(new Infantry(1, 0, 0));
   sel = unit.get(0);
   selNum = 0;
   _board = new Board(50);
@@ -62,7 +62,7 @@ void keyPressed(){
      }
    }
    else if(keyCode == BACKSPACE){
-     Unit newUnit = new Infantry(0,0);
+     Unit newUnit = new Infantry(0,0, 0);
      unit.add(newUnit);
      _board.addUnit(newUnit, 0, 0);
    }
