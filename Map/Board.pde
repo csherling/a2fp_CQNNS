@@ -10,7 +10,7 @@ class Board{
        }
        for(int r = 0; r< _board.length; r++){
            for(int c = 0; c < _board[r].length; c++){
-             _board[r][c].terrain = new Road(c, r);
+             _board[r][c].terrain = new Mountains(c, r);
            }
        }
    }
