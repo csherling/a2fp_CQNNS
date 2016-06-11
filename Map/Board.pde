@@ -69,7 +69,7 @@ class Board{
   }
   
   void moveSS(int addx, int addy){
-    if(!(xcor + addx < 0 || xcor + addx > (_board[0].length - 1) * 16 || ycor + addy < 0 || ycor + addy > (_board[0].length - 1) * 16)){
+    if(!(xcor + addx < 0 || xcor + addx > (_board[0].length - 1) * 16 || ycor + addy < 0 || ycor + addy > (_board.length - 1) * 16)){
       xcor+=addx;
       ycor+=addy;
     }
