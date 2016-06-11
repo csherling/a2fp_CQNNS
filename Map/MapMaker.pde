@@ -160,28 +160,25 @@ class MapMaker{
   }
 
 /*
-  void coralLagoon(){
-    _board = new Space[15][16];
+  void sabreRange(){
+    int len = 15;
+    _board = new Space[11][len];
     for(int r = 0; r< _board.length; r++){
          for(int c = 0; c < _board[r].length; c++){
            _board[r][c] = new Space();
          }
      }
-    tGen("o o ", 0, 16);
-    tGen("o o ", 1, 16);
-    tGen("o o ", 2, 16);
-    tGen("o o ", 3, 16);
-    tGen("o o ", 4, 16);
-    tGen("o o ", 5, 16);
-    tGen("o o ", 6, 16);
-    tGen("o o ", 7, 16);
-    tGen("o o ", 8, 16);
-    tGen("o o ", 9, 16);
-    tGen("o o ", 10, 16);
-    tGen("o o ", 11, 16);
-    tGen("o o ", 12, 16);
-    tGen("o o ", 13, 16);
-    tGen("o o ", 14, 16);
+    tGen("", 0, len);
+    tGen("", 1, len);
+    tGen("", 2, len);
+    tGen("", 3, len);
+    tGen("", 4, len);
+    tGen("", 5, len);
+    tGen("", 6, len);
+    tGen("", 7, len);
+    tGen("", 8, len);
+    tGen("", 9, len);
+    tGen("", 10, len);
   }
 */
   
@@ -189,13 +186,13 @@ class MapMaker{
     for(int i = 0; i < len; i++){
       String s = terr.substring(2*i, 2*i + 2);
       if(s.substring(0, 1).equals("r")){
-        if(s.substring(1, 2).equals("h")) _board[row][i].terrain = new Road(i, row);
-        if(s.substring(1, 2).equals("v")) _board[row][i].terrain = new Road(i, row);
-        if(s.substring(1, 2).equals("c")) _board[row][i].terrain = new Road(i, row);
-        if(s.substring(1, 2).equals("0")) _board[row][i].terrain = new Road(i, row);
-        if(s.substring(1, 2).equals("1")) _board[row][i].terrain = new Road(i, row);
-        if(s.substring(1, 2).equals("2")) _board[row][i].terrain = new Road(i, row);
-        if(s.substring(1, 2).equals("3")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("h")) _board[row][i].terrain = new Road(i, row, 4);
+        if(s.substring(1, 2).equals("v")) _board[row][i].terrain = new Road(i, row, 5);
+        if(s.substring(1, 2).equals("c")) _board[row][i].terrain = new Road(i, row, 6);
+        if(s.substring(1, 2).equals("0")) _board[row][i].terrain = new Road(i, row, 0);
+        if(s.substring(1, 2).equals("1")) _board[row][i].terrain = new Road(i, row, 1);
+        if(s.substring(1, 2).equals("2")) _board[row][i].terrain = new Road(i, row, 2);
+        if(s.substring(1, 2).equals("3")) _board[row][i].terrain = new Road(i, row, 3);
       }
       else if(s.equals("p ")){
         _board[row][i].terrain = new Plains(i, row);
