@@ -12,7 +12,7 @@ class Ocean extends Terrain{
   }
   
   void draw(){
-    fill(color(0, 0, 100));
+    fill(color(0, 0, 150));
     rect(x, y, 16, 16);
   }
 }
