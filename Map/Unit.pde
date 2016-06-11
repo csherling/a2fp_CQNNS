@@ -67,7 +67,7 @@ abstract class Unit{
           }
        }
       x = newx;
-      y += newy;
+      y = newy;
       moved = true;
    
   }

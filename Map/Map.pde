@@ -141,23 +141,28 @@ void keyPressed(){
   
   if(curr.selected != null){
     if(curr.selected.attacked == false){
-        if(key == 'm' && curr.selected.moved == false){
-          if (! _board.moving) {
-           //System.out.println("up");
-           //_board.move(curr.selected, 0, -16);
-           curr.selected.moves(_board, curr.selected.x, curr.selected.y, curr.selected.mvType, curr.selected.movement, 0);
-           _board.moving = true;
-          }
-          else {
-            _board.moving = false;
-            for(int r = 0; r< _board._board.length; r++){
-             for(int c = 0; c < _board._board[r].length; c++){
-               _board._board[r][c].movement = 0;
-             }
+        if(key == 'm') {
+          if (curr.selected.moved == false) {
+            if (! _board.moving) {
+             //System.out.println("up");
+             //_board.move(curr.selected, 0, -16);
+             curr.selected.moves(_board, curr.selected.x, curr.selected.y, curr.selected.mvType, curr.selected.movement, 0);
+             _board.moving = true;
+            }
+            else {
+              _board.moving = false;
+              for(int r = 0; r< _board._board.length; r++){
+               for(int c = 0; c < _board._board[r].length; c++){
+                 _board._board[r][c].movement = 0;
+               }
+              }
             }
           }
+          else {
+            System.out.println("Already moved.");  
+          }
         }
-
+    
       else if (key == 'w' || key == 'W') {
           if (curr.selected.y != 0 && _board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG != null) {
           //Player opponent = players.get(_board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG.pNum);
