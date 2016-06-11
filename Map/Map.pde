@@ -26,10 +26,10 @@ void setup(){
 
   
   curr = players.get(1);
-  curr.addUnit(new Infantry(10, 25, 1));  
-  curr.addUnit(new Tank(12, 27, 1));
-  curr.addUnit(new Infantry(14, 25, 1));  
-  curr.addUnit(new Infantry(7, 25, 1));  
+  curr.addUnit(new Infantry(10, 14, 1));  
+  curr.addUnit(new Tank(12, 7, 1));
+  curr.addUnit(new Infantry(14, 14, 1));  
+  curr.addUnit(new Infantry(7, 5, 1));  
   curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -104,14 +104,14 @@ void keyPressed(){
         else System.out.println("No unit to attack.");
       }
       else if (key == 's' || key == 'S') {
-        if (curr.selected.y != 464 && _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG != null) {
+        if (curr.selected.y != (_board._board.length - 1) * 16 && _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG != null) {
           //Player opponent = players.get(_board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG.pNum);
           curr.selected.attack(_board, _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG);
         }
         else System.out.println("No unit to attack.");
       }  
       else if (key == 'd' || key == 'D') {
-        if (curr.selected.x != 624 && _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG != null) {
+        if (curr.selected.x != (_board._board[0].length - 1) * 16 && _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG != null) {
           //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG.pNum);
           curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG);
         }

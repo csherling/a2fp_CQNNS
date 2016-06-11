@@ -5,12 +5,12 @@ class Plains extends Terrain{
     wheelHindrance = 2;
     treadHindrance = 1;
     defense = 1;
-    img = loadImage("plains.png");
+    img = loadImage("plain.png");
   }
   
   Plains(int newx, int newy){
     super(newx, newy, 1, 2, 1, 1);
-    img = loadImage("plains.png");
+    img = loadImage("plain.png");
   }
   
   //void draw(){

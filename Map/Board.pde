@@ -2,17 +2,19 @@ class Board{
    Space[][] _board; //moved into Map
    
    Board(int rsize, int csize){
-     _board = new Space[rsize][csize];
-       for(int r = 0; r< _board.length; r++){
-           for(int c = 0; c < _board[r].length; c++){
-             _board[r][c] = new Space();
-           }
-       }
-       for(int r = 0; r< _board.length; r++){
-           for(int c = 0; c < _board[r].length; c++){
-             _board[r][c].terrain = new Mountains(c, r);
-           }
-       }
+     //_board = new Space[rsize][csize];
+     //  for(int r = 0; r< _board.length; r++){
+     //      for(int c = 0; c < _board[r].length; c++){
+     //        _board[r][c] = new Space();
+     //      }
+     //  }
+     MapMaker map = new MapMaker(0);
+     _board = map._board;
+       //for(int r = 0; r< _board.length; r++){
+       //    for(int c = 0; c < _board[r].length; c++){
+       //      _board[r][c].terrain = new Mountains(c, r);
+       //    }
+       //}
    }
     
    void draw(){

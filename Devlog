@@ -72,3 +72,7 @@
     Added building/health imaages, forest image, renamed files, adjusted terrain files accordingly. -Chris
 [06-11-16 11:04-11:10]
     Added building classes. -Chris
+[06-11-16 11:10-11:14]
+    Added building classes. -Chris
+[06-11-16 11:14-12:18]
+    Hardcoded first map. Generation works. Fixed some stuff in Map. -Chris
