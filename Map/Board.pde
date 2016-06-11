@@ -19,7 +19,9 @@ class Board{
        //    }
        //}
    }
-    
+   Unit getUnit(){
+     return _board[0][0]._unitG;
+   }
    void draw(){
        for(int r = 0; r< _board.length; r++){
            for(int c = 0; c < _board[r].length; c++){
@@ -28,7 +30,7 @@ class Board{
        }
         if (flash) {
   
-          image(loadImage("cursor.png"), xcor , ycor); 
+         image(loadImage("cursor.png"), xcor , ycor); 
        }
        if (i == 16) {
         i = 0;
@@ -67,7 +69,7 @@ class Board{
   }
   
   void moveSS(int addx, int addy){
-    if(!(xcor + addx < 0 || xcor + addx > (_board[0].length - 1) * 10 || ycor + addy < 0 || ycor + addy > (_board[0].length - 1) * 10)){
+    if(!(xcor + addx < 0 || xcor + addx > (_board[0].length - 1) * 16 || ycor + addy < 0 || ycor + addy > (_board[0].length - 1) * 16)){
       xcor+=addx;
       ycor+=addy;
     }
