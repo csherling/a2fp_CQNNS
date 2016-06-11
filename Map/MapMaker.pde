@@ -5,22 +5,33 @@ class MapMaker {
   MapMaker(int map) {
     if (map == 0) {
       beanIsland();
-    } else if (map == 1) {
+    } 
+    else if (map == 1) {
       craterIsle();
-    } else if (map == 2) {
+    } 
+    else if (map == 2) {
       coralLagoon();
-    } else if (map == 3) {
+    } 
+    else if (map == 3) {
       fistPeninsula();
-    } else if (map == 4) {
+    } 
+    else if (map == 4) {
       littleIsland();
-    } else if (map == 5) {
+    } 
+    else if (map == 5) {
       sabreRange();
-    } else if (map == 6) {
+    } 
+    else if (map == 6) {
       cogIsle();
-    } else if (map == 7) {
+    } 
+    else if (map == 7) {
       zeroWood();
-    } else if (map == 8) {
+    } 
+    else if (map == 8) {
       switchback();
+    }
+    else if (map == 9) {
+      direRange();
     }
   }
 
