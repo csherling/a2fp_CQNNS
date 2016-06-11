@@ -21,7 +21,13 @@ class MapMaker{
     else if(map == 5){
       sabreRange();
     }
-  }
+    else if(map == 6){
+      cogIsle();
+    }
+    else if(map == 7){
+      zeroWood();
+    }
+}
   
   void beanIsland(){
     _board = new Space[15][16];
@@ -158,6 +164,70 @@ class MapMaker{
     tGen("brhrbrrhrhrhrhrhrhr2p f m m m ", 9, len);
     tGen("p brp p p p p p p p f m m m m ", 10, len);
   }
+
+  void asphaltMaze(){
+    int len = 15;
+    _board = new Space[11][len];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("f f f f f p p p p p p p p bbp ", 0, len);
+    tGen("f f f p p r0rhrcrhrcrhrcbbhbbb", 1, len);
+    tGen("f f f p f rvf rfv rfv rfp bbp ", 2, len);
+    tGen("f p p r0rhrcrhcnrhrcrhrcrhrcp ", 3, len);
+    tGen("f p f rvf rvf rvf rvf rvf rvp ", 4, len);
+    tGen("p r0rhrcrhcnrhrcrhcnrhrcrhr2p ", 5, len);
+    tGen("p rvf rvf rvf rvf rvf rvf p f ", 6, len);
+    tGen("p r3rhrcrhrcrhcnrhrcrhr2p p f ", 7, len);
+    tGen("p brf vrf vrf vrf vrf p f f f ", 8, len);
+    tGen("brhrbrrcrhrcrhrcrhr2p p f f f ", 9, len);
+    tGen("p brp p p p p p p p f f f f f ", 10, len);
+  }
+  
+  void cogIsle(){
+    int len = 15;
+    _board = new Space[11][len];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o o o p p p p p p o o o o o ", 0, len);
+    tGen("o p p p p r0rhrhbbr1p p p p o ", 1, len);
+    tGen("o p r0rhrhr2f m hbbbrhrhrhr1o ", 2, len);
+    tGen("o p rvm f m m p m m m m m rvo ", 3, len);
+    tGen("o p r3rhr1m m p m m r0rhrhr2o ", 4, len);
+    tGen("o m m m rvm p f p m rvm m m o ", 5, len);
+    tGen("o r0rhrhr2m m p m m r3rhr1p o ", 6, len);
+    tGen("o rvm m m m m p m m f m rvp o ", 7, len);
+    tGen("o r3rhrhrhbrhrm f r0rhrhr2p o ", 8, len);
+    tGen("o p p p p r3brrhrhr2p p p p o ", 9, len);
+    tGen("o o o o o p p p p p p o o o o ", 10, len);
+  }
+
+  void zeroWood(){
+    int len = 15;
+    _board = new Space[11][len];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o o o p p p p p p o o o o o ", 0, len);
+    tGen("o p p p p r0rhrhrhrhbbr1p p o ", 1, len);
+    tGen("o p r0rhrhr2f f f f hbbbrhr1o ", 2, len);
+    tGen("o p rvcnf f f f f f f f m rvo ", 3, len);
+    tGen("o p rvf f f f p m f f f r0r2o ", 4, len);
+    tGen("o m rvf f f p bnp f f f rvm o ", 5, len);
+    tGen("o r0r2f f f m p f f f f rvp o ", 6, len);
+    tGen("o rvm f f f f f f f f cnrvp o ", 7, len);
+    tGen("o r3rhbrhrf f f f r0rhrhr2p o ", 8, len);
+    tGen("o p p r3brrhrhrhrhr2p p p p o ", 9, len);
+    tGen("o o o p p p p p p p p o o o o ", 10, len);
+  }
+
 
 /*
   void sabreRange(){
