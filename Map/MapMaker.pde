@@ -4,41 +4,152 @@ class MapMaker{
   
   MapMaker(int map){
     if(map == 0){
-      BeanIsland();
+      beanIsland();
+    }
+    else if(map == 1){
+      craterIsle();
+    }
+    else if(map == 2){
+      coralLagoon();
+    }
+    else if(map == 3){
+      fistPeninsula();
     }
   }
   
-  void BeanIsland(){
+  void beanIsland(){
     _board = new Space[15][16];
     for(int r = 0; r< _board.length; r++){
          for(int c = 0; c < _board[r].length; c++){
            _board[r][c] = new Space();
          }
      }
-
     tGen("o o o o o o o o o o o o o o o o ", 0, 16);
     tGen("o o o o o p p o o o p m o o o o ", 1, 16);
     tGen("o o p p m f f f f f f m m p o o ", 2, 16);
     tGen("o p p m m p p p p p p m m p p o ", 3, 16);
     tGen("o crcrm m cncncncncncnm m cbcbo ", 4, 16);
-    tGen("o p p p m r r r r r r m p p p o ", 5, 16);
-    tGen("o brp brm r p m m p r m bbp bbo ", 6, 16);
-    tGen("o hrbrr m r crm m cbr m r bbhbo ", 7, 16);
-    tGen("o brf r m r p m m p r m r f bbo ", 8, 16);
-    tGen("o p p r r r crm m cbr r r p p o ", 9, 16);
+    tGen("o p p p m r0rhrhrhrhr1m p p p o ", 5, 16);
+    tGen("o brp brm rvp m m p rvm bbp bbo ", 6, 16);
+    tGen("o hrbrrvm rvcrm m cbrvm rvbbhbo ", 7, 16);
+    tGen("o brf rvm rvp m m p rvm rvf bbo ", 8, 16);
+    tGen("o p p r3rhr2crm m cbr3rhr2p p o ", 9, 16);
     tGen("o crcrp f f m m m m f f f cbcbo ", 10, 16);
     tGen("o o o p p p p p o p p p m p o o ", 11, 16);
     tGen("o o o o p p o o o o o p o o o o ", 12, 16);
     tGen("o o o o o o o o o o o o o o o o ", 13, 16);
     tGen("o o o o o o o o o o o o o o o o ", 14, 16);
   }
-  
+
+  void craterIsle(){
+    _board = new Space[15][16];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o o o o o o o o o o o o o o o ", 0, 16);
+    tGen("o o o o o o p p p p p p o o o o ", 1, 16);
+    tGen("o o o o brhrbrrhcrcrcrcnp p o o ", 2, 16);
+    tGen("o o p p rvbrp p p p p f f f f o ", 3, 16);
+    tGen("o p crbrrvp p p crcnf f f f p o ", 4, 16);
+    tGen("o p p r0r2crp o p f f f f f cno ", 5, 16);
+    tGen("o p p rvp p o o p o o p f f f o ", 6, 16);
+    tGen("o m p rvm o o o o o o cnf f p o ", 7, 16);
+    tGen("o p r0r2p o o o o o o f f f cno ", 8, 16);
+    tGen("o cnrvp cno o p p o p f f f f o ", 9, 16);
+    tGen("o p rvm p p p cnp p p p p p p o ", 10, 16);
+    tGen("o cnr3rhr1m p p cnp p bnp bncno ", 11, 16);
+    tGen("o o p p r3rhr1p p bnp bbp p o o ", 12, 16);
+    tGen("o o o cnp p r3rhcnp bbhbbbo o o ", 13, 16);
+    tGen("o o o o o o o o o o o o o o o o ", 14, 16);
+  }
+
+  void coralLagoon(){
+    _board = new Space[15][16];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o o o o o o o m m m o o o o o ", 0, 16);
+    tGen("o o o o o p p p p p p p o o o o ", 1, 16);
+    tGen("o o o r0rhcncncncncncncnr1p o o ", 2, 16);
+    tGen("o o r0r2p p r3rhr1m m m r3cnp o ", 3, 16);
+    tGen("o r0r2p m m p p rvp m m m rvp o ", 4, 16);
+    tGen("o rhp m m m p cnr3r1p m m rhcno ", 5, 16);
+    tGen("o r3r1m p m m m o r3cnrvrcr2f o ", 6, 16);
+    tGen("o o r3rhr1p f o o o f f rvf f o ", 7, 16);
+    tGen("o o o f rvcno o o o o f r3r1o o ", 8, 16);
+    tGen("o o f f rvf f o o o f f p rvf o ", 9, 16);
+    tGen("o f f f rvp f f o f f p bbrvf o ", 10, 16);
+    tGen("o f f brrvp p f o f p bbhbbbo o ", 11, 16);
+    tGen("o o brhrbrp p o o o p p bbp o o ", 12, 16);
+    tGen("o o o brp p o o o o o o o o o o ", 13, 16);
+    tGen("o o o o o o o o o o o o o o o o ", 14, 16);
+  }
+
+  void fistPeninsula(){
+    _board = new Space[15][16];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o o o o o o o o o o o o o o o ", 0, 16);
+    tGen("o o o o o o o p o o o p o o o o ", 1, 16);
+    tGen("o o o p o o p p p o p cnp o o o ", 2, 16);
+    tGen("o o o brp p cnp cnp cnp o o o o ", 3, 16);
+    tGen("o o brhrf f f cnp p p p p o o o ", 4, 16);
+    tGen("o f p brf f p p p m m m m p o o ", 5, 16);
+    tGen("o f p p p p m m p p f f f f o o ", 6, 16);
+    tGen("o o cnp p m f f f p p p p p o o ", 7, 16);
+    tGen("o p p cnp m f f p cbcbcbcbcbo o ", 8, 16);
+    tGen("o cnp p p m f f cbp f f p p o o ", 9, 16);
+    tGen("o o p cnp p p p p cbf bbbbo o o ", 10, 16);
+    tGen("o o cno cnm f f cbp p bbhbo o o ", 11, 16);
+    tGen("o o o o o m f f f cbp f m m o o ", 12, 16);
+    tGen("o o o o o o f o o f m m m m o o ", 13, 16);
+    tGen("o o o o o o o o o o m m m m m o ", 14, 16);
+  }
+
+/*
+  void coralLagoon(){
+    _board = new Space[15][16];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o ", 0, 16);
+    tGen("o o ", 1, 16);
+    tGen("o o ", 2, 16);
+    tGen("o o ", 3, 16);
+    tGen("o o ", 4, 16);
+    tGen("o o ", 5, 16);
+    tGen("o o ", 6, 16);
+    tGen("o o ", 7, 16);
+    tGen("o o ", 8, 16);
+    tGen("o o ", 9, 16);
+    tGen("o o ", 10, 16);
+    tGen("o o ", 11, 16);
+    tGen("o o ", 12, 16);
+    tGen("o o ", 13, 16);
+    tGen("o o ", 14, 16);
+  }
+*/
   
   void tGen(String terr, int row, int len){
     for(int i = 0; i < len; i++){
       String s = terr.substring(2*i, 2*i + 2);
-      if(s.equals("r ")){
-        _board[row][i].terrain = new Road(i, row);
+      if(s.substring(0, 1).equals("r")){
+        if(s.substring(1, 2).equals("h")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("v")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("c")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("0")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("1")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("2")) _board[row][i].terrain = new Road(i, row);
+        if(s.substring(1, 2).equals("3")) _board[row][i].terrain = new Road(i, row);
       }
       else if(s.equals("p ")){
         _board[row][i].terrain = new Plains(i, row);
