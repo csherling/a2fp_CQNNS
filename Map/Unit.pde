@@ -7,7 +7,6 @@ abstract class Unit{
   color c;
   float health;
   int movement;
-  int moveLeft;
   float attack;
   float defense;
   boolean moved;
@@ -28,7 +27,6 @@ abstract class Unit{
     defense = 10;
     moved = true;
     dead = false;
-    moveLeft = 0;
     attacked = true;
     captured = true;
   }
@@ -44,7 +42,6 @@ abstract class Unit{
     defense = newDefense;
     moved = true;
     dead = false;
-    moveLeft = 0;
     attacked = true;
     captured = true;
   }
@@ -63,23 +60,16 @@ abstract class Unit{
     moved = true;
   }
   
-  boolean move(int addx, int addy){
-    System.out.println("Move active");
-    if(moveLeft == 0 || moved == true){
+  void moving(Board B, int newx, int newy){
+    for(int r = 0; r< B._board.length; r++){
+       for(int c = 0; c < B._board[r].length; c++){
+            B._board[r][c].movement = 0;
+          }
+       }
+      x = newx;
+      y += newy;
       moved = true;
-      System.out.println("Unit no more move");
-      return false;
-    }
-    else{
-      x += addx;
-      System.out.println("x:" + x + " x:" + x/16);
-      y += addy;
-      System.out.println("y:" + y + " y:" + y/16);
-      moveLeft--;
-      System.out.println("Unit can move " + moveLeft + " more spaces\n");
-      return true;
-    }
-    
+   
   }
   
   void attack(Board B, Unit target) {
@@ -121,28 +111,28 @@ abstract class Unit{
     }
   }
   
-  void move(Board B, int x, int y, String hindrance, int movesLeft, int moves) {
+  void moves(Board B, int x, int y, String hindrance, int movesLeft, int moves) {
     if (movesLeft != 0) {
       int H;
-      if (y != 0 && getHindrance(B, x, y-16, hindrance) <= movesLeft) {
+      if (y != 0 && getHindrance(B, x, y-16, hindrance) <= movesLeft && (B._board[y/16 - 1][x/16]._unitG == null || B._board[y/16-1][x/16]._unitG.pNum == pNum)) {
         H = getHindrance(B, x, y-16, hindrance);
         setSpace(B, x, y-16, moves + H);
-        move(B, x, y-16, hindrance, movesLeft - H, moves + H); 
+        moves(B, x, y-16, hindrance, movesLeft - H, moves + H); 
       }
-      if (y != (B._board[0].length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft) {
+      if (y != (B._board[0].length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft && (B._board[y/16 + 1][x/16]._unitG == null || B._board[y/16 + 1][x/16]._unitG.pNum == pNum)) {
         H = getHindrance(B, x, y+16, hindrance);
         setSpace(B, x, y+16, moves + H);
-        move(B, x, y+16, hindrance, movesLeft - H, moves + H); 
+        moves(B, x, y+16, hindrance, movesLeft - H, moves + H); 
       }
-      if (x != 0 && getHindrance(B, x-16, y, hindrance) <= movesLeft) {
+      if (x != 0 && getHindrance(B, x-16, y, hindrance) <= movesLeft && (B._board[y/16][x/16 - 1]._unitG == null || B._board[y/16][x/16 - 1]._unitG.pNum == pNum)) {
         H = getHindrance(B, x-16, y, hindrance);
         setSpace(B, x-16, y, moves + H);
-        move(B, x-16, y, hindrance, movesLeft - H, moves + H); 
+        moves(B, x-16, y, hindrance, movesLeft - H, moves + H); 
       }
-      if (x != (B._board[0].length - 1) * 16 && getHindrance(B, x+16, y, hindrance) <= movesLeft) {
+      if (x != (B._board[0].length - 1) * 16 && getHindrance(B, x+16, y, hindrance) <= movesLeft && (B._board[y/16][x/16 + 1]._unitG == null || B._board[y/16][x/16 + 1]._unitG.pNum == pNum)) {
         H = getHindrance(B, x+16, y, hindrance);
         setSpace(B, x+16, y, moves + H);
-        move(B, x+16, y, hindrance, movesLeft - H, moves + H); 
+        moves(B, x+16, y, hindrance, movesLeft - H, moves + H); 
       }
     }
     
@@ -159,8 +149,15 @@ abstract class Unit{
   
   void setSpace(Board B, int x, int y, int moves) {
     Space space = B._board[y/16][x/16];
-    if (space.movement > moves || space.movement == 0) {
-      space.movement = moves;
+     if (space._unitG == null) {
+      if (space.movement > moves || space.movement == 0) {
+        space.movement = moves;
+      }
+    }
+    else {
+      if (space._unitG.pNum == pNum && (space.movement > moves || space.movement == 0)) {
+        space.movement = 0;
+      }
     }
   }
   

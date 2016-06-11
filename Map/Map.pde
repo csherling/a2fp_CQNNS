@@ -8,15 +8,15 @@ Board _board; //work out space pixel size, how many spaces, rework balance for m
 boolean highlighted;
 
 void setup(){ 
-  size(640, 480);
-  fill(255,255,255);
   _board = new Board(30,40);
+  size(640 , 640 );
+  fill(255,255,255);
   highlighted = false;
   players = new CLL<Player>();
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.addUnit(new Infantry(10, 13, 0));  
+  curr.addUnit(new Infantry(4, 12, 0));  
   curr.addUnit(new Tank(7, 10, 0));
   curr.addUnit(new Infantry(4, 13, 0));  
   //curr.selected = curr.units.get(0);
@@ -46,9 +46,6 @@ void setup(){
   }
   for(int i = 0; i < curr.units.size(); i++){
     curr.units.get(i).attacked = false;
-  }
-  for(int i = 0; i < curr.units.size(); i++){
-    curr.units.get(i).moveLeft = curr.units.get(i).movement;
   }
 }
 
@@ -86,37 +83,44 @@ void keyPressed(){
     _board.moveSS(16,0);
   }
   else if(key == 'x' || key == 'X'){
-    if (highlighted == false) {
-      if (_board.getUnit() != null) {
-          if (playanum == _board.getUnit().pNum) {
-            highlighted = true;
-            System.out.println("Selected.");
-            curr.selected = _board.getUnit();
+      if (highlighted == false) {
+        if (_board.getUnit() != null) {
+            if (playanum == _board.getUnit().pNum) {
+              highlighted = true;
+              System.out.println("Selected.");
+              curr.selected = _board.getUnit();
+            }
+            else {
+              System.out.println("Not your unit.");
+            }
           }
-          else {
-            System.out.println("Not your unit.");
-          }
+        else System.out.println("No unit to select.");
+      }
+      else {
+        if(_board.moving == true && _board._board[_board.ycor/16][_board.xcor/16].movement > 0){
+          _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
+          _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected;
+          curr.selected.moving(_board,_board.xcor,_board.ycor);
         }
-      else System.out.println("No unit to select.");
+        else{
+            curr.selected = null;
+            highlighted = false;
+            System.out.println("Deselected.");
+        }
+      }
     }
-    else {
-          curr.selected = null;
-          highlighted = false;
-          System.out.println("Deselected.");
-    }
-  }
-  else if(keyCode == SHIFT){
-     if(playanum == players.size() - 1){
-       playanum = 0;
-     }
-     else{
-       playanum++;
-     }
-     curr.selected = null;
-     highlighted = false;
-     System.out.println("Deselected.");
+    else if(keyCode == SHIFT){
+       if(playanum == players.size() - 1){
+         playanum = 0;
+       }
+       else{
+         playanum++;
+       }
+       curr.selected = null;
+       highlighted = false;
+       System.out.println("Deselected.");
      
-     _board.moving = false;
+       _board.moving = false;
      for(int r = 0; r< _board._board.length; r++){
        for(int c = 0; c < _board._board[r].length; c++){
          _board._board[r][c].movement = 0;
@@ -130,9 +134,6 @@ void keyPressed(){
      for(int i = 0; i < curr.units.size(); i++){
        curr.units.get(i).attacked = false;
      }
-     for(int i = 0; i < curr.units.size(); i++){
-       curr.units.get(i).moveLeft = curr.units.get(i).movement;
-     }
      System.out.println("Player#: " + playanum);
    }
             
@@ -144,8 +145,7 @@ void keyPressed(){
           if (! _board.moving) {
            //System.out.println("up");
            //_board.move(curr.selected, 0, -16);
-           curr.selected.move(_board, curr.selected.x, curr.selected.y, curr.selected.mvType, curr.selected.movement, 0);
-           _board._board[curr.selected.y/16][curr.selected.x/16].movement = 0;
+           curr.selected.moves(_board, curr.selected.x, curr.selected.y, curr.selected.mvType, curr.selected.movement, 0);
            _board.moving = true;
           }
           else {
