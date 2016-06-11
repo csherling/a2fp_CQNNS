@@ -1,6 +1,9 @@
 class Board{ 
    Space[][] _board; //moved into Map
-   
+   int xcor;
+   int ycor;
+   int i = 0;
+   boolean flash = true; 
    Board(int rsize, int csize){
      //_board = new Space[rsize][csize];
      //  for(int r = 0; r< _board.length; r++){
@@ -23,6 +26,16 @@ class Board{
              _board[r][c].draw();
            }
        }
+        if (flash) {
+  
+          image(loadImage("cursor.png"), xcor , ycor); 
+       }
+       if (i == 16) {
+        i = 0;
+        flash = !flash;
+       }
+       else i++;
+       System.out.println("xcor: "+xcor+" ycor: "+ycor);
    }
    
    void addUnit(Unit u, int r, int c){
@@ -50,6 +63,16 @@ class Board{
     }
     else{
       System.out.println("Please cycle");
+    }
+  }
+  
+  void moveSS(int addx, int addy){
+    if(!(xcor + addx < 0 || xcor + addx > (_board[0].length - 1) * 10 || ycor + addy < 0 || ycor + addy > (_board[0].length - 1) * 10)){
+      xcor+=addx;
+      ycor+=addy;
+    }
+    else{
+      System.out.println("Out of Bounds");
     }
   }
 

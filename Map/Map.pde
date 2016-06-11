@@ -71,6 +71,18 @@ void mouseClicked(){
 }
 
 void keyPressed(){
+  if (key == 't' || key == 'T'){
+    _board.moveSS(0,-16);
+  }
+   else if (key == 'f' || key == 'F'){
+    _board.moveSS(-16,0);
+  }
+   else if (key == 'g' || key == 'G'){
+    _board.moveSS(0,16);
+  }
+   else if (key == 'h' || key == 'H'){
+    _board.moveSS(16,0);
+  }
   if(curr.selected != null){
     if(curr.selected.attacked == false){
         if(keyCode == UP && curr.selected.moved == false){
