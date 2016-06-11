@@ -20,7 +20,7 @@ class Board{
        //}
    }
    Unit getUnit(){
-     return _board[0][0]._unitG;
+     return _board[ycor/16][xcor/16]._unitG;
    }
    void draw(){
        for(int r = 0; r< _board.length; r++){
@@ -37,7 +37,6 @@ class Board{
         flash = !flash;
        }
        else i++;
-       System.out.println("xcor: "+xcor+" ycor: "+ycor);
    }
    
    void addUnit(Unit u, int r, int c){

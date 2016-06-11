@@ -5,11 +5,13 @@ Player curr;
 int playanum;
 //int selNum;
 Board _board; //work out space pixel size, how many spaces, rework balance for movement
+boolean highlighted;
 
 void setup(){ 
   size(640, 480);
   fill(255,255,255);
   _board = new Board(30,40);
+  highlighted = false;
   players = new CLL<Player>();
   players.add(new Player(0));
   players.add(new Player(1));
@@ -74,15 +76,33 @@ void keyPressed(){
   if (key == 't' || key == 'T'){
     _board.moveSS(0,-16);
   }
-   else if (key == 'f' || key == 'F'){
+  else if (key == 'f' || key == 'F'){
     _board.moveSS(-16,0);
   }
-   else if (key == 'g' || key == 'G'){
+  else if (key == 'g' || key == 'G'){
     _board.moveSS(0,16);
   }
-   else if (key == 'h' || key == 'H'){
+  else if (key == 'h' || key == 'H'){
     _board.moveSS(16,0);
   }
+  else if(key == 'x' || key == 'X'){
+    if (_board.getUnit() == null && highlighted == false){
+      System.out.println("No yunit to move");
+    }
+    else if(_board.getUnit() != null){
+        for(int i = 0; i< curr.units._size; i++){
+          if(curr.units.get(i).equals(_board.getUnit())){
+            highlighted = true;
+            System.out.println(highlighted);
+            return;
+          }
+        }
+        System.out.println("not urs bud");
+    }
+            
+  }
+      
+  
   if(curr.selected != null){
     if(curr.selected.attacked == false){
         if(keyCode == UP && curr.selected.moved == false){
