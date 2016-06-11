@@ -15,6 +15,7 @@ abstract class Unit{
   boolean captured;
   boolean dead;
   PImage img;
+  String mvType;
   
   Unit(){
     x = ((int)random(width - 2*16))/16 * 16 + 16;
@@ -119,4 +120,48 @@ abstract class Unit{
       health -= damage;
     }
   }
+  
+  void move(Board B, int x, int y, String hindrance, int movesLeft, int moves) {
+    if (movesLeft != 0) {
+      int H;
+      if (y != 0 && getHindrance(B, x, y-16, hindrance) <= movesLeft) {
+        H = getHindrance(B, x, y-16, hindrance);
+        setSpace(B, x, y-16, moves + H);
+        move(B, x, y-16, hindrance, movesLeft - H, moves + H); 
+      }
+      if (y != (B._board[0].length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft) {
+        H = getHindrance(B, x, y+16, hindrance);
+        setSpace(B, x, y+16, moves + H);
+        move(B, x, y+16, hindrance, movesLeft - H, moves + H); 
+      }
+      if (x != 0 && getHindrance(B, x-16, y, hindrance) <= movesLeft) {
+        H = getHindrance(B, x-16, y, hindrance);
+        setSpace(B, x-16, y, moves + H);
+        move(B, x-16, y, hindrance, movesLeft - H, moves + H); 
+      }
+      if (x != (B._board[0].length - 1) * 16 && getHindrance(B, x+16, y, hindrance) <= movesLeft) {
+        H = getHindrance(B, x+16, y, hindrance);
+        setSpace(B, x+16, y, moves + H);
+        move(B, x+16, y, hindrance, movesLeft - H, moves + H); 
+      }
+    }
+    
+  }
+  
+  int getHindrance(Board B, int x, int y, String hindrance) {
+    int H = 0;
+    if (hindrance.equals("foot")) H = B._board[y/16][x/16].terrain.footHindrance;
+    else if (hindrance.equals("wheel")) H = B._board[y/16][x/16].terrain.wheelHindrance;
+    else if (hindrance.equals("tread")) H = B._board[y/16][x/16].terrain.treadHindrance;
+    else if (hindrance.equals("air")) H = B._board[y/16][x/16].terrain.airHindrance;
+    return H;
+  }
+  
+  void setSpace(Board B, int x, int y, int moves) {
+    Space space = B._board[y/16][x/16];
+    if (space.movement > moves || space.movement == 0) {
+      space.movement = moves;
+    }
+  }
+  
 }

@@ -5,10 +5,12 @@ class Space{
     Terrain terrain;
     //Terrain _air;
     //Terrain _space;
+    int movement;
     
     Space(){
       _unitG = null;
       terrain = null;
+      movement = 0;
       /*
       _unitA = null;
       _unitS = null;

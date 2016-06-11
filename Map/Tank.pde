@@ -6,6 +6,7 @@ class Tank extends Ground{
     attack = 7;
     movement = 7;
     img = loadImage(0 + "tan.png");
+    mvType = "tread";
   }
 
   Tank(int newx, int newy, int PNum){
@@ -15,6 +16,7 @@ class Tank extends Ground{
     attack = 5;
     movement = 7;
     img = loadImage(PNum + "tan.png");
+    mvType = "tread";
   }
   
   void draw(){

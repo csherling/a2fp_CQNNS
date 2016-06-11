@@ -4,6 +4,9 @@ class Board{
    int ycor;
    int i = 0;
    boolean flash = true; 
+   boolean moving = false;
+   PImage redX = loadImage("red.png");
+   
    Board(int rsize, int csize){
      //_board = new Space[rsize][csize];
      //  for(int r = 0; r< _board.length; r++){
@@ -26,6 +29,11 @@ class Board{
        for(int r = 0; r< _board.length; r++){
            for(int c = 0; c < _board[r].length; c++){
              _board[r][c].draw();
+             if (moving) {
+                 if (_board[r][c].movement > 0) {
+                     image(redX, c*16, r*16);
+                 }
+             }
            }
        }
         if (flash) {

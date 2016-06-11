@@ -6,6 +6,7 @@ class Infantry extends Ground{
     attack = 1;
     movement = 3;
     img = loadImage(0 + "inf.png");
+    mvType = "foot";
   }
 
   Infantry(int newx, int newy, int PNum){
@@ -15,6 +16,7 @@ class Infantry extends Ground{
     attack = 1;
     movement = 3;
     img = loadImage(PNum + "inf.png");
+    mvType = "foot";
   }
   
   void draw(){

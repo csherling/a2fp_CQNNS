@@ -105,22 +105,24 @@ void keyPressed(){
   
   if(curr.selected != null){
     if(curr.selected.attacked == false){
-        if(keyCode == UP && curr.selected.moved == false){
-          System.out.println("up");
-         _board.move(curr.selected, 0, -16);
+        if(key == 'm' && curr.selected.moved == false){
+          if (! _board.moving) {
+           //System.out.println("up");
+           //_board.move(curr.selected, 0, -16);
+           curr.selected.move(_board, curr.selected.x, curr.selected.y, curr.selected.mvType, curr.selected.movement, "", 0);
+           _board._board[curr.selected.y/16][curr.selected.x/16].movement = 0;
+           _board.moving = true;
+          }
+          else {
+            _board.moving = false;
+            for(int r = 0; r< _board._board.length; r++){
+             for(int c = 0; c < _board._board[r].length; c++){
+               _board._board[r][c].movement = 0;
+             }
+            }
+          }
         }
-        else if(keyCode == DOWN && curr.selected.moved == false){
-          System.out.println("down");
-          _board.move(curr.selected, 0, 16);
-        }
-        else if(keyCode == LEFT && curr.selected.moved == false){
-          System.out.println("left");
-          _board.move(curr.selected, -16, 0);
-        }
-        else if(keyCode == RIGHT && curr.selected.moved == false){
-          System.out.println("right");
-          _board.move(curr.selected, 16, 0);
-        }
+
       else if (key == 'w' || key == 'W') {
           if (curr.selected.y != 0 && _board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG != null) {
           //Player opponent = players.get(_board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG.pNum);
