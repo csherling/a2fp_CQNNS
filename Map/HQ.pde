@@ -1,4 +1,4 @@
-class HQ extends Terrain{
+class HQ extends Building{
   HQ(){
     super();
     footHindrance = 1;
@@ -10,7 +10,7 @@ class HQ extends Terrain{
   }
   
   HQ(int newx, int newy, int type){
-    super(newx, newy, 1, 1, 1, 4);
+    super(newx, newy, 4, type);
     img = loadImage(type + "5hea.png");
   }
 }

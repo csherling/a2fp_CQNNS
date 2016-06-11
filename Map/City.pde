@@ -1,4 +1,4 @@
-class City extends Terrain{
+class City extends Building{
   City(){
     super();
     footHindrance = 1;
@@ -9,7 +9,7 @@ class City extends Terrain{
   }
   
   City(int newx, int newy, int type){
-    super(newx, newy, 1, 1, 1, 3);
+    super(newx, newy, 3, type);
     img = loadImage(type + "5cit.png");
   }
 }

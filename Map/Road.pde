@@ -9,7 +9,7 @@ class Road extends Terrain{
   }
   
   Road(int newx, int newy, int type){
-    super(newx, newy, 1, 1, 1, 0);
+    super(newx, newy, 1, 1, 1, 0, 4);
     if(type == 0) img = loadImage("roadtl.png");
     else if(type == 1) img = loadImage("roadtr.png");
     else if(type == 2) img = loadImage("roadbr.png");

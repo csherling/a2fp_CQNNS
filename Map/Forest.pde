@@ -9,7 +9,7 @@ class Forest extends Terrain{
   }
   
   Forest(int newx, int newy){
-    super(newx, newy, 1, 3, 2, 2);
+    super(newx, newy, 1, 3, 2, 2, 4);
     img = loadImage("forest.png");
   }
 }

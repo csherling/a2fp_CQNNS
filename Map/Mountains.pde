@@ -9,7 +9,7 @@ class Mountains extends Terrain{
   }
   
   Mountains(int newx, int newy){
-    super(newx, newy, 2, 10, 10, 3);
+    super(newx, newy, 2, 10, 10, 3, 4);
     img = loadImage("mountain.png");
   }
 }

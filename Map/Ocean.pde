@@ -8,7 +8,7 @@ class Ocean extends Terrain{
   }
   
   Ocean(int newx, int newy){
-    super(newx, newy, 10, 10, 10, 0);
+    super(newx, newy, 10, 10, 10, 0, 4);
   }
   
   void draw(){
