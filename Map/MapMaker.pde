@@ -277,32 +277,32 @@ class MapMaker{
         _board[row][i].terrain = new Ocean(i, row);
       }
       else if(s.substring(0, 1).equals("h")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new HQ(i, row);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new HQ(i, row);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new HQ(i, row);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new HQ(i, row);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new HQ(i, row);
+        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new HQ(i, row, 0);
+        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new HQ(i, row, 1);
+        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new HQ(i, row, 2);
+        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new HQ(i, row, 3);
+        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new HQ(i, row, 4);
       }
       else if(s.substring(0, 1).equals("c")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new City(i, row);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new City(i, row);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new City(i, row);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new City(i, row);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new City(i, row);
+        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new City(i, row, 0);
+        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new City(i, row, 1);
+        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new City(i, row, 2);
+        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new City(i, row, 3);
+        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new City(i, row, 4);
       }
       else if(s.substring(0, 1).equals("b")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new Base(i, row);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new Base(i, row);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new Base(i, row);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new Base(i, row);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new Base(i, row);
+        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new Base(i, row, 0);
+        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new Base(i, row, 1);
+        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new Base(i, row, 2);
+        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new Base(i, row, 3);
+        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new Base(i, row, 4);
       }
       else if(s.substring(0, 1).equals("a")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new Airport(i, row);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new Airport(i, row);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new Airport(i, row);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new Airport(i, row);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new Airport(i, row);
+        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new Airport(i, row, 0);
+        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new Airport(i, row, 1);
+        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new Airport(i, row, 2);
+        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new Airport(i, row, 3);
+        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new Airport(i, row, 4);
       }
       else{
         int x = i;

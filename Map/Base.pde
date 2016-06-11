@@ -8,8 +8,8 @@ class Base extends Terrain{
     img = loadImage("45bas.png");
   }
   
-  Base(int newx, int newy){
+  Base(int newx, int newy, int type){
     super(newx, newy, 1, 1, 1, 3);
-    img = loadImage("45bas.png");
+    img = loadImage(type + "5bas.png");
   }
 }

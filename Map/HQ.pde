@@ -8,8 +8,8 @@ class HQ extends Terrain{
     img = loadImage("45hea.png");
   }
   
-  HQ(int newx, int newy){
+  HQ(int newx, int newy, int type){
     super(newx, newy, 1, 1, 1, 4);
-    img = loadImage("45hea.png");
+    img = loadImage(type + "5hea.png");
   }
 }

@@ -8,8 +8,8 @@ class City extends Terrain{
     img = loadImage("45cit.png");
   }
   
-  City(int newx, int newy){
+  City(int newx, int newy, int type){
     super(newx, newy, 1, 1, 1, 3);
-    img = loadImage("45cit.png");
+    img = loadImage(type + "5cit.png");
   }
 }
