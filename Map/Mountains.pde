@@ -5,11 +5,11 @@ class Mountains extends Terrain{
     wheelHindrance = 10;
     treadHindrance = 10;
     defense = 3;
-    img = loadImage("mountain_1.png");
+    img = loadImage("mountain.png");
   }
   
   Mountains(int newx, int newy){
     super(newx, newy, 1, 10, 10, 3);
-    img = loadImage("mountain_1.png");
+    img = loadImage("mountain.png");
   }
 }
