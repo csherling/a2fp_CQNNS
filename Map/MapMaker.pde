@@ -1,41 +1,36 @@
-class MapMaker{
-  
+class MapMaker {
+
   Space[][] _board;
-  
-  MapMaker(int map){
-    if(map == 0){
+
+  MapMaker(int map) {
+    if (map == 0) {
       beanIsland();
-    }
-    else if(map == 1){
+    } else if (map == 1) {
       craterIsle();
-    }
-    else if(map == 2){
+    } else if (map == 2) {
       coralLagoon();
-    }
-    else if(map == 3){
+    } else if (map == 3) {
       fistPeninsula();
-    }
-    else if(map == 4){
+    } else if (map == 4) {
       littleIsland();
-    }
-    else if(map == 5){
+    } else if (map == 5) {
       sabreRange();
-    }
-    else if(map == 6){
+    } else if (map == 6) {
       cogIsle();
-    }
-    else if(map == 7){
+    } else if (map == 7) {
       zeroWood();
+    } else if (map == 8) {
+      switchback();
     }
-}
-  
-  void beanIsland(){
+  }
+
+  void beanIsland() {
     _board = new Space[15][16];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o o o o o o o o o o o o o ", 0, 16);
     tGen("o o o o o p p o o o p m o o o o ", 1, 16);
     tGen("o o p p m f f f f f f m m p o o ", 2, 16);
@@ -53,13 +48,13 @@ class MapMaker{
     tGen("o o o o o o o o o o o o o o o o ", 14, 16);
   }
 
-  void craterIsle(){
+  void craterIsle() {
     _board = new Space[15][16];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o o o o o o o o o o o o o ", 0, 16);
     tGen("o o o o o o p p p p p p o o o o ", 1, 16);
     tGen("o o o o brhrbrrhcrcrcrcnp p o o ", 2, 16);
@@ -77,20 +72,20 @@ class MapMaker{
     tGen("o o o o o o o o o o o o o o o o ", 14, 16);
   }
 
-  void coralLagoon(){
+  void coralLagoon() {
     _board = new Space[15][16];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o o o o o m m m o o o o o ", 0, 16);
     tGen("o o o o o p p p p p p p o o o o ", 1, 16);
     tGen("o o o r0rhcncncncncncncnr1p o o ", 2, 16);
     tGen("o o r0r2p p r3rhr1m m m r3cnp o ", 3, 16);
     tGen("o r0r2p m m p p rvp m m m rvp o ", 4, 16);
-    tGen("o rhp m m m p cnr3r1p m m rhcno ", 5, 16);
-    tGen("o r3r1m p m m m o r3cnrvrcr2f o ", 6, 16);
+    tGen("o rvp m m m p cnr3r1p m m rvcno ", 5, 16);
+    tGen("o r3r1m p m m m o r3cnrhrcr2f o ", 6, 16);
     tGen("o o r3rhr1p f o o o f f rvf f o ", 7, 16);
     tGen("o o o f rvcno o o o o f r3r1o o ", 8, 16);
     tGen("o o f f rvf f o o o f f p rvf o ", 9, 16);
@@ -101,13 +96,13 @@ class MapMaker{
     tGen("o o o o o o o o o o o o o o o o ", 14, 16);
   }
 
-  void fistPeninsula(){
+  void fistPeninsula() {
     _board = new Space[15][16];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o o o o o o o o o o o o o ", 0, 16);
     tGen("o o o o o o o p o o o p o o o o ", 1, 16);
     tGen("o o o p o o p p p o p cnp o o o ", 2, 16);
@@ -125,13 +120,13 @@ class MapMaker{
     tGen("o o o o o o o o o o m m m m m o ", 14, 16);
   }
 
-  void littleIsland(){
+  void littleIsland() {
     _board = new Space[10][19];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o o o o o o o o o o o o o o o o ", 0, 19);
     tGen("o o o o o o o o o o o o p f p bbp f o ", 1, 19);
     tGen("o o o o o o o o cnr0rhrhrhrhrhrhhbp o ", 2, 19);
@@ -144,14 +139,14 @@ class MapMaker{
     tGen("o o o o o o o o o o o o o o o o o o o ", 9, 19);
   }
 
-  void sabreRange(){
+  void sabreRange() {
     int len = 15;
     _board = new Space[11][len];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("m m m m f p p p p p p p p bbp ", 0, len);
     tGen("m m m f p r0rhrhrhrhrhrhbbhbbb", 1, len);
     tGen("m m f p p rvf m cnp p p p bbp ", 2, len);
@@ -165,14 +160,14 @@ class MapMaker{
     tGen("p brp p p p p p p p f m m m m ", 10, len);
   }
 
-  void asphaltMaze(){
+  void asphaltMaze() {
     int len = 15;
     _board = new Space[11][len];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("f f f f f p p p p p p p p bbp ", 0, len);
     tGen("f f f p p r0rhrcrhrcrhrcbbhbbb", 1, len);
     tGen("f f f p f rvf rfv rfv rfp bbp ", 2, len);
@@ -185,15 +180,15 @@ class MapMaker{
     tGen("brhrbrrcrhrcrhrcrhr2p p f f f ", 9, len);
     tGen("p brp p p p p p p p f f f f f ", 10, len);
   }
-  
-  void cogIsle(){
+
+  void cogIsle() {
     int len = 15;
     _board = new Space[11][len];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o p p p p p p o o o o o ", 0, len);
     tGen("o p p p p r0rhrhbbr1p p p p o ", 1, len);
     tGen("o p r0rhrhr2f m hbbbrhrhrhr1o ", 2, len);
@@ -207,14 +202,14 @@ class MapMaker{
     tGen("o o o o o p p p p p p o o o o ", 10, len);
   }
 
-  void zeroWood(){
+  void zeroWood() {
     int len = 15;
     _board = new Space[11][len];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
     tGen("o o o o p p p p p p o o o o o ", 0, len);
     tGen("o p p p p r0rhrhrhrhbbr1p p o ", 1, len);
     tGen("o p r0rhrhr2f f f f hbbbrhr1o ", 2, len);
@@ -228,87 +223,137 @@ class MapMaker{
     tGen("o o o p p p p p p p p o o o o ", 10, len);
   }
 
-
-/*
-  void sabreRange(){
-    int len = 15;
-    _board = new Space[11][len];
-    for(int r = 0; r< _board.length; r++){
-         for(int c = 0; c < _board[r].length; c++){
-           _board[r][c] = new Space();
-         }
-     }
-    tGen("", 0, len);
-    tGen("", 1, len);
-    tGen("", 2, len);
-    tGen("", 3, len);
-    tGen("", 4, len);
-    tGen("", 5, len);
-    tGen("", 6, len);
-    tGen("", 7, len);
-    tGen("", 8, len);
-    tGen("", 9, len);
-    tGen("", 10, len);
+  void switchback() {
+    int len = 21;
+    _board = new Space[15][len];
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
+    tGen("m m m m m m m m m m m m m m m m m m m m m ", 0, len);
+    tGen("m m cnbnm m m m cncnm m m m cncnm m m hbm ", 1, len);
+    tGen("m r0rhrhr1m m r0rhrhr1m m r0rhrhr1m bbrvbb", 2, len);
+    tGen("m rvm m rvm m rvm m rvf m rvm m rvm bbrvbb", 3, len);
+    tGen("m rvm m rvm m rvm f rvf f rvm m rvm m rvm ", 4, len);
+    tGen("m rvf m rvm m rvf f rvf m rvm cnrvf m rvm ", 5, len);
+    tGen("m rvf f rvcnm rvf m rvf f rvcnm rvf f rvm ", 6, len);
+    tGen("m rvf f rvcnm rvcnf rvm cnrvbnm rvm f rvm ", 7, len);
+    tGen("m rvm f rvm bnrvf f rvf f rvm m rvf f rvm  ", 8, len);
+    tGen("m rvf f rvm m rvf m rvf m rvm m rvm f rvm ", 9, len);
+    tGen("m rvm m rvm m rvf f rvf f rvm m rvm m rvm ", 10, len);
+    tGen("brrvbrm rvm m rvm m rvf m rvm m rvm m rvm ", 11, len);
+    tGen("brrvbrm r3rhrhr2m m r3rhrhr2m m r3rhrhr2m ", 12, len);
+    tGen("m hrm m m cncnm m m m cncnm m m m bncnm m ", 13, len);
+    tGen("m m m m m m m m m m m m m m m m m m m m m ", 14, len);
   }
-*/
-  
-  void tGen(String terr, int row, int len){
-    for(int i = 0; i < len; i++){
+
+  void direRange() {
+    int len = 37;
+    _board = new Space[25][len];
+    for (int r = 0; r< _board.length; r++) {
+      for (int c = 0; c < _board[r].length; c++) {
+        _board[r][c] = new Space();
+      }
+    }
+    tGen("o o o o o o o o m m m m m m m o f p p p p p p f f f f f f f f p p f f f f ", 0, len);
+    tGen("o o o o o o o o m m m m m m m o m f p p p p f f o o f f p p p p p p p f f ", 1, len);
+    tGen("o o o o o o o m m m m bbm p p o m m cbcbf f f f o o p p f p p p p p bbp f ", 2, len);
+    tGen("o o o o o o o m m p p rhrhrhrhrhrhrhrhrhrhrhrhrhrhrhcbcbrhrhrhrhabbbhbbbp ", 3, len);
+    tGen("o o o o o o o m p f abcbcbm p o m p p p bbp p p p p p f p o o o o p bbp p ", 4, len);
+    tGen("o o o o o o m m cbp o o o f m o m p p abp p p cbp p f p o o o o o p rvabf ", 5, len);
+    tGen("o o o o o o o o o o o o o o o o o o bbp p p p p m m m p o o o o o m rvm p ", 6, len);
+    tGen("o o o o o o o o o o o o o o o o o o o p m p cbp m m m m o o o o o m rvm m ", 7, len);
+    tGen("o o o o o m cncnp bnp p p m m o o o o o o o o o o o o o o o o o o m rvm m ", 8, len);
+    tGen("o o o o o m m m anp p p m m m o o o o o o o o o o o o o o o o o o o rvo o ", 9, len);
+    tGen("o o o o o m m r0rhrhr1m m m m m m cnp p m m m p cncnm m o o o o o m rvm m ", 10, len);
+    tGen("o o o o m m m rvf f rvm m m m m m p anm m m r0rhrhrhr1m m m cnm m m rvm m ", 11, len);
+    tGen("o o o p p m m rvm m rvm m m r0rhrhrhr1m p m rvf p f rvm m r0rhrhrhrhrcm m ", 12, len);
+    tGen("o o p p f m m rvm m rvm m m rvf p f rvf cnf rvm cnm rvm m rvf bnp f rvm m ", 13, len);
+    tGen("o o p p f f f rvm m rvm p m rvm cnm rcrhrhrhr2m m m rvm m rvm p anm rvm m ", 14, len);
+    tGen("o o p crr0rhrhr2m m rvf cnf rvm m m rvm m m m m m m rvf f rvm m m m rvm m ", 15, len);
+    tGen("o p p p rvm m m m m r3rhrhrhr2m m m rvm m m m m m m r3rhrhr2m m m m rvm m ", 16, len);
+    tGen("o p p f rvm m m m m m m m m m m m m rvm m m m m m m m m m m m m m m rvm m ", 17, len);
+    tGen("o p p p rvf m m m m m m m m m m m p rvf f m m m m m m m m m m m m m rvf f ", 18, len);
+    tGen("o p arp rvp f m m m m m m m m m p p rvp p f m m m m m m m m m m p p rvf f ", 19, len);
+    tGen("o o p brrvp f m m m m m m m m p p bnrvbnp p f m m cncnm m m m f f cnrvp f ", 20, len);
+    tGen("o p brp hrrhrhrhrhrhrhrhrhrhrhrhrhrhrcrhrhrhrhrhrhrhrhrhrhrhrhrhbnrhr2cnf ", 21, len);
+    tGen("p p p p p p m m m m m m m m m p p p anp p p f m m m m m m m p f p p p p p ", 22, len);
+    tGen("f p crcrcrm m m m m m m m m m m f f f cncnf f m m m m m m m m m p ancncnf ", 23, len);
+    tGen("f f f m m m m m m m m m m m m m m m f f f f m m m m m m m m m m m f p f f ", 24, len);
+  }
+
+
+  /*
+  void sabreRange(){
+   int len = 15;
+   _board = new Space[11][len];
+   for(int r = 0; r< _board.length; r++){
+   for(int c = 0; c < _board[r].length; c++){
+   _board[r][c] = new Space();
+   }
+   }
+   tGen("", 0, len);
+   tGen("", 1, len);
+   tGen("", 2, len);
+   tGen("", 3, len);
+   tGen("", 4, len);
+   tGen("", 5, len);
+   tGen("", 6, len);
+   tGen("", 7, len);
+   tGen("", 8, len);
+   tGen("", 9, len);
+   tGen("", 10, len);
+   }
+   */
+
+  void tGen(String terr, int row, int len) {
+    for (int i = 0; i < len; i++) {
       String s = terr.substring(2*i, 2*i + 2);
-      if(s.substring(0, 1).equals("r")){
-        if(s.substring(1, 2).equals("h")) _board[row][i].terrain = new Road(i, row, 4);
-        if(s.substring(1, 2).equals("v")) _board[row][i].terrain = new Road(i, row, 5);
-        if(s.substring(1, 2).equals("c")) _board[row][i].terrain = new Road(i, row, 6);
-        if(s.substring(1, 2).equals("0")) _board[row][i].terrain = new Road(i, row, 0);
-        if(s.substring(1, 2).equals("1")) _board[row][i].terrain = new Road(i, row, 1);
-        if(s.substring(1, 2).equals("2")) _board[row][i].terrain = new Road(i, row, 2);
-        if(s.substring(1, 2).equals("3")) _board[row][i].terrain = new Road(i, row, 3);
-      }
-      else if(s.equals("p ")){
+      if (s.substring(0, 1).equals("r")) {
+        if (s.substring(1, 2).equals("h")) _board[row][i].terrain = new Road(i, row, 4);
+        if (s.substring(1, 2).equals("v")) _board[row][i].terrain = new Road(i, row, 5);
+        if (s.substring(1, 2).equals("c")) _board[row][i].terrain = new Road(i, row, 6);
+        if (s.substring(1, 2).equals("0")) _board[row][i].terrain = new Road(i, row, 0);
+        if (s.substring(1, 2).equals("1")) _board[row][i].terrain = new Road(i, row, 1);
+        if (s.substring(1, 2).equals("2")) _board[row][i].terrain = new Road(i, row, 2);
+        if (s.substring(1, 2).equals("3")) _board[row][i].terrain = new Road(i, row, 3);
+      } else if (s.equals("p ")) {
         _board[row][i].terrain = new Plains(i, row);
-      }
-      else if(s.equals("f ")){
+      } else if (s.equals("f ")) {
         _board[row][i].terrain = new Forest(i, row);
-      }
-      else if(s.equals("m ")){
+      } else if (s.equals("m ")) {
         _board[row][i].terrain = new Mountains(i, row);
-      }
-      else if(s.equals("o ")){
+      } else if (s.equals("o ")) {
         _board[row][i].terrain = new Ocean(i, row);
-      }
-      else if(s.substring(0, 1).equals("h")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new HQ(i, row, 0);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new HQ(i, row, 1);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new HQ(i, row, 2);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new HQ(i, row, 3);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new HQ(i, row, 4);
-      }
-      else if(s.substring(0, 1).equals("c")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new City(i, row, 0);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new City(i, row, 1);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new City(i, row, 2);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new City(i, row, 3);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new City(i, row, 4);
-      }
-      else if(s.substring(0, 1).equals("b")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new Base(i, row, 0);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new Base(i, row, 1);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new Base(i, row, 2);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new Base(i, row, 3);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new Base(i, row, 4);
-      }
-      else if(s.substring(0, 1).equals("a")){
-        if(s.substring(1, 2).equals("r")) _board[row][i].terrain = new Airport(i, row, 0);
-        if(s.substring(1, 2).equals("b")) _board[row][i].terrain = new Airport(i, row, 1);
-        if(s.substring(1, 2).equals("g")) _board[row][i].terrain = new Airport(i, row, 2);
-        if(s.substring(1, 2).equals("y")) _board[row][i].terrain = new Airport(i, row, 3);
-        if(s.substring(1, 2).equals("n")) _board[row][i].terrain = new Airport(i, row, 4);
-      }
-      else{
+      } else if (s.substring(0, 1).equals("h")) {
+        if (s.substring(1, 2).equals("r")) _board[row][i].terrain = new HQ(i, row, 0);
+        if (s.substring(1, 2).equals("b")) _board[row][i].terrain = new HQ(i, row, 1);
+        if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new HQ(i, row, 2);
+        if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new HQ(i, row, 3);
+        if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new HQ(i, row, 4);
+      } else if (s.substring(0, 1).equals("c")) {
+        if (s.substring(1, 2).equals("r")) _board[row][i].terrain = new City(i, row, 0);
+        if (s.substring(1, 2).equals("b")) _board[row][i].terrain = new City(i, row, 1);
+        if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new City(i, row, 2);
+        if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new City(i, row, 3);
+        if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new City(i, row, 4);
+      } else if (s.substring(0, 1).equals("b")) {
+        if (s.substring(1, 2).equals("r")) _board[row][i].terrain = new Base(i, row, 0);
+        if (s.substring(1, 2).equals("b")) _board[row][i].terrain = new Base(i, row, 1);
+        if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new Base(i, row, 2);
+        if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new Base(i, row, 3);
+        if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new Base(i, row, 4);
+      } else if (s.substring(0, 1).equals("a")) {
+        if (s.substring(1, 2).equals("r")) _board[row][i].terrain = new Airport(i, row, 0);
+        if (s.substring(1, 2).equals("b")) _board[row][i].terrain = new Airport(i, row, 1);
+        if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new Airport(i, row, 2);
+        if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new Airport(i, row, 3);
+        if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new Airport(i, row, 4);
+      } else {
         int x = i;
         System.out.println("Typo: " + row + " " + x);
       }
     }
   }
-  
 }
