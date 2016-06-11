@@ -6,6 +6,7 @@ class MedTank extends Ground{
     attack = 13;
     movement = 5;
     img = loadImage(0 + "med.png");
+    mvType = "tread";
   }
 
   MedTank(int newx, int newy, int PNum){
@@ -15,6 +16,7 @@ class MedTank extends Ground{
     attack = 13;
     movement = 5;
     img = loadImage(PNum + "med.png");
+    mvType = "tread";
   }
   
   void draw(){

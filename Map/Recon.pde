@@ -6,6 +6,7 @@ class Recon extends Ground{
     attack = 4;
     movement = 8;
     img = loadImage(0 + "rec.png");
+    mvType = "wheel";
   }
 
   Recon(int newx, int newy, int PNum){
@@ -15,6 +16,7 @@ class Recon extends Ground{
     attack = 4;
     movement = 8;
     img = loadImage(PNum + "rec.png");
+    mvType = "wheel";
   }
   
   void draw(){

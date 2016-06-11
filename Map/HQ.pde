@@ -4,6 +4,7 @@ class HQ extends Terrain{
     footHindrance = 1;
     wheelHindrance = 1;
     treadHindrance = 1;
+    airHindrance = 1;
     defense = 4;
     img = loadImage("45hea.png");
   }

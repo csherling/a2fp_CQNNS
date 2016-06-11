@@ -6,6 +6,7 @@ class AA extends Ground{
     attack = 5;
     movement = 6;
     img = loadImage(0 + "ant.png");
+    mvType = "tread";
   }
 
   AA(int newx, int newy, int PNum){
@@ -15,6 +16,7 @@ class AA extends Ground{
     attack = 5;
     movement = 6;
     img = loadImage(PNum + "ant.png");
+    mvType = "tread";
   }
   
   void draw(){

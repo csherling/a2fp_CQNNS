@@ -6,6 +6,7 @@ class Mech extends Ground{
     attack = 4;
     movement = 2;
     img = loadImage(0 + "mec.png");
+    mvType = "foot";
   }
 
   Mech(int newx, int newy, int PNum){
@@ -15,6 +16,7 @@ class Mech extends Ground{
     attack = 4;
     movement = 2;
     img = loadImage(PNum + "mec.png");
+    mvType = "foot";
   }
   
   void draw(){
