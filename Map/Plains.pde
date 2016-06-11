@@ -9,7 +9,7 @@ class Plains extends Terrain{
   }
   
   Plains(int newx, int newy){
-    super(newx, newy, 1, 2, 1, 1);
+    super(newx, newy, 1, 2, 1, 1, 4);
     img = loadImage("plain.png");
   }
   

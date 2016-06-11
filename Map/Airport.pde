@@ -1,4 +1,4 @@
-class Airport extends Terrain{
+class Airport extends Building{
   Airport(){
     super();
     footHindrance = 1;
@@ -6,10 +6,12 @@ class Airport extends Terrain{
     treadHindrance = 1;
     defense = 3;
     img = loadImage("45air.png");
+    air = true;
   }
   
   Airport(int newx, int newy, int type){
-    super(newx, newy, 1, 1, 1, 3);
+    super(newx, newy, 3, type);
     img = loadImage(type + "5air.png");
+    air = true;
   }
 }

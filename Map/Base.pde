@@ -1,4 +1,4 @@
-class Base extends Terrain{
+class Base extends Building{
   Base(){
     super();
     footHindrance = 1;
@@ -6,10 +6,12 @@ class Base extends Terrain{
     treadHindrance = 1;
     defense = 3;
     img = loadImage("45bas.png");
+    ground = true;
   }
   
   Base(int newx, int newy, int type){
-    super(newx, newy, 1, 1, 1, 3);
+    super(newx, newy, 3, type);
     img = loadImage(type + "5bas.png");
+    ground = true;
   }
 }
