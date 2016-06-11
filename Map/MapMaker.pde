@@ -15,6 +15,12 @@ class MapMaker{
     else if(map == 3){
       fistPeninsula();
     }
+    else if(map == 4){
+      littleIsland();
+    }
+    else if(map == 5){
+      sabreRange();
+    }
   }
   
   void beanIsland(){
@@ -111,6 +117,46 @@ class MapMaker{
     tGen("o o o o o m f f f cbp f m m o o ", 12, 16);
     tGen("o o o o o o f o o f m m m m o o ", 13, 16);
     tGen("o o o o o o o o o o m m m m m o ", 14, 16);
+  }
+
+  void littleIsland(){
+    _board = new Space[10][19];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("o o o o o o o o o o o o o o o o o o o ", 0, 19);
+    tGen("o o o o o o o o o o o o p f p bbp f o ", 1, 19);
+    tGen("o o o o o o o o cnr0rhrhrhrhrhrhhbp o ", 2, 19);
+    tGen("o o o o o o o m p rvp f p cncnp p bbo ", 3, 19);
+    tGen("o o o o o f p f f rvcnp p f p f p o o ", 4, 19);
+    tGen("o o f p p p f p cnrvf f f p o o o o o ", 5, 19);
+    tGen("o brp p cncnf f p rvp m o o o o o o o ", 6, 19);
+    tGen("o p hrrhrhrhrhrhrhr2cno o o o o o o o ", 7, 19);
+    tGen("o f p brp f p o o o o o o o o o o o o ", 8, 19);
+    tGen("o o o o o o o o o o o o o o o o o o o ", 9, 19);
+  }
+
+  void sabreRange(){
+    int len = 15;
+    _board = new Space[11][len];
+    for(int r = 0; r< _board.length; r++){
+         for(int c = 0; c < _board[r].length; c++){
+           _board[r][c] = new Space();
+         }
+     }
+    tGen("m m m m f p p p p p p p p bbp ", 0, len);
+    tGen("m m m f p r0rhrhrhrhrhrhbbhbbb", 1, len);
+    tGen("m m f p p rvf m cnp p p p bbp ", 2, len);
+    tGen("m f p p m rvf m m m m m m rvf ", 3, len);
+    tGen("f p p m f rvf m f r0rhrhrhr2f ", 4, len);
+    tGen("f p m f cnrcrhrhrhrccnf m p f ", 5, len);
+    tGen("f r0rhrhrhr2f m f rvf m p p f ", 6, len);
+    tGen("f rvm m m m m m f rvm p p f m ", 7, len);
+    tGen("p brp p p p cnm f rvp p f m m ", 8, len);
+    tGen("brhrbrrhrhrhrhrhrhr2p f m m m ", 9, len);
+    tGen("p brp p p p p p p p f m m m m ", 10, len);
   }
 
 /*

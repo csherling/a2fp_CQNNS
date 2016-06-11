@@ -1,7 +1,7 @@
 class Mountains extends Terrain{
   Mountains(){
     super();
-    footHindrance = 1;
+    footHindrance = 2;
     wheelHindrance = 10;
     treadHindrance = 10;
     defense = 3;
