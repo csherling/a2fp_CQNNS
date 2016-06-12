@@ -17,10 +17,6 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.addUnit(new Infantry(7, 13, 0));  
-  curr.addUnit(new Tank(0, 22, 0));
-  curr.addUnit(new Infantry(4, 13, 0));  
-  curr.addUnit(new TCopter(4, 15, 0));  
 
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
@@ -31,10 +27,6 @@ void setup(){
 
   
   curr = players.get(1);
-  curr.addUnit(new Infantry(10, 14, 1));  
-  curr.addUnit(new Tank(12, 7, 1));
-  curr.addUnit(new Infantry(14, 14, 1));  
-  curr.addUnit(new Infantry(7, 5, 1));  
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -333,7 +325,7 @@ void keyPressed(){
   
   if(curr.selected != null){
     if(curr.selected.attacked == false){
-        if(key == 'm') {
+        if(key == 'm' && ! _board.attacking) {
           if (curr.selected.moved == false) {
             if (! _board.moving) {
              //System.out.println("up");
@@ -354,35 +346,61 @@ void keyPressed(){
             System.out.println("Already moved.");  
           }
         }
-    
-      else if (key == 'w' || key == 'W') {
-          if (curr.selected.y != 0 && _board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG != null) {
-          //Player opponent = players.get(_board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG.pNum);
-            curr.selected.attack(_board, _board._board[ (curr.selected.y - 16)/16][curr.selected.x/16]._unitG);
+        
+        if(key == 'a' && ! _board.moving) {
+          if (! _board.attacking) {
+            if (curr.selected.y != 0) {
+               _board._board[curr.selected.y/16 - 1][curr.selected.x/16].movement = -1; 
+            }
+            if (curr.selected.y != (_board._board[0].length - 1) * 16 ) {
+               _board._board[curr.selected.y/16 + 1][curr.selected.x/16].movement = -1; 
+            }
+            if (curr.selected.x != 0) {
+               _board._board[curr.selected.y/16][curr.selected.x/16 - 1].movement = -1; 
+            }
+            if (curr.selected.x != (_board._board[0].length - 1) * 16 ) {
+               _board._board[curr.selected.y/16][curr.selected.x/16 + 1].movement = -1; 
+            }
+            _board.attacking = true;
           }
-          else System.out.println("No unit to attack.");
-      }
-      else if (key == 'a' || key == 'A') {
-        if (curr.selected.x != 0 && _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG != null) {
-          //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG.pNum);
-          curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG);
+          else {
+            _board.attacking = false;
+            for(int r = 0; r< _board._board.length; r++){
+               for(int c = 0; c < _board._board[r].length; c++){
+                 _board._board[r][c].movement = 0;
+               }
+            }
+          }
         }
-        else System.out.println("No unit to attack.");
-      }
-      else if (key == 's' || key == 'S') {
-        if (curr.selected.y != (_board._board.length - 1) * 16 && _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG != null) {
-          //Player opponent = players.get(_board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG.pNum);
-          curr.selected.attack(_board, _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG);
-        }
-        else System.out.println("No unit to attack.");
-      }  
-      else if (key == 'd' || key == 'D') {
-        if (curr.selected.x != (_board._board[0].length - 1) * 16 && _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG != null) {
-          //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG.pNum);
-          curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG);
-        }
-        else System.out.println("No unit to attack.");
-      }
+    
+      //else if (key == 'w' || key == 'W') {
+      //    if (curr.selected.y != 0 && _board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG != null) {
+      //    //Player opponent = players.get(_board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG.pNum);
+      //      curr.selected.attack(_board, _board._board[ (curr.selected.y - 16)/16][curr.selected.x/16]._unitG);
+      //    }
+      //    else System.out.println("No unit to attack.");
+      //}
+      //else if (key == 'a' || key == 'A') {
+      //  if (curr.selected.x != 0 && _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG != null) {
+      //    //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG.pNum);
+      //    curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG);
+      //  }
+      //  else System.out.println("No unit to attack.");
+      //}
+      //else if (key == 's' || key == 'S') {
+      //  if (curr.selected.y != (_board._board.length - 1) * 16 && _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG != null) {
+      //    //Player opponent = players.get(_board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG.pNum);
+      //    curr.selected.attack(_board, _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG);
+      //  }
+      //  else System.out.println("No unit to attack.");
+      //}  
+      //else if (key == 'd' || key == 'D') {
+      //  if (curr.selected.x != (_board._board[0].length - 1) * 16 && _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG != null) {
+      //    //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG.pNum);
+      //    curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG);
+      //  }
+      //  else System.out.println("No unit to attack.");
+      //}
    }
       
   

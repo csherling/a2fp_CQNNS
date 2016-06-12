@@ -5,7 +5,9 @@ class Board{
    int i = 0;
    boolean flash = true; 
    boolean moving = false;
+   boolean attacking = false;
    PImage redX = loadImage("red.png");
+   PImage notredX = loadImage("notred.png");
    int mapnum;
    float day;
    
@@ -44,6 +46,11 @@ class Board{
                  if (_board[r][c].movement > 0) {
                      image(redX, c*16, r*16);
                  }
+             }
+             if (attacking) {
+               if (_board[r][c].movement < 0) {
+                  image(notredX, c*16, r*16); 
+               }
              }
              if (_board[r][c].terrain.building && _board[r][c]._unitG == null) {
                _board[r][c].terrain.refreshB();  
