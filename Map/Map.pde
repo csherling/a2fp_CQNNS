@@ -92,51 +92,51 @@ void mouseClicked(){
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=49 && mouseY <=67 && curr.money >= 3000){
           System.out.println("mech");
-           Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
+           Mech m = new Mech(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(m);
+          _board.addUnit(m,m.x/16,m.y/16);
           curr.money -=3000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=74 && mouseY <=92 && curr.money >= 4000){
           System.out.println("recon");
-                     Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
+          Recon r = new Recon(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(r);
+          _board.addUnit(r,r.x/16,r.y/16);
           curr.money -=4000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=99 && mouseY <=117 && curr.money >= 5000){
-         System.out.println("apcs");
-                    Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
-         curr.money -=5000;
+         //System.out.println("apcs");
+         //Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+         //curr.addUnit(i);
+         //_board.addUnit(i,i.x/16,i.y/16);
+         //curr.money -=5000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=124 && mouseY <=142 && curr.money >= 6000){
-         System.out.println("artillery");
-                    Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
-         curr.money -=6000;
+         //System.out.println("artillery");
+         // Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+         // curr.addUnit(i);
+         // _board.addUnit(i,i.x/16,i.y/16);
+         //curr.money -=6000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=149 && mouseY <=167 && curr.money >= 7000){
           System.out.println("tank");
-                     Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
+          Tank t = new Tank(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(t);
+          _board.addUnit(t,t.x/16,t.y/16);
           curr.money -=7000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=174 && mouseY <=192 ){
          System.out.println("aa");
-                    Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
+          AA a = new AA(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(a);
+          _board.addUnit(a,a.x/16,a.y/16);
          curr.money -=8000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=199 && mouseY <=217 && curr.money >= 16000){
           System.out.println("medtank");
-                     Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-          curr.addUnit(i);
-          _board.addUnit(i,i.x/16,i.y/16);
+          MedTank m = new MedTank(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(m);
+          _board.addUnit(m,m.x/16,m.y/16);
           curr.money -=16000;
         }
       }
