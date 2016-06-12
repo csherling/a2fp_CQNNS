@@ -18,8 +18,8 @@ class APC extends Ground{
     canTransport = true;
   }
   
-  void draw(){
-     image(img, x, y);
-  }
+  //void draw(){
+  //   image(img, x, y);
+  //}
   
 }

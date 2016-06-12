@@ -18,8 +18,8 @@ class AA extends Ground{
 
   }
   
-  void draw(){
-     image(img, x, y);
-  }
+  //void draw(){
+  //   image(img, x, y);
+  //}
   
 }

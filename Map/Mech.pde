@@ -15,12 +15,12 @@ class Mech extends Ground{
     movement = 2;
     img = loadImage(PNum + "mec.png");
     mvType = "foot";
-    uType = "true";
+    uType = "troop";
     canGround = canCopter = true;
   }
   
-  void draw(){
-     image(img, x, y);
-  }
+  //void draw(){
+  //   image(img, x, y);
+  //}
   
 }
