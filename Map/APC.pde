@@ -14,6 +14,7 @@ class APC extends Ground{
     movement = 6;
     img = loadImage(PNum + "apc.png");
     mvType = "tread";
+    uType = "vehicle";
     canTransport = true;
   }
   

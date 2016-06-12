@@ -195,8 +195,15 @@ abstract class Unit{
       }
     }
     else {
-      if (space._unitG.pNum == pNum && (space.movement > moves || space.movement == 0)) {
-        space.movement = 0;
+      if (space._unitG.pNum == pNum){
+        if(space._unitG.canTransport && space._unitG.transported == null && uType.equals("troop")){
+          if (space.movement > moves || space.movement == 0) {
+            space.movement = moves;
+          }
+        } 
+        if(space.movement > moves || space.movement == 0) {
+          space.movement = 0;
+        }
       }
     }
   }

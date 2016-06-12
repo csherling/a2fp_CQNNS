@@ -17,9 +17,11 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.addUnit(new Infantry(7, 5, 0));  
+  curr.addUnit(new Infantry(7, 13, 0));  
   curr.addUnit(new Tank(0, 22, 0));
   curr.addUnit(new Infantry(4, 13, 0));  
+  curr.addUnit(new TCopter(4, 15, 0));  
+
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -225,9 +227,19 @@ void keyPressed(){
       }
       else {
         if(_board.moving == true && _board._board[_board.ycor/16][_board.xcor/16].movement > 0){
-          _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
-          _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected;
-          curr.selected.moving(_board,_board.xcor,_board.ycor);
+          if(_board._board[_board.ycor/16][_board.xcor/16]._unitG != null){
+            _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
+            _board._board[_board.ycor/16][_board.xcor/16]._unitG.transported = curr.selected;
+            curr.selected = null;
+            highlighted = false;
+            System.out.println("Deselected.");
+            _board.moving = false;
+        }
+          else{
+            _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
+            _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected;
+            curr.selected.moving(_board,_board.xcor,_board.ycor);
+          }
         }
         else{
             curr.selected = null;
@@ -240,6 +252,21 @@ void keyPressed(){
                 _board._board[r][c].movement = 0;
               }
             }
+        }
+      }
+    }
+    else if(key == 'u' || key == 'U'){
+      if(curr.selected != null){
+        if(curr.selected.canTransport && curr.selected.transported != null){
+          if((Math.abs(_board.xcor - curr.selected.x) == 16 && _board.ycor == curr.selected.y) || (Math.abs(_board.ycor - curr.selected.y) == 16 && _board.xcor == curr.selected.x)){
+            if(_board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance < 10 && _board._board[_board.ycor/16][_board.xcor/16]._unitG == null){
+              curr.selected.transported.x = _board.xcor;
+              curr.selected.transported.y = _board.ycor;
+              curr.selected.moved = true;
+              _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected.transported;
+              curr.selected.transported = null;
+            }
+          }
         }
       }
     }
