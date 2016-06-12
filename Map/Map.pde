@@ -17,8 +17,8 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.addUnit(new Infantry(4, 12, 0));  
-  curr.addUnit(new Tank(7, 10, 0));
+  curr.addUnit(new Infantry(7, 5, 0));  
+  curr.addUnit(new Tank(0, 22, 0));
   curr.addUnit(new Infantry(4, 13, 0));  
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
@@ -204,6 +204,12 @@ void keyPressed(){
             curr.selectedBuilding = null;
             highlighted = false;
             System.out.println("Deselected.");
+            _board.moving = false;
+            for(int r = 0; r< _board._board.length; r++){
+              for(int c = 0; c < _board._board[r].length; c++){
+                _board._board[r][c].movement = 0;
+              }
+            }
         }
       }
     }
@@ -214,7 +220,6 @@ void keyPressed(){
        else{
          playanum++;
        }
-        curr.selectedBuilding = null; 
        curr.selected = null;
        highlighted = false;
        System.out.println("Deselected.");
