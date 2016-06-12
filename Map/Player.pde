@@ -7,6 +7,7 @@ class Player{
   Unit selected;
   Terrain selectedBuilding;
   int selectedNum;
+  int money;
   
   Player(int newNum){
     pnum = newNum;
@@ -19,6 +20,11 @@ class Player{
     selectedNum = 0;
     buildings = new CLL<Terrain>();
     selectedBuilding = null;
+    money = 0;
+  }
+  
+  void addMoney(){
+    money += buildings.size()*1000;
   }
   
   void addUnit(Unit u){
