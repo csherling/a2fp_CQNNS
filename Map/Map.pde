@@ -18,7 +18,6 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-  curr.addUnit(new Tank(13,12,0));
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -30,7 +29,6 @@ void setup(){
   curr = players.get(1);
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
-  curr.addUnit(new Tank(13,13,1));
   for(int i = 0; i < curr.units.size(); i++){
     _board.addUnit(curr.units.get(i), curr.units.get(i).x/16, curr.units.get(i).y/16);
   }
