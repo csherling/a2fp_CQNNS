@@ -33,6 +33,10 @@ class MapMaker {
     else if (map == 9) {
       direRange();
     }
+    else if (map == 10) {
+      swanCave();
+    }
+
   }
 
   void beanIsland() {
@@ -294,6 +298,33 @@ class MapMaker {
     tGen("f f f m m m m m m m m m m m m m m m f f f f m m m m m m m m m m m f p f f ", 24, len);
   }
 
+  void swanCave(){
+     int len = 24;
+     _board = new Space[11][len];
+     for(int r = 0; r< _board.length; r++){
+     for(int c = 0; c < _board[r].length; c++){
+     _board[r][c] = new Space();
+     }
+     }
+     tGen("o o p p p p f f f f f f f f f f p p p p p o o o ", 0, len);
+     tGen("o p hrp f f f cncnf f f p f p f cncnf f p p o o ", 1, len);
+     tGen("p p p p p p f f p f f cncnf f f p f f f p p p o ", 2, len);
+     tGen("p brbrbrp cncnp f p f p f f p f f f p cncnp p o ", 3, len);
+     tGen("p p brp p o o p p p p p p p p p f f f f p f p o ", 4, len);
+     tGen("p p sro o o o o o o o o o o o o p p snp p bno o ", 5, len);
+     tGen("o o o o o o o o o p p p p o o o o o o o o rvo o ", 6, len);
+     tGen("o o o o o o o o o sncnf cnp o o o o o o o rvo o ", 7, len);
+     tGen("o o o o o o o o o o cnbncnsno o o o o o o p o o ", 8, len);
+     tGen("o o o o o o o o o o o o o o o o o o o o f f f o ", 9, len);
+     tGen("o o o o o o o o o o o o o o o o o o o o p cbf o ", 10, len);
+     tGen("o o o o o o o o o o o o o o o o p p snp p f p o ", 11, len);
+     tGen("p p sbp o o o o p p p p o o p p f p p cbcbp f o ", 12, len);
+     tGen("p bbbbbbp p o o p f f f p p f f f f f p p p o o ", 13, len);
+     tGen("p p bbp p p f f f f f f f f f f cbcbp bnp o o o ", 14, len);
+     tGen("o p p hbp p f f cbcbf f f p f p p f p p o o o o ", 15, len);
+     tGen("o o o p p p f f f p f p cbcbp p p p p o o o o o ", 16, len);
+ }
+
 
   /*
   void sabreRange(){
@@ -361,6 +392,12 @@ class MapMaker {
         if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new Airport(i, row, 2);
         if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new Airport(i, row, 3);
         if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new Airport(i, row, 4);
+      } else if (s.substring(0, 1).equals("s")) {
+        if (s.substring(1, 2).equals("r")) _board[row][i].terrain = new Seaport(i, row, 0);
+        if (s.substring(1, 2).equals("b")) _board[row][i].terrain = new Seaport(i, row, 1);
+        if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new Seaport(i, row, 2);
+        if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new Seaport(i, row, 3);
+        if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new Seaport(i, row, 4);
       } else {
         int x = i;
         System.out.println("Typo: " + row + " " + x);
