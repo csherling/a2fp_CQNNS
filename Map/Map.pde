@@ -143,6 +143,36 @@ void mouseClicked(){
     }
     if(curr.selectedBuilding.air){
       System.out.println("hai");
+      if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
+        if( mouseX >= 640 && mouseX <=896 && mouseY >=24 && mouseY <=42 && curr.money >= 5000){
+          System.out.println("TCopter");
+          TCopter t = new TCopter(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(t);
+          _board.addUnit(t,t.x/16,t.y/16);
+          curr.money -= 5000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=49 && mouseY <=67 && curr.money >= 9000){
+          System.out.println("BCopter");
+          BCopter b = new BCopter(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(b);
+          _board.addUnit(b,b.x/16,b.y/16);
+          curr.money -=9000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=74 && mouseY <=92 && curr.money >= 20000){
+          System.out.println("Fighter");
+          Fighter f = new Fighter(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(f);
+          _board.addUnit(f,f.x/16,f.y/16);
+          curr.money -=20000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=99 && mouseY <=117 && curr.money >= 22000){
+         System.out.println("Bomber");
+         Bomber b = new Bomber(_board.xcor/16, _board.ycor/16, playanum);
+         curr.addUnit(b);
+         _board.addUnit(b,b.x/16,b.y/16);
+         curr.money -=22000;
+        }
+      }
     }
     else{
       return;
@@ -220,6 +250,7 @@ void keyPressed(){
        else{
          playanum++;
        }
+       curr.selectedBuilding = null; 
        curr.selected = null;
        highlighted = false;
        System.out.println("Deselected.");
@@ -360,13 +391,13 @@ void groundMenu(){
     rect(640, 0,256, 256);
     fill(50, 205, 50);
     rect(640, 24, 256, 18);
-      rect(640, 49, 256, 18);
-        rect(640, 74, 256, 18);
-          rect(640, 99, 256, 18);
-            rect(640, 124, 256, 18);
-              rect(640, 149, 256, 18);
-                rect(640, 174, 256, 18);
-                  rect(640, 199, 256, 18);
+    rect(640, 49, 256, 18);
+    rect(640, 74, 256, 18);
+    rect(640, 99, 256, 18);
+    rect(640, 124, 256, 18);
+    rect(640, 149, 256, 18);
+    rect(640, 174, 256, 18);
+    rect(640, 199, 256, 18);
     textFont(f, 20);                  
     fill(0);               
     text("Ground Units ", 642, 18);
@@ -387,10 +418,22 @@ void groundMenu(){
 
 void airMenu(){
   //if(t.ground){
-    fill(0, 255, 255);
+    fill(255, 255, 255);
     rect(640, 0,256, 256);
-    textFont(f,16);                  
+    fill(255, 0, 255);
+    rect(640, 24, 256, 18);
+    rect(640, 49, 256, 18);
+    rect(640, 74, 256, 18);
+    rect(640, 99, 256, 18);
+    textFont(f, 20);                  
     fill(0);               
-    text("Ground Units",642,18); 
+    text("Air Units",642,18); 
+        textFont(f, 16);
+    text("      $"+ curr.money, 800,18); 
+    textFont(f, 16);
+    text("T-Copter: $5,000",642, 40);
+    text("B-Copter: $9,000", 642, 65);
+    text("Fighter: $20,000", 642, 90);
+    text("Bomber: $22,000", 642, 115);
 //}
 }
