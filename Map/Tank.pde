@@ -1,7 +1,7 @@
 class Tank extends Ground{
   
   Tank(){
-    super(0, 0, 3, 10.0, 10.0, 7000);
+    super(0, 0, 7, 7, 10.0, 7000);
     c = color(0, 0, 255);
     attack = 7;
     movement = 7;
@@ -11,7 +11,7 @@ class Tank extends Ground{
   }
 
   Tank(int newx, int newy, int PNum){
-    super(newx, newy, 3, 10.0, 10.0, 7000);
+    super(newx, newy, 7, 7, 10.0, 7000);
     c = color(PNum * 80, 0, 255);
     pNum = PNum;
     attack = 5;

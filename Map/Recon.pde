@@ -1,7 +1,7 @@
 class Recon extends Ground{
 
   Recon(){
-    super(0, 0, 8, 10.0, 10.0, 4000);
+    super(0, 0, 8, 4, 10.0, 4000);
     c = color(255, 0, 0);
     attack = 4;
     movement = 8;
@@ -11,7 +11,7 @@ class Recon extends Ground{
   }
 
   Recon(int newx, int newy, int PNum){
-    super(newx, newy, 8, 10.0, 10.0, 40000);
+    super(newx, newy, 8, 4, 10.0, 40000);
     c = color(255, 0, PNum * 80);
     pNum = PNum;
     attack = 4;

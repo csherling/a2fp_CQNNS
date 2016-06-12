@@ -1,7 +1,7 @@
 class Infantry extends Ground{
 
   Infantry(){
-    super(0, 0, 3, 10.0, 10.0, 1000);
+    super(0, 0, 3, 1, 10.0, 1000);
     c = color(255, 0, 0);
     attack = 1;
     movement = 3;
@@ -11,7 +11,7 @@ class Infantry extends Ground{
   }
 
   Infantry(int newx, int newy, int PNum){
-    super(newx, newy, 3, 10.0, 10.0, 1000);
+    super(newx, newy, 3, 1, 10.0, 1000);
     c = color(255, 0, PNum * 80);
     pNum = PNum;
     attack = 1;
