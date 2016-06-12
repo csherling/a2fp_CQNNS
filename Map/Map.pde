@@ -76,30 +76,101 @@ void draw(){
       airMenu();
     }
   }
-  System.out.println(curr.money);
+
 }
 
 void mouseClicked(){
-  for(int i = 0; i< curr.units.size(); i++){
-    if((curr.units.get(i).x + 16 > mouseX && curr.units.get(i).x < mouseX) && (curr.units.get(i).y + 16 > mouseY && curr.units.get(i).y < mouseY)){ 
-      curr.selected = curr.units.get(i);
-      curr.selectedNum = i;
+  if (curr.selectedBuilding != null){
+    if(curr.selectedBuilding.ground){
+      if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
+        if( mouseX >= 640 && mouseX <=896 && mouseY >=24 && mouseY <=42 && curr.money >= 1000){
+          System.out.println("infantry");
+          Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+          curr.money -= 1000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=49 && mouseY <=67 && curr.money >= 3000){
+          System.out.println("mech");
+           Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+          curr.money -=3000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=74 && mouseY <=92 && curr.money >= 4000){
+          System.out.println("recon");
+                     Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+          curr.money -=4000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=99 && mouseY <=117 && curr.money >= 5000){
+         System.out.println("apcs");
+                    Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+         curr.money -=5000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=124 && mouseY <=142 && curr.money >= 6000){
+         System.out.println("artillery");
+                    Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+         curr.money -=6000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=149 && mouseY <=167 && curr.money >= 7000){
+          System.out.println("tank");
+                     Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+          curr.money -=7000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=174 && mouseY <=192 ){
+         System.out.println("aa");
+                    Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+         curr.money -=8000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=199 && mouseY <=217 && curr.money >= 16000){
+          System.out.println("medtank");
+                     Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(i);
+          _board.addUnit(i,i.x/16,i.y/16);
+          curr.money -=16000;
+        }
+      }
     }
+    if(curr.selectedBuilding.air){
+      System.out.println("hai");
+    }
+    else{
+      return;
+    }
+  }      
+      
+    //if((curr.units.get(i).x + 16 > mouseX && curr.units.get(i).x < mouseX) && (curr.units.get(i).y + 16 > mouseY && curr.units.get(i).y < mouseY)){ 
+    //  curr.selected = curr.units.get(i);
+    //  curr.selectedNum = i;
+    //}
   }
-}
 
 void keyPressed(){
   if (keyCode == UP){
     _board.moveSS(0,-16);
+    curr.selectedBuilding = null;    
   }
   else if (keyCode == LEFT){
     _board.moveSS(-16,0);
+       curr.selectedBuilding = null;    
   }
   else if (keyCode == DOWN){
     _board.moveSS(0,16);
+       curr.selectedBuilding = null;    
   }
   else if (keyCode == RIGHT){
     _board.moveSS(16,0);
+       curr.selectedBuilding = null;    
   }
   else if(key == 'x' || key == 'X'){
       if (highlighted == false) {
