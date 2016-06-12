@@ -5,13 +5,18 @@ class Airport extends Building{
     wheelHindrance = 1;
     treadHindrance = 1;
     defense = 3;
-    img = loadImage("45air.png");
+    img = loadImage("46air.png");
     air = true;
   }
   
   Airport(int newx, int newy, int type){
     super(newx, newy, 3, type);
-    img = loadImage(type + "5air.png");
+    img = loadImage(type + "6air.png");
     air = true;
   }
+  
+  void draw(){
+    image(img, x, y-2);
+  }
+  
 }

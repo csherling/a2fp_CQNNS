@@ -5,11 +5,16 @@ class City extends Building{
     wheelHindrance = 1;
     treadHindrance = 1;
     defense = 3;
-    img = loadImage("45cit.png");
+    img = loadImage("46cit.png");
   }
   
   City(int newx, int newy, int type){
     super(newx, newy, 3, type);
-    img = loadImage(type + "5cit.png");
+    img = loadImage(type + "6cit.png");
   }
+  
+  void draw(){
+    image(img, x, y-5);
+  }
+
 }

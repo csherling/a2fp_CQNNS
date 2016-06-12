@@ -6,11 +6,16 @@ class HQ extends Building{
     treadHindrance = 1;
     airHindrance = 1;
     defense = 4;
-    img = loadImage("45hea.png");
+    img = loadImage("46hea.png");
   }
   
   HQ(int newx, int newy, int type){
     super(newx, newy, 4, type);
-    img = loadImage(type + "5hea.png");
+    img = loadImage(type + "6hea.png");
   }
+  
+  void draw(){
+    image(img, x, y-15);
+  }
+
 }
