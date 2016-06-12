@@ -237,6 +237,12 @@ void keyPressed(){
             _board.moving = false;
         }
           else{
+            if (_board._board[_board.ycor/16][_board.xcor/16].terrain.building && _board._board[_board.ycor/16][_board.xcor/16].terrain.pNum != playanum) {
+                _board._board[_board.ycor/16][_board.xcor/16].terrain.occupied = true;
+            }
+            if (_board._board[curr.selected.y/16][curr.selected.x/16].terrain.building) {
+                _board._board[curr.selected.y/16][curr.selected.x/16].terrain.refreshB();
+            }
             _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
             _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected;
             curr.selected.moving(_board,_board.xcor,_board.ycor);
@@ -279,10 +285,12 @@ void keyPressed(){
        else{
          playanum++;
        }
-       curr.selectedBuilding = null; 
-       curr.selected = null;
-       highlighted = false;
-       System.out.println("Deselected.");
+       if (highlighted) {
+         curr.selectedBuilding = null; 
+         curr.selected = null;
+         highlighted = false;
+         System.out.println("Deselected."); 
+       }
      
        _board.moving = false;
      for(int r = 0; r< _board._board.length; r++){
@@ -298,8 +306,9 @@ void keyPressed(){
      for(int i = 0; i < curr.units.size(); i++){
        curr.units.get(i).attacked = false;
      }
-     System.out.println("Player#: " + playanum); //EDITED
      System.out.println("Day: " + _board.getDay());
+     System.out.println("Current Player: Player #" + playanum); //EDITED
+     System.out.println("PLayer holds " + curr.numB + " buildings.\n");
      _board.day += 1.0 / players.size();
      if (_board.day % 1.0 == 0.0) {
        for(int r = 0; r< _board._board.length; r++){
@@ -311,8 +320,8 @@ void keyPressed(){
                if (oldpNum < players.size()) { //if captured check if terrain belonged to a player
                  players.get(oldpNum).numB--;  //old player gets less money
                }
+               players.get(terr.pNum).numB++;//new player gets more money
              }
-             players.get(terr.pNum).numB++; //new player gets more money
            }
          }
        }

@@ -45,6 +45,9 @@ class Board{
                      image(redX, c*16, r*16);
                  }
              }
+             if (_board[r][c].terrain.building && _board[r][c]._unitG == null) {
+               _board[r][c].terrain.refreshB();  
+             }
            }
        }
         if (flash) {
