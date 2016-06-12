@@ -2,18 +2,10 @@ class Ground extends Unit{
   
   Ground(){
    super(); 
-   uType = "ground";
   }
   
-  Ground(int newx, int newy, int newMovement, float newAttack, float newDefense, int newCost){
-    super(newx, newy, newMovement, newAttack, newDefense, newCost);
-    uType = "ground";
+  Ground(int newx, int newy, int newMovement, float ta, float va, float aa, int newCost){
+    super(newx, newy, newMovement, ta,va, aa, newCost);
   }
-  
-  
-  void draw(){
-     fill(c);
-     rect(x, y, edge, edge); 
-  }
-  
+    
 }

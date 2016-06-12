@@ -1,30 +1,26 @@
 class Recon extends Ground{
 
   Recon(){
-    super(0, 0, 8, 4, 10.0, 4000);
-    c = color(255, 0, 0);
-    attack = 4;
+    super(0, 0, 8, 7, 3, 2, 4000);
     movement = 8;
     img = loadImage(0 + "rec.png");
     mvType = "wheel";
+    uType = "vehicle";
     canGround = canCopter = true;
   }
 
   Recon(int newx, int newy, int PNum){
-    super(newx, newy, 8, 4, 10.0, 40000);
-    c = color(255, 0, PNum * 80);
+    super(newx, newy, 8, 7, 3, 2, 40000);
     pNum = PNum;
-    attack = 4;
     movement = 8;
     img = loadImage(PNum + "rec.png");
     mvType = "wheel";
+    uType = "vehicle";
     canGround = canCopter = true;
   }
   
   void draw(){
-     fill(c);
      image(img, x, y);
-     //rect(x, y, edge, edge); 
   }
   
 }

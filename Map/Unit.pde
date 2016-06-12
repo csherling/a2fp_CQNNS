@@ -4,60 +4,56 @@ abstract class Unit{
   int x;
   int y;
   int edge;
-  color c;
   float health;
   int movement;
-  float attack;
-  float defense;
   boolean moved;
   boolean attacked;
   boolean captured;
   boolean dead;
+  boolean canAttack;
   PImage img;
   String mvType;
   String uType;
   boolean canGround, canCopter, canPlane;
   int cost;
-  
+  float troopA, vehA, airA;
   
   Unit(){
     x = ((int)random(width - 2*16))/16 * 16 + 16;
     y = ((int)random(width - 2*16))/16 * 16 + 16;
-    c = color(100, 100, 255);
     edge = 16;
     health = 100;
     movement = 1;
-    attack = 10;
-    defense = 10;
+    troopA = vehA = airA = 1;
     moved = true;
     dead = false;
     attacked = true;
     captured = true;
     cost = 1000;
     canGround = canCopter = canPlane = false;
+    canAttack = true;
   }
   
-  Unit(int newx, int newy, int newMovement, float newAttack, float newDefense, int newCost){
+  Unit(int newx, int newy, int newMovement, float ta, float va, float aa, int newCost){
     x = newx * 16;
     y = newy * 16;
-    c = color(100, 100, 255);
     edge = 16;
     health = 100;
     movement = newMovement;
-    attack = newAttack;
-    defense = newDefense;
     moved = true;
     dead = false;
     attacked = true;
     captured = true;
     cost = newCost;
     canGround = canCopter = canPlane = false;
-  }
+    troopA = ta;
+    vehA = va;
+    airA = aa;
+    canAttack = true;
+}
   
   void draw(){
-     fill(c);
      image(img, x, y);
-     rect(x, y, edge, edge); 
   }
  
   void reset(){
@@ -81,22 +77,51 @@ abstract class Unit{
   }
   
   void attack(Board B, Unit target) {
-    if(attacked == false){
+    if(attacked == false && canAttack){
       if (pNum == target.pNum) {
         System.out.println("Cannot attack own units");
       }
       else {
         //target.defend( (attack * 100/100 + Math.random(10)) * (health/10) * ( (200 - (100 +_board[target.x/10][target.y/10].terrain.DTR * target.health) )/100 ) )
         //double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (200.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 );
-        double dmg = (attack * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;
+
+        double dmg = 0;
+        if(canPlane && target.uType.equals("plane")){
+          dmg = (airA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;
+        }
+        else if(canCopter && target.uType.equals("copter")){
+          dmg = (airA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;          
+        }
+        else{
+          if(target.uType.equals("vehicle")){
+            dmg = (vehA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;
+          }
+          else if(target.uType.equals("troop")){
+            dmg = (troopA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;         
+          }
+        }
         System.out.println("Damage: " + dmg);
         target.defend(B, dmg);
         System.out.println("Target's health: " + target.health);
-        if( ! target.dead ) {
+        double edmg = 0;
+        if( ! target.dead ) {         
+          if(target.canPlane && uType.equals("plane")){
+            edmg = (target.airA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
+          }
+          else if(target.canCopter && uType.equals("copter")){
+            edmg = (target.airA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
+          }
+          else{
+            if(uType.equals("vehicle")){
+              edmg = (target.vehA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
+            }
+            else if(uType.equals("troop")){
+              edmg = (target.airA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
+            }
+          }
           //dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 );
-          dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
-          System.out.println("Damage Taken: " + dmg);
-          defend(B, dmg);
+          System.out.println("Damage Taken: " + edmg);
+          defend(B, edmg);
           System.out.println("Own health: " + health+"\n");
         }
         attacked = true;

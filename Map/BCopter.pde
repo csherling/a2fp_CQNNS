@@ -1,8 +1,7 @@
 class BCopter extends Air{
 
   BCopter(){
-    super(0, 0, 6, 7, 10.0, 8000);
-    attack = 7;
+    super(0, 0, 6, 7, 6, 6, 8000);
     movement = 6;
     img = loadImage(0 + "bco.png");
     uType = "copter";
@@ -10,9 +9,8 @@ class BCopter extends Air{
 }
 
   BCopter(int newx, int newy, int PNum){
-    super(newx, newy, 6, 7, 10.0, 8000);
+    super(newx, newy, 6, 7, 6, 6, 8000);
     pNum = PNum;
-    attack = 7;
     movement = 6;
     img = loadImage(PNum + "bco.png");
     uType = "copter";

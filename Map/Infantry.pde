@@ -1,30 +1,26 @@
 class Infantry extends Ground{
 
   Infantry(){
-    super(0, 0, 3, 1, 10.0, 1000);
-    c = color(255, 0, 0);
-    attack = 1;
+    super(0, 0, 3, 5, 2, 2, 1000);
     movement = 3;
     img = loadImage(0 + "inf.png");
     mvType = "foot";
+    uType = "troop";
     canGround = canCopter = true;
   }
 
   Infantry(int newx, int newy, int PNum){
-    super(newx, newy, 3, 1, 10.0, 1000);
-    c = color(255, 0, PNum * 80);
+    super(newx, newy, 3, 5, 2, 2, 1000);
     pNum = PNum;
-    attack = 1;
     movement = 3;
     img = loadImage(PNum + "inf.png");
     mvType = "foot";
+    uType = "troop";
     canGround = canCopter = true;
   }
   
   void draw(){
-     fill(c);
      image(img, x, y);
-     //rect(x, y, edge, edge); 
   }
   
 }

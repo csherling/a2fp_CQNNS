@@ -5,15 +5,9 @@ class Air extends Unit{
    mvType = "air";
   }
   
-  Air(int newx, int newy, int newMovement, float newAttack, float newDefense, int newCost){
-    super(newx, newy, newMovement, newAttack, newDefense, newCost);
+  Air(int newx, int newy, int newMovement, float ta, float va, float aa, int newCost){
+    super(newx, newy, newMovement, ta, va, aa, newCost);
     mvType = "air";
   }
-  
-  
-  void draw(){
-     fill(c);
-     rect(x, y, edge, edge); 
-  }
-  
+    
 }
