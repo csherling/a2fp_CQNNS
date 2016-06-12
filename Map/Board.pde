@@ -7,6 +7,7 @@ class Board{
    boolean moving = false;
    PImage redX = loadImage("red.png");
    int mapnum;
+   float day;
    
    Board(int rsize, int csize){
      //_board = new Space[rsize][csize];
@@ -16,6 +17,7 @@ class Board{
      //      }
      //  }
      MapMaker map = new MapMaker(9);
+     day = 1.0;
      _board = map._board;
        //for(int r = 0; r< _board.length; r++){
        //    for(int c = 0; c < _board[r].length; c++){
@@ -93,6 +95,9 @@ class Board{
       System.out.println("Out of Bounds");
     }
   }
-
+  
+  double getDay() {
+    return Math.floor(day);  
+  }
   
 }
