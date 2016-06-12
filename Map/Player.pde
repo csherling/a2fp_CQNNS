@@ -3,7 +3,9 @@ class Player{
   int pnum;
   color pcolor;
   CLL<Unit> units;
+  CLL<Terrain> buildings;
   Unit selected;
+  Terrain selectedBuilding;
   int selectedNum;
   
   Player(int newNum){
@@ -15,10 +17,15 @@ class Player{
     units = new CLL<Unit>();
     selected = null;
     selectedNum = 0;
+    selectedBuilding = null;
   }
   
   void addUnit(Unit u){
     units.add(u); 
+  }
+  
+  void addBuilding(Terrain t){
+    buildings.add(t);
   }
   
   void setSel(int i){

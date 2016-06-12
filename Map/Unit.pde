@@ -15,6 +15,10 @@ abstract class Unit{
   boolean dead;
   PImage img;
   String mvType;
+  String uType;
+  boolean canGround, canCopter, canPlane;
+  int cost;
+  
   
   Unit(){
     x = ((int)random(width - 2*16))/16 * 16 + 16;
@@ -29,9 +33,11 @@ abstract class Unit{
     dead = false;
     attacked = true;
     captured = true;
+    cost = 1000;
+    canGround = canCopter = canPlane = false;
   }
   
-  Unit(int newx, int newy, int newMovement, float newAttack, float newDefense){
+  Unit(int newx, int newy, int newMovement, float newAttack, float newDefense, int newCost){
     x = newx * 16;
     y = newy * 16;
     c = color(100, 100, 255);
@@ -44,6 +50,8 @@ abstract class Unit{
     dead = false;
     attacked = true;
     captured = true;
+    cost = newCost;
+    canGround = canCopter = canPlane = false;
   }
   
   void draw(){

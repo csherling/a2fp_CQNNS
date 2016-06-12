@@ -9,7 +9,7 @@ boolean highlighted;
 
 void setup(){ 
   _board = new Board(30,40);
-  size(640 , 640 );
+  size(896 , 640 );
   fill(255,255,255);
   highlighted = false;
   players = new CLL<Player>();
@@ -47,6 +47,13 @@ void setup(){
   for(int i = 0; i < curr.units.size(); i++){
     curr.units.get(i).attacked = false;
   }
+  for(int r = 0; r < _board._board.length; r++){
+    for(int c = 0; c < _board._board[r].length; c++){
+      if(_board._board[r][c].building){
+        players.get(_board._board[r][c].terrain.pNum).buildings.add(_board._board[r][c].terrain); 
+      }
+    }
+  }
 }
 
 void draw(){
@@ -58,6 +65,7 @@ void draw(){
   */
   _board.draw();
   //System.out.println(sel.x + ", " + sel.y);
+  groundMenu();
 }
 
 void mouseClicked(){
@@ -226,7 +234,6 @@ void keyPressed(){
      }
    }
   }
-  
     //if(keyCode == ENTER){
   //  curr.cycle();
   //}
@@ -249,4 +256,11 @@ void keyPressed(){
   //    }
   //   }
   //  } 
+}
+
+void groundMenu(){
+  //if(t.ground){
+    fill(210, 180, 140);
+    rect(640, 0,256, 256);
+  //}
 }
