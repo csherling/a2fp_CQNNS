@@ -33,6 +33,13 @@ class MapMaker {
     else if (map == 9) {
       direRange();
     }
+    else if (map == 10) {
+      swanCave();
+    }
+    else if (map == 11) {
+      royalChannel();
+    }
+
   }
 
   void beanIsland() {
@@ -294,6 +301,72 @@ class MapMaker {
     tGen("f f f m m m m m m m m m m m m m m m f f f f m m m m m m m m m m m f p f f ", 24, len);
   }
 
+  void swanCave(){
+     int len = 24;
+     _board = new Space[17][len];
+     for(int r = 0; r< _board.length; r++){
+     for(int c = 0; c < _board[r].length; c++){
+     _board[r][c] = new Space();
+     }
+     }
+     tGen("o o p p p p f f f f f f f f f f p p p p p o o o ", 0, len);
+     tGen("o p hrp f f f cncnf f f p f p f cncnf f p p o o ", 1, len);
+     tGen("p p p p p p f f p f f cncnf f f p f f f p p p o ", 2, len);
+     tGen("p brbrbrp cncnp f p f p f f p f f f p cncnp p o ", 3, len);
+     tGen("p p brp p o o p p p p p p p p p f f f f p f p o ", 4, len);
+     tGen("p p sro o o o o o o o o o o o o p p snp p bno o ", 5, len);
+     tGen("o o o o o o o o o p p p p o o o o o o o o rvo o ", 6, len);
+     tGen("o o o o o o o o o sncnf cnp o o o o o o o rvo o ", 7, len);
+     tGen("o o o o o o o o o o cnbncnsno o o o o o o p o o ", 8, len);
+     tGen("o o o o o o o o o o o o o o o o o o o o f f f o ", 9, len);
+     tGen("o o o o o o o o o o o o o o o o o o o o p cbf o ", 10, len);
+     tGen("o o o o o o o o o o o o o o o o p p snp p f p o ", 11, len);
+     tGen("p p sbp o o o o p p p p o o p p f p p cbcbp f o ", 12, len);
+     tGen("p bbbbbbp p o o p f f f p p f f f f f p p p o o ", 13, len);
+     tGen("p p bbp p p f f f f f f f f f f cbcbp bnp o o o ", 14, len);
+     tGen("o p p hbp p f f cbcbf f f p f p p f p p o o o o ", 15, len);
+     tGen("o o o p p p f f f p f p cbcbp p p p p o o o o o ", 16, len);
+ }
+
+  void royalChannel(){
+   int len = 39;
+   _board = new Space[30][len];
+   for(int r = 0; r< _board.length; r++){
+   for(int c = 0; c < _board[r].length; c++){
+   _board[r][c] = new Space();
+   }
+   }
+   tGen("m m m p p p p p p p p p p p p p p p p p p p o o o o o o o o o o o o o o o o o ", 0, len);
+   tGen("m m p p p p p p p p p p p p p p cncnp p cnp o o o o o o o o p p o o o o o o o ", 1, len);
+   tGen("m p p p cnr0cnrhcnrhrhcnp p r0rhrhrhrhrhr1cno o o o o o o o sraro o o o o o o ", 2, len);
+   tGen("p p cncnrhrcr1p p p p rcrhcnr2p p p p p rvo o o o o o o o o o o o o o o o o o ", 3, len);
+   tGen("cnr0r2p p p rvp p p cnrvp rvp p anp cnrvo o o o o o o o o o o o o o o o o o o ", 4, len);
+   tGen("r0r2p p crf r3cncncnrhrcrhrcr1cnp r0rhr2o o o o o o o o o o o o o o o o o o o ", 5, len);
+   tGen("rvp f p f f f p p p f f f p r3rhcnr2p o o o o o o o o o o o o o o o o o o o o ", 6, len);
+   tGen("rvf f crf f f f f crp f p p f p p p p o o o o o o o o o o o o o o o o o o o o ", 7, len);
+   tGen("rvp f p f f p f f f crp crcrf p p f o o o o o o p o o o o o o o o o o o p p p ", 8, len);
+   tGen("r3cnp p p f cnp p f f f f f p p f f o o o o o o sro o o o o o o o o o p p p p ", 9, len);
+   tGen("f f f f p p p f p p f f f p p f f o o o o o o o o o o o o o o o o p o p p f p ", 10, len);
+   tGen("f f p f f p f f f crf f p p f f f o o o o o o o o o o o o o o p o p o sbabp p ", 11, len);
+   tGen("f p p p p p p f f p f p p f f f o o o o o o o o o o o o o p p f o sbrhbbrhabp ", 12, len);
+   tGen("f p f f f f p p f p p p f f f o o o o o o o o o o o o p p p p m p r3bbhbbbr2p ", 13, len);
+   tGen("f p p f f f f p p p f f f f o o o o o o o o o o o o p p p p m p p p r3bbr2p p ", 14, len);
+   tGen("f f p f f f f f p f f f f o o o o o p o o o o o o p p p p m p p p bbp rvp abp ", 15, len);
+   tGen("f f p p f f f f p f f f o o o o o o sro o o o o p p p p f p p cbcbr0rhrccbp p ", 16, len);
+   tGen("f f f p f f f p p f f o o o o o o o o o o o o p p p p p p r0rhrhrhr2p rvp f p ", 17, len);
+   tGen("f p p p p p p p f f o o o o o o o o o o o o p p p p f cbcbrvp p p p cbrvp p f ", 18, len);
+   tGen("p arrhbrrhbrr1p p p o o o o o o o o o o o p p p p f f rhrhrccbcbp m p r3r1p p ", 19, len);
+   tGen("rvp brhrbrp r3rhp o o o o o o o o o o o p p p m p f p p p rvp p m m m p rvcbp ", 20, len);
+   tGen("rvarp brrhsrp p o o o o o o o o o o o p p p m p p p p p m rvp m m m m p rvp p ", 21, len);
+   tGen("r3rcsrr2p o o o o o o o o o o o o o p p p m m p cncncnp p rvp p p m p p rvcbp ", 22, len);
+   tGen("p rho p o o o o o o o o o o o o o p p p m m p p r0rhrhrhrhrccncncnp p cnrvp p ", 23, len);
+   tGen("p p o o o o o o o o o o o o o o o p m m p p p cnrvp p p p r3rhrhrhrhanrhrccnp ", 24, len);
+   tGen("o o o o o o o o o o o o o o o o o snp p anr0rhrhr2p m p cnp p p p m p p rvp p ", 25, len);
+   tGen("o o o o o o o o o o o o o o o p p r3cnp p rvp p p m p p p p f f f m p cnrvp m ", 26, len);
+   tGen("o o o o o o o o o o o o o o o p p p rvp p rvp f p p cncnp p p p p p p p rvp m ", 27, len);
+   tGen("o o o o o o o o o o o o o o p p p cnr3cncnr3rhrhrhrhrhrhrhrhrhcncncncnrhr2p m ", 28, len);
+   tGen("o o o o o o o o o o o o o o p p p p p p p p p p p p p p p p p p p p p p p p m ", 29, len);
+ }
 
   /*
   void sabreRange(){
@@ -361,6 +434,12 @@ class MapMaker {
         if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new Airport(i, row, 2);
         if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new Airport(i, row, 3);
         if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new Airport(i, row, 4);
+      } else if (s.substring(0, 1).equals("s")) {
+        if (s.substring(1, 2).equals("r")) _board[row][i].terrain = new Seaport(i, row, 0);
+        if (s.substring(1, 2).equals("b")) _board[row][i].terrain = new Seaport(i, row, 1);
+        if (s.substring(1, 2).equals("g")) _board[row][i].terrain = new Seaport(i, row, 2);
+        if (s.substring(1, 2).equals("y")) _board[row][i].terrain = new Seaport(i, row, 3);
+        if (s.substring(1, 2).equals("n")) _board[row][i].terrain = new Seaport(i, row, 4);
       } else {
         int x = i;
         System.out.println("Typo: " + row + " " + x);
