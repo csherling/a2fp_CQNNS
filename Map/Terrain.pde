@@ -11,6 +11,8 @@ abstract class Terrain{
   int pNum;
   boolean ground;
   boolean air;
+  float health; //EDITED
+  boolean occupied; //EDITED
   
   
   Terrain(){
@@ -25,6 +27,7 @@ abstract class Terrain{
     pNum = 4;
     ground = false;
     air = false;
+    health = 20.0; //EDITED
   }
   
   Terrain(int newx, int newy, int fH, int wH, int tH, int def, int PNum){
@@ -39,7 +42,36 @@ abstract class Terrain{
     pNum = PNum;
     ground = false;
     air = false;
-
+    health = 20.0; //EDITED
+  }
+  
+  boolean capture(Board B) { //EDITED
+    Unit unit = B._board[y/16][x/16]._unitG;
+    float effect = (unit.health + 5.0) / 10;
+    if(health - effect > 0) {
+      health -= effect;
+      return false;
+    }
+    else {
+      pNum = unit.pNum;
+      occupied = false;
+      health = 20.0;
+      if (air || ground) {
+        if (air) {
+          img = loadImage(pNum + "5air.png");    
+        } 
+        else {
+          img = loadImage(pNum + "5bas.png");  
+        }
+      }
+      else if (defense == 3) {
+        img = loadImage(pNum + "5cit.png");  
+      }
+      else if (defense == 4) {
+        img = loadImage(pNum + "5hea.png");  
+      }
+    }
+    return true;
   }
   
   void draw(){

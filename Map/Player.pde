@@ -8,6 +8,7 @@ class Player{
   Terrain selectedBuilding;
   int selectedNum;
   int money;
+  int numB; //EDITED
   
   Player(int newNum){
     pnum = newNum;
@@ -21,19 +22,20 @@ class Player{
     buildings = new CLL<Terrain>();
     selectedBuilding = null;
     money = 0;
+    numB = 0; //EDITED
   }
   
   void addMoney(){
-    money += buildings.size()*1000;
+    money += numB*1000; 
   }
   
   void addUnit(Unit u){
     units.add(u); 
   }
   
-  void addBuilding(Terrain t){
-    buildings.add(t);
-  }
+  //void addBuilding(Terrain t){
+  //  buildings.add(t);
+  //}
   
   void setSel(int i){
     selected = units.get(i);

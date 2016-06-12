@@ -50,14 +50,15 @@ void setup(){
   for(int i = 0; i < curr.units.size(); i++){
     curr.units.get(i).attacked = false;
   }
-  for(int r = 0; r < _board._board.length; r++){
+  for(int r = 0; r < _board._board.length; r++){ //EDITED
     for(int c = 0; c < _board._board[r].length; c++){
       if(_board._board[r][c].terrain.building && _board._board[r][c].terrain.pNum < players.size()){
-        players.get(_board._board[r][c].terrain.pNum).buildings.add(_board._board[r][c].terrain); 
+        players.get(_board._board[r][c].terrain.pNum).numB += 1; 
       }
     }
   }
   f = createFont("Arial",16,true); // STEP 2 Create Font
+  _board.day = 1;
   curr.addMoney();
 }
 
@@ -297,7 +298,25 @@ void keyPressed(){
      for(int i = 0; i < curr.units.size(); i++){
        curr.units.get(i).attacked = false;
      }
-     System.out.println("Player#: " + playanum);
+     System.out.println("Player#: " + playanum); //EDITED
+     System.out.println("Day: " + _board.getDay());
+     _board.day += 1.0 / players.size();
+     if (_board.day % 1.0 == 0.0) {
+       for(int r = 0; r< _board._board.length; r++){
+         for(int c = 0; c < _board._board[r].length; c++){
+           if(_board._board[r][c].terrain.occupied) { //if terrain has a unit capturing it
+             Terrain terr = _board._board[r][c].terrain; //to make easier to read
+             int oldpNum = terr.pNum; //retains old pNum just in case we need it
+             if (terr.capture(_board)) { //true if captured, false if not
+               if (oldpNum < players.size()) { //if captured check if terrain belonged to a player
+                 players.get(oldpNum).numB--;  //old player gets less money
+               }
+             }
+             players.get(terr.pNum).numB++; //new player gets more money
+           }
+         }
+       }
+     }
      curr.addMoney();
    }
             
