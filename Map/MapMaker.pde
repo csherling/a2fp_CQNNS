@@ -36,7 +36,7 @@ class MapMaker {
     else if (map == 10) {
       swanCave();
     }
-    else if (map == 10) {
+    else if (map == 11) {
       royalChannel();
     }
 
@@ -303,7 +303,7 @@ class MapMaker {
 
   void swanCave(){
      int len = 24;
-     _board = new Space[11][len];
+     _board = new Space[17][len];
      for(int r = 0; r< _board.length; r++){
      for(int c = 0; c < _board[r].length; c++){
      _board[r][c] = new Space();
@@ -330,7 +330,7 @@ class MapMaker {
 
   void royalChannel(){
    int len = 39;
-   _board = new Space[11][len];
+   _board = new Space[30][len];
    for(int r = 0; r< _board.length; r++){
    for(int c = 0; c < _board[r].length; c++){
    _board[r][c] = new Space();
@@ -347,7 +347,7 @@ class MapMaker {
    tGen("rvp f p f f p f f f crp crcrf p p f o o o o o o p o o o o o o o o o o o p p p ", 8, len);
    tGen("r3cnp p p f cnp p f f f f f p p f f o o o o o o sro o o o o o o o o o p p p p ", 9, len);
    tGen("f f f f p p p f p p f f f p p f f o o o o o o o o o o o o o o o o p o p p f p ", 10, len);
-   tGen("f f p f f p f f f crf f p p f f f o o o o o o o o o o o o o o p o p o sbabp p", 11, len);
+   tGen("f f p f f p f f f crf f p p f f f o o o o o o o o o o o o o o p o p o sbabp p ", 11, len);
    tGen("f p p p p p p f f p f p p f f f o o o o o o o o o o o o o p p f o sbrhbbrhabp ", 12, len);
    tGen("f p f f f f p p f p p p f f f o o o o o o o o o o o o p p p p m p r3bbhbbbr2p ", 13, len);
    tGen("f p p f f f f p p p f f f f o o o o o o o o o o o o p p p p m p p p r3bbr2p p ", 14, len);
