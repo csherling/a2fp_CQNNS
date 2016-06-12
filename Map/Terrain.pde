@@ -14,6 +14,7 @@ abstract class Terrain{
   boolean sea;
   float health; //EDITED
   boolean occupied; //EDITED
+  boolean base = false;
   
   
   Terrain(){
@@ -76,7 +77,8 @@ abstract class Terrain{
         img = loadImage(pNum + "5cit.png");  
       }
       else if (defense == 4) {
-        img = loadImage(pNum + "5hea.png");  
+        img = loadImage(pNum + "5hea.png");
+        base = true;
       }
     }
     return true;

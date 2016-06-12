@@ -57,19 +57,29 @@ void setup(){
 }
 
 
+boolean isGameOver() {
+  return noUnits() || noBase();
+}
 
-boolean isgameover(){
-  if ((numUnits(playanum) == 0 && curr.hasbuilt) || (numUnits((playanum+1)%2) == 0 && players.get((playanum+1)%2).hasbuilt) ){
-    return true;
+boolean noBase() {
+  for(int r = 0; r < _board._board.length; r++){ //EDITED
+    for(int c = 0; c < _board._board[r].length; c++){
+      if(_board._board[r][c].terrain.base) return true;
+    }
   }
-  else{
-    return false;
+  return false;
+}
+
+boolean noUnits() {
+  for (int i = 0; i < players.size(); i++) {
+      if (numUnits(i) == 0 && players.get(i).hasbuilt) return true;
   }
+  return false;
 }
 
 int numUnits(int p){
   int ret = 0;
-  for(int r = 0; r < _board._board.length; r++){ //EDITED
+  for(int r = 0; r < _board._board.length; r++){ 
     for(int c = 0; c < _board._board[r].length; c++){
       if(_board._board[r][c]._unitG != null && _board._board[r][c]._unitG.pNum == p){
         ret++;
@@ -80,12 +90,12 @@ int numUnits(int p){
 }
 
 void draw(){
-  if( isgameover()){
-    System.out.println("GG NUBS");
+  if ( isGameOver() ) {
+    System.out.println(":)");
     fill(255,255,255);
     rect(0,0,width, height);
   }
-  else{
+  else {
     
     //System.out.println(numUnits(playanum));
     background(0);
