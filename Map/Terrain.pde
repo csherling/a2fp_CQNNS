@@ -11,6 +11,7 @@ abstract class Terrain{
   int pNum;
   boolean ground;
   boolean air;
+  boolean sea;
   float health; //EDITED
   boolean occupied; //EDITED
   
@@ -27,6 +28,7 @@ abstract class Terrain{
     pNum = 4;
     ground = false;
     air = false;
+    sea = false;
     health = 20.0; //EDITED
   }
   
@@ -42,6 +44,7 @@ abstract class Terrain{
     pNum = PNum;
     ground = false;
     air = false;
+    sea = false;
     health = 20.0; //EDITED
   }
   
