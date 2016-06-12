@@ -108,11 +108,11 @@ void mouseClicked(){
           curr.money -=4000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=99 && mouseY <=117 && curr.money >= 5000){
-         //System.out.println("apcs");
-         //Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-         //curr.addUnit(i);
-         //_board.addUnit(i,i.x/16,i.y/16);
-         //curr.money -=5000;
+         System.out.println("apcs");
+         APC a = new APC(_board.xcor/16, _board.ycor/16, playanum);
+         curr.addUnit(a);
+         _board.addUnit(a,a.x/16,a.y/16);
+         curr.money -=5000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=124 && mouseY <=142 && curr.money >= 6000){
          //System.out.println("artillery");

@@ -12,6 +12,15 @@ abstract class Unit{
   boolean dead;
   boolean canAttack;
   PImage img;
+  PImage health1;
+  PImage health2;
+  PImage health3;
+  PImage health4;
+  PImage health5;
+  PImage health6;
+  PImage health7;
+  PImage health8;
+  PImage health9;
   String mvType;
   String uType;
   boolean canGround, canCopter, canPlane;
@@ -36,6 +45,15 @@ abstract class Unit{
     canAttack = true;
     canTransport = false;
     transported = null;
+    health1 = loadImage("hp1.png");
+    health2 = loadImage("hp2.png");
+    health3 = loadImage("hp3.png");
+    health4 = loadImage("hp4.png");
+    health5 = loadImage("hp5.png");
+    health6 = loadImage("hp6.png");
+    health7 = loadImage("hp7.png");
+    health8 = loadImage("hp8.png");
+    health9 = loadImage("hp9.png");
   }
   
   Unit(int newx, int newy, int newMovement, float ta, float va, float aa, int newCost){
@@ -56,10 +74,50 @@ abstract class Unit{
     canAttack = true;
     canTransport = false;
     transported = null;
+    health1 = loadImage("hp1.png");
+    health2 = loadImage("hp2.png");
+    health3 = loadImage("hp3.png");
+    health4 = loadImage("hp4.png");
+    health5 = loadImage("hp5.png");
+    health6 = loadImage("hp6.png");
+    health7 = loadImage("hp7.png");
+    health8 = loadImage("hp8.png");
+    health9 = loadImage("hp9.png");
 }
   
   void draw(){
-     image(img, x, y);
+    image(img, x, y);
+    int i = (int)((health+5)/10);
+    if (i==1){
+       image(health1,x+8,y+8);
+    }
+    else if (i==2){
+       image(health2,x+8,y+8);
+    }
+    else if (i==3){
+       image(health3,x+8,y+8);
+    }
+    else if (i==4){
+       image(health4,x+8,y+8);
+    }
+    else if (i==5){
+       image(health5,x+8,y+8);
+    }
+    else if (i==6){
+       image(health6,x+8,y+8);
+    }
+    else if (i==7){
+       image(health7,x+8,y+8);
+    }
+    else if (i==8){
+       image(health8,x+8,y+8);
+    }
+    else if (i==9){
+       image(health9,x+8,y+8);
+    }
+    if(transported != null){
+      image(loadImage("loaded.png"),x,y+9);
+    }
   }
  
   void reset(){

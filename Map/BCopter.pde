@@ -18,8 +18,8 @@ class BCopter extends Air{
 
   }
   
-  void draw(){
-     image(img, x, y);
-  }
+  //void draw(){
+  //   image(img, x, y);
+  //}
   
 }

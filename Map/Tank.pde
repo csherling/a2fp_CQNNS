@@ -19,8 +19,8 @@ class Tank extends Ground{
     canGround = canCopter = true;
   }
   
-  void draw(){
-     image(img, x, y);
-  }
+  //void draw(){
+  //   image(img, x, y);
+  //}
   
 }
