@@ -6,6 +6,7 @@ int playanum;
 //int selNum;
 Board _board; //work out space pixel size, how many spaces, rework balance for movement
 boolean highlighted;
+PFont f;
 
 void setup(){ 
   _board = new Board(30,40);
@@ -49,11 +50,13 @@ void setup(){
   }
   for(int r = 0; r < _board._board.length; r++){
     for(int c = 0; c < _board._board[r].length; c++){
-      if(_board._board[r][c].building){
+      if(_board._board[r][c].terrain.building){
         players.get(_board._board[r][c].terrain.pNum).buildings.add(_board._board[r][c].terrain); 
       }
     }
   }
+  f = createFont("Arial",16,true); // STEP 2 Create Font
+
 }
 
 void draw(){
@@ -65,7 +68,14 @@ void draw(){
   */
   _board.draw();
   //System.out.println(sel.x + ", " + sel.y);
-  groundMenu();
+  if(curr.selectedBuilding != null){
+    if(curr.selectedBuilding.ground){
+      groundMenu();
+    }
+    else if(curr.selectedBuilding.air){
+      airMenu();
+    }
+  }
 }
 
 void mouseClicked(){
@@ -102,6 +112,13 @@ void keyPressed(){
               System.out.println("Not your unit.");
             }
           }
+        else if(_board.getBuilding() != null){
+          if(playanum == _board.getBuilding().pNum){
+            highlighted = true;
+            System.out.println("Selected.");
+            curr.selectedBuilding = _board.getBuilding();
+          }
+        }
         else System.out.println("No unit to select.");
       }
       else {
@@ -112,6 +129,7 @@ void keyPressed(){
         }
         else{
             curr.selected = null;
+            curr.selectedBuilding = null;
             highlighted = false;
             System.out.println("Deselected.");
         }
@@ -262,5 +280,17 @@ void groundMenu(){
   //if(t.ground){
     fill(210, 180, 140);
     rect(640, 0,256, 256);
-  //}
+    textFont(f,16);                  
+    fill(0);               
+    text("Ground Units",642,18); 
+}
+
+void airMenu(){
+  //if(t.ground){
+    fill(0, 255, 255);
+    rect(640, 0,256, 256);
+    textFont(f,16);                  
+    fill(0);               
+    text("Ground Units",642,18); 
+//}
 }

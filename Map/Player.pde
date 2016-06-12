@@ -17,6 +17,7 @@ class Player{
     units = new CLL<Unit>();
     selected = null;
     selectedNum = 0;
+    buildings = new CLL<Terrain>();
     selectedBuilding = null;
   }
   

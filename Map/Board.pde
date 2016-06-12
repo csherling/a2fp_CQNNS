@@ -26,6 +26,14 @@ class Board{
    Unit getUnit(){
      return _board[ycor/16][xcor/16]._unitG;
    }
+   Terrain getBuilding(){
+     if(_board[ycor/16][xcor/16].terrain.building){
+       return _board[ycor/16][xcor/16].terrain;
+     }
+     else{
+       return null;
+     }
+   }
    void draw(){
        for(int r = 0; r< _board.length; r++){
            for(int c = 0; c < _board[r].length; c++){
