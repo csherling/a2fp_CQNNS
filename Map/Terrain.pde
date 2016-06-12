@@ -67,17 +67,17 @@ abstract class Terrain{
       health = 20.0;
       if (air || ground) {
         if (air) {
-          img = loadImage(pNum + "5air.png");    
+          img = loadImage(pNum + "6air.png");    
         } 
         else {
-          img = loadImage(pNum + "5bas.png");  
+          img = loadImage(pNum + "6bas.png");  
         }
       }
       else if (defense == 3) {
-        img = loadImage(pNum + "5cit.png");  
+        img = loadImage(pNum + "6cit.png");  
       }
       else if (defense == 4) {
-        img = loadImage(pNum + "5hea.png");
+        img = loadImage(pNum + "6hea.png");
         base = true;
       }
     }

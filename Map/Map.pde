@@ -143,6 +143,26 @@ void draw(){
           airMenu();
         }
       }
+      if(_board._board[_board.ycor/16][_board.xcor/16]._unitG != null){
+        unitInfo();
+      }
+      terrainInfo();
+      if(curr.selected != null){
+        textFont(f, 20);                  
+        fill(0);               
+        text("Selected",642,274); 
+      }
+      else if(curr.selectedBuilding != null){
+        textFont(f, 20);                  
+        fill(0);               
+        text("Selected",642,274+128); 
+      }
+      else{
+        textFont(f, 20);                  
+        fill(0);               
+        text("Deselected",642,274);   
+        text("Deselected",642,274+128);   
+      }
     }
   }
 }
@@ -614,5 +634,39 @@ void airMenu(){
     text("B-Copter: $9,000", 642, 65);
     text("Fighter: $20,000", 642, 90);
     text("Bomber: $22,000", 642, 115);
+//}
+}
+
+void unitInfo(){
+  //if(t.ground){
+    fill(200);
+    rect(640, 256,256, 128);
+    //textFont(f, 20);                  
+    fill(0);               
+    //text("Selected",642,18); 
+    textFont(f, 16);
+    image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.img, 800,274);
+    text("HP: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.health,642, 296);
+    text("Movement: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.movement, 642, 321);
+    text("UnitType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.uType, 642, 346);
+    text("DriveType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.mvType, 642, 371);    
+    //text("Bomber: ", 642, 115);
+//}
+}
+
+void terrainInfo(){
+  //if(t.ground){
+    fill(200);
+    rect(640, 256+128,256, 128);
+    //textFont(f, 20);                  
+    fill(0);               
+    //text("Selected",642,18); 
+    textFont(f, 16);
+    image(_board._board[_board.ycor/16][_board.xcor/16].terrain.img, 800,274+128); 
+    text("Defense: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.defense, 642,274+128+25); 
+    text("Foot Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance,642,296+128+25);
+    text("Wheel Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.wheelHindrance, 642, 321+128+25);
+    text("Tread Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.treadHindrance, 642, 346+128+25);
+    text("Air Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.airHindrance, 642, 371+128+25);
 //}
 }
