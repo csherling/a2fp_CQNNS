@@ -17,6 +17,8 @@ abstract class Unit{
   boolean canGround, canCopter, canPlane;
   int cost;
   float troopA, vehA, airA;
+  boolean canTransport;
+  Unit transported;
   
   Unit(){
     x = ((int)random(width - 2*16))/16 * 16 + 16;
@@ -32,6 +34,8 @@ abstract class Unit{
     cost = 1000;
     canGround = canCopter = canPlane = false;
     canAttack = true;
+    canTransport = false;
+    transported = null;
   }
   
   Unit(int newx, int newy, int newMovement, float ta, float va, float aa, int newCost){
@@ -50,6 +54,8 @@ abstract class Unit{
     vehA = va;
     airA = aa;
     canAttack = true;
+    canTransport = false;
+    transported = null;
 }
   
   void draw(){

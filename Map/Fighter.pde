@@ -1,7 +1,7 @@
 class Fighter extends Air{
 
   Fighter(){
-    super(0, 0, 9, 0, 0, 10, 8000);
+    super(0, 0, 9, 0, 0, 10, 20000);
     movement = 9;
     img = loadImage(0 + "fig.png");
     uType = "plane";
@@ -9,7 +9,7 @@ class Fighter extends Air{
 }
 
   Fighter(int newx, int newy, int PNum){
-    super(newx, newy, 9, 0, 0, 10, 8000);
+    super(newx, newy, 9, 0, 0, 10, 20000);
     pNum = PNum;
     movement = 9;
     img = loadImage(PNum + "fig.png");
