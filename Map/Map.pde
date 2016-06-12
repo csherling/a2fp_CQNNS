@@ -17,7 +17,7 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
-
+  curr.addUnit(new Tank(13,12,0));
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -29,6 +29,7 @@ void setup(){
   curr = players.get(1);
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
+  curr.addUnit(new Tank(13,13,1));
   for(int i = 0; i < curr.units.size(); i++){
     _board.addUnit(curr.units.get(i), curr.units.get(i).x/16, curr.units.get(i).y/16);
   }
@@ -227,7 +228,7 @@ void keyPressed(){
             highlighted = false;
             System.out.println("Deselected.");
             _board.moving = false;
-        }
+          }
           else{
             if (_board._board[_board.ycor/16][_board.xcor/16].terrain.building && _board._board[_board.ycor/16][_board.xcor/16].terrain.pNum != playanum) {
                 _board._board[_board.ycor/16][_board.xcor/16].terrain.occupied = true;
@@ -240,12 +241,23 @@ void keyPressed(){
             curr.selected.moving(_board,_board.xcor,_board.ycor);
           }
         }
+        else if(_board.attacking && _board._board[_board.ycor/16][_board.xcor/16].movement == -1){
+          if(_board._board[_board.ycor/16][_board.xcor/16]._unitG != null && _board._board[_board.ycor/16][_board.xcor/16]._unitG.pNum != playanum){
+            curr.selected.attack(_board,_board._board[_board.ycor/16][_board.xcor/16]._unitG);
+            _board.attacking =false;
+          }
+          else{
+            System.out.println("Can't attack there m8");
+          }
+        }
+
         else{
             curr.selected = null;
             curr.selectedBuilding = null;
             highlighted = false;
             System.out.println("Deselected.");
             _board.moving = false;
+            _board.attacking = false;
             for(int r = 0; r< _board._board.length; r++){
               for(int c = 0; c < _board._board[r].length; c++){
                 _board._board[r][c].movement = 0;
