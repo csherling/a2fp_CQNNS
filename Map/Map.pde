@@ -8,10 +8,23 @@ Board _board; //work out space pixel size, how many spaces, rework balance for m
 boolean highlighted;
 PFont f;
 
+
+boolean startscreen;
+boolean about;
+boolean info;
+
+
+
+PImage screen;
+
 void setup(){ 
 
   _board = new Board(30,40);
   size(896 , 640 );
+  startscreen = true;
+  about =false;
+  info = false;
+  screen = loadImage("Draft.png");
   fill(255,255,255);
   highlighted = false;
   players = new CLL<Player>();
@@ -87,35 +100,75 @@ int numUnits(int p){
   return ret;
 }
 
+
 void draw(){
-  if ( isGameOver() ) {
-    System.out.println(":)");
-    fill(255,255,255);
-    rect(0,0,width, height);
+  if (startscreen){
+    image(screen, 0,0);
   }
-  else {
-    
-    //System.out.println(numUnits(playanum));
-    background(0);
-    /*
-    for(int i = 0; i < unit.size(); i++){
-      unit.get(i).draw(); 
+  else if(about){
+    fill(255,255,255);
+    rect(0,0,width,height);
+    textFont(f, 20);  
+    text("Insert Text Here ", 0,0);
+  }
+  else if(info){
+    fill(255,255,255);
+    rect(0,0,width,height);
+    textFont(f, 20);  
+    text("Insert Text Here ", 0,0);
+  }
+  
+  else{
+    if ( isGameOver() ) {
+      System.out.println(":)");
+      fill(255,255,255);
+      rect(0,0, width, height);
     }
-    */
-    _board.draw();
-    //System.out.println(sel.x + ", " + sel.y);
-    if(curr.selectedBuilding != null){
-      if(curr.selectedBuilding.ground){
-        groundMenu();
+    else {
+      
+      //System.out.println(numUnits(playanum));
+      background(0);
+      /*
+      for(int i = 0; i < unit.size(); i++){
+        unit.get(i).draw(); 
       }
-      else if(curr.selectedBuilding.air){
-        airMenu();
+      */
+      _board.draw();
+      //System.out.println(sel.x + ", " + sel.y);
+      if(curr.selectedBuilding != null){
+        if(curr.selectedBuilding.ground){
+          groundMenu();
+        }
+        else if(curr.selectedBuilding.air){
+          airMenu();
+        }
       }
     }
   }
 }
 
 void mouseClicked(){
+  System.out.println(mouseX);
+  System.out.println(mouseY);
+  if(startscreen){
+    if( mouseX >= 100 && mouseX <=305 && mouseY >=530 && mouseY <=583){
+      startscreen = false;
+    }
+    else if(mouseX >= 365 && mouseX <=483 && mouseY >=530 && mouseY <=583){
+      startscreen = false;
+      about = true;
+    }
+    else if(mouseX >= 540 && mouseX <= 761 && mouseY >= 530 && mouseY <= 583){
+      startscreen = false;
+      info = true;
+    }
+  }
+  else if(about){
+    
+  }
+  else if(info){
+  
+  }
   if (curr.selectedBuilding != null){
     if(curr.selectedBuilding.ground){
       if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
