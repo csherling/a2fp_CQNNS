@@ -214,6 +214,7 @@ void keyPressed(){
        else{
          playanum++;
        }
+        curr.selectedBuilding = null; 
        curr.selected = null;
        highlighted = false;
        System.out.println("Deselected.");
