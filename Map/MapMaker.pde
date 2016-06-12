@@ -36,6 +36,9 @@ class MapMaker {
     else if (map == 10) {
       swanCave();
     }
+    else if (map == 10) {
+      royalChannel();
+    }
 
   }
 
@@ -325,6 +328,45 @@ class MapMaker {
      tGen("o o o p p p f f f p f p cbcbp p p p p o o o o o ", 16, len);
  }
 
+  void royalChannel(){
+   int len = 39;
+   _board = new Space[11][len];
+   for(int r = 0; r< _board.length; r++){
+   for(int c = 0; c < _board[r].length; c++){
+   _board[r][c] = new Space();
+   }
+   }
+   tGen("m m m p p p p p p p p p p p p p p p p p p p o o o o o o o o o o o o o o o o o ", 0, len);
+   tGen("m m p p p p p p p p p p p p p p cncnp p cnp o o o o o o o o p p o o o o o o o ", 1, len);
+   tGen("m p p p cnr0cnrhcnrhrhcnp p r0rhrhrhrhrhr1cno o o o o o o o sraro o o o o o o ", 2, len);
+   tGen("p p cncnrhrcr1p p p p rcrhcnr2p p p p p rvo o o o o o o o o o o o o o o o o o ", 3, len);
+   tGen("cnr0r2p p p rvp p p cnrvp rvp p anp cnrvo o o o o o o o o o o o o o o o o o o ", 4, len);
+   tGen("r0r2p p crf r3cncncnrhrcrhrcr1cnp r0rhr2o o o o o o o o o o o o o o o o o o o ", 5, len);
+   tGen("rvp f p f f f p p p f f f p r3rhcnr2p o o o o o o o o o o o o o o o o o o o o ", 6, len);
+   tGen("rvf f crf f f f f crp f p p f p p p p o o o o o o o o o o o o o o o o o o o o ", 7, len);
+   tGen("rvp f p f f p f f f crp crcrf p p f o o o o o o p o o o o o o o o o o o p p p ", 8, len);
+   tGen("r3cnp p p f cnp p f f f f f p p f f o o o o o o sro o o o o o o o o o p p p p ", 9, len);
+   tGen("f f f f p p p f p p f f f p p f f o o o o o o o o o o o o o o o o p o p p f p ", 10, len);
+   tGen("f f p f f p f f f crf f p p f f f o o o o o o o o o o o o o o p o p o sbabp p", 11, len);
+   tGen("f p p p p p p f f p f p p f f f o o o o o o o o o o o o o p p f o sbrhbbrhabp ", 12, len);
+   tGen("f p f f f f p p f p p p f f f o o o o o o o o o o o o p p p p m p r3bbhbbbr2p ", 13, len);
+   tGen("f p p f f f f p p p f f f f o o o o o o o o o o o o p p p p m p p p r3bbr2p p ", 14, len);
+   tGen("f f p f f f f f p f f f f o o o o o p o o o o o o p p p p m p p p bbp rvp abp ", 15, len);
+   tGen("f f p p f f f f p f f f o o o o o o sro o o o o p p p p f p p cbcbr0rhrccbp p ", 16, len);
+   tGen("f f f p f f f p p f f o o o o o o o o o o o o p p p p p p r0rhrhrhr2p rvp f p ", 17, len);
+   tGen("f p p p p p p p f f o o o o o o o o o o o o p p p p f cbcbrvp p p p cbrvp p f ", 18, len);
+   tGen("p arrhbrrhbrr1p p p o o o o o o o o o o o p p p p f f rhrhrccbcbp m p r3r1p p ", 19, len);
+   tGen("rvp brhrbrp r3rhp o o o o o o o o o o o p p p m p f p p p rvp p m m m p rvcbp ", 20, len);
+   tGen("rvarp brrhsrp p o o o o o o o o o o o p p p m p p p p p m rvp m m m m p rvp p ", 21, len);
+   tGen("r3rcsrr2p o o o o o o o o o o o o o p p p m m p cncncnp p rvp p p m p p rvcbp ", 22, len);
+   tGen("p rho p o o o o o o o o o o o o o p p p m m p p r0rhrhrhrhrccncncnp p cnrvp p ", 23, len);
+   tGen("p p o o o o o o o o o o o o o o o p m m p p p cnrvp p p p r3rhrhrhrhanrhrccnp ", 24, len);
+   tGen("o o o o o o o o o o o o o o o o o snp p anr0rhrhr2p m p cnp p p p m p p rvp p ", 25, len);
+   tGen("o o o o o o o o o o o o o o o p p r3cnp p rvp p p m p p p p f f f m p cnrvp m ", 26, len);
+   tGen("o o o o o o o o o o o o o o o p p p rvp p rvp f p p cncnp p p p p p p p rvp m ", 27, len);
+   tGen("o o o o o o o o o o o o o o p p p cnr3cncnr3rhrhrhrhrhrhrhrhrhcncncncnrhr2p m ", 28, len);
+   tGen("o o o o o o o o o o o o o o p p p p p p p p p p p p p p p p p p p p p p p p m ", 29, len);
+ }
 
   /*
   void sabreRange(){
