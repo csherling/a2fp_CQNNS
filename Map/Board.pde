@@ -15,7 +15,7 @@ class Board{
      //        _board[r][c] = new Space();
      //      }
      //  }
-     MapMaker map = new MapMaker(9);
+     MapMaker map = new MapMaker(1);
      _board = map._board;
        //for(int r = 0; r< _board.length; r++){
        //    for(int c = 0; c < _board[r].length; c++){

@@ -279,12 +279,33 @@ void keyPressed(){
 }
 
 void groundMenu(){
-  //if(t.ground){
     fill(210, 180, 140);
     rect(640, 0,256, 256);
-    textFont(f,16);                  
+    fill(50, 205, 50);
+    rect(640, 24, 256, 18);
+      rect(640, 49, 256, 18);
+        rect(640, 74, 256, 18);
+          rect(640, 99, 256, 18);
+            rect(640, 124, 256, 18);
+              rect(640, 149, 256, 18);
+                rect(640, 174, 256, 18);
+                  rect(640, 199, 256, 18);
+    textFont(f, 20);                  
     fill(0);               
-    text("Ground Units",642,18); 
+    text("Ground Units ", 642, 18);
+    textFont(f, 16);
+    text("      $"+ curr.money, 800,18); 
+    textFont(f, 16);
+    text("Infantry: $1,000",642, 40);
+    text("Mech: $3,000", 642, 65);
+    text("Recon: $4,000", 642, 90);
+    text("APC's: $5,000", 642, 115);
+    text("Artillery: $6,000", 642, 140);
+    text("Tank: $7,000", 642, 165);
+    text("Anti-Air: $8,000", 642, 190);
+    text("Medium Tank: $16,000", 642, 215);
+    //text("Missiles: $12,000", 642, 240);
+    //text("Rockets: $15,000", 642 , 265);
 }
 
 void airMenu(){
