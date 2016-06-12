@@ -5,14 +5,11 @@ class Ocean extends Terrain{
     wheelHindrance = 10;
     treadHindrance = 10;
     defense = 0;
+    img = loadImage("ocean.png");
   }
   
   Ocean(int newx, int newy){
     super(newx, newy, 10, 10, 10, 0, 4);
-  }
-  
-  void draw(){
-    fill(color(0, 0, 150));
-    rect(x, y, 16, 16);
+    img = loadImage("ocean.png");
   }
 }
