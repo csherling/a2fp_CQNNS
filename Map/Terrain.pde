@@ -45,6 +45,11 @@ abstract class Terrain{
     health = 20.0; //EDITED
   }
   
+  void refreshB() {
+    occupied = false;
+    health = 20.0;
+  }
+  
   boolean capture(Board B) { //EDITED
     Unit unit = B._board[y/16][x/16]._unitG;
     float effect = (unit.health + 5.0) / 10;
