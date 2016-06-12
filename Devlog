@@ -78,25 +78,43 @@
     Hardcoded first map. Generation works. Fixed some stuff in Map. -Chris
 [06-11-16 12:18-12:57]
     Hardcoded two more maps. -Chris
+[06-11-16 13:00-13:58]
+    Made a moving selection square with blinking image. -Nick
 [06-11-16 13:15-13:34]
     Hardcoded one more maps. -Chris
 [06-11-16 13:34-14:15]
     Hardcoded two  more maps. -Chris
-[06-11-16 13:15-14:30]
+[06-11-16 14:00-14:30]
+    Made the selection square select and interact with units. -Nick
+[06-11-16 14:15-14:30]
     Roads look accurate. -Chris
+[06-11-16 14:30-15:00]
+    Selection square only interacts with correct the units of the correct player's turn. -Nick
 [06-11-16 14:30-14:12]
     Two more maps. -Chris
 [06-11-16 15:31-15:37]
     Buildings correct. -Chris
+[06-11-16 15:35-16:00]
+    Reconciled auto-cycling with manual selection, bugfixes. -Nick
+[06-11-16 16:00-17:30]
+    Made selection work better, showed spaces available for a given unit to move. -Nick and Kevin
 [06-11-16 16:08-17:23]
     One small one large map made. -Chris
+[06-11-16 17:30-19:30]
+    Implemented move. -Nick and Kevin
 [06-11-16 18:01-18:23]
     Framework for building. -Chris
 [06-11-16 19:35-20:35]
     More framework for building. -Chris
+[06-11-16 20:30-21:30]
+    Added money usage. - Nick
+[06-11-16 21:30-22:00]
+    Made mouse clicking work for interacting with buildings. -Nick and Kevin
 [06-11-16 20:35-20:55]
     Build Menu. -Chris
 [06-11-16 21:32-21:53]
     Changes to units. Added air units. -Chris
+[06-11-16 22:00-23:30]
+    Implemented building with money, several bugfixes. -Nick
 [06-11-16 22:03-23:53]
     Different weapons for units. More balance. -Chris
