@@ -145,6 +145,7 @@ abstract class Unit{
   }
   
   void moves(Board B, int x, int y, String hindrance, int movesLeft, int moves) {
+    System.out.println("y: " + (B._board[0].length - 1) * 16);
     if (movesLeft != 0) {
       int H;
       if (y != 0 && getHindrance(B, x, y-16, hindrance) <= movesLeft && (B._board[y/16 - 1][x/16]._unitG == null || B._board[y/16-1][x/16]._unitG.pNum == pNum)) {
@@ -152,7 +153,7 @@ abstract class Unit{
         setSpace(B, x, y-16, moves + H);
         moves(B, x, y-16, hindrance, movesLeft - H, moves + H); 
       }
-      if (y != (B._board[0].length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft && (B._board[y/16 + 1][x/16]._unitG == null || B._board[y/16 + 1][x/16]._unitG.pNum == pNum)) {
+      if (y != (B._board.length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft && (B._board[y/16 + 1][x/16]._unitG == null || B._board[y/16 + 1][x/16]._unitG.pNum == pNum)) {
         H = getHindrance(B, x, y+16, hindrance);
         setSpace(B, x, y+16, moves + H);
         moves(B, x, y+16, hindrance, movesLeft - H, moves + H); 
