@@ -9,6 +9,7 @@ boolean highlighted;
 PFont f;
 
 void setup(){ 
+
   _board = new Board(30,40);
   size(896 , 640 );
   fill(255,255,255);
@@ -55,24 +56,55 @@ void setup(){
   curr.addMoney();
 }
 
-void draw(){
-  background(0);
-  /*
-  for(int i = 0; i < unit.size(); i++){
-    unit.get(i).draw(); 
-  }
-  */
-  _board.draw();
-  //System.out.println(sel.x + ", " + sel.y);
-  if(curr.selectedBuilding != null){
-    if(curr.selectedBuilding.ground){
-      groundMenu();
-    }
-    else if(curr.selectedBuilding.air){
-      airMenu();
-    }
-  }
 
+
+boolean isgameover(){
+  if ((numUnits(playanum) == 0 && curr.hasbuilt) || (numUnits((playanum+1)%2) == 0 && players.get((playanum+1)%2).hasbuilt) ){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+int numUnits(int p){
+  int ret = 0;
+  for(int r = 0; r < _board._board.length; r++){ //EDITED
+    for(int c = 0; c < _board._board[r].length; c++){
+      if(_board._board[r][c]._unitG != null && _board._board[r][c]._unitG.pNum == p){
+        ret++;
+      }
+    }
+  }
+  return ret;
+}
+
+void draw(){
+  if( isgameover()){
+    System.out.println("GG NUBS");
+    fill(255,255,255);
+    rect(0,0,width, height);
+  }
+  else{
+    
+    //System.out.println(numUnits(playanum));
+    background(0);
+    /*
+    for(int i = 0; i < unit.size(); i++){
+      unit.get(i).draw(); 
+    }
+    */
+    _board.draw();
+    //System.out.println(sel.x + ", " + sel.y);
+    if(curr.selectedBuilding != null){
+      if(curr.selectedBuilding.ground){
+        groundMenu();
+      }
+      else if(curr.selectedBuilding.air){
+        airMenu();
+      }
+    }
+  }
 }
 
 void mouseClicked(){

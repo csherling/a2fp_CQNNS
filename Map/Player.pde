@@ -9,6 +9,7 @@ class Player{
   int selectedNum;
   int money;
   int numB; //EDITED
+  boolean hasbuilt;
   
   Player(int newNum){
     pnum = newNum;
@@ -23,6 +24,7 @@ class Player{
     selectedBuilding = null;
     money = 0;
     numB = 0; //EDITED
+    hasbuilt = false;
   }
   
   void addMoney(){
@@ -31,6 +33,7 @@ class Player{
   
   void addUnit(Unit u){
     units.add(u); 
+    hasbuilt = true;
   }
   
   //void addBuilding(Terrain t){
