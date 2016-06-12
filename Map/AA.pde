@@ -14,6 +14,7 @@ class AA extends Ground{
     movement = 6;
     img = loadImage(PNum + "ant.png");
     mvType = "tread";
+    uType = "vehicle";
     canGround = canCopter = canPlane = true;
 
   }
