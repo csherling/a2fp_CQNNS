@@ -274,16 +274,16 @@ class MapMaker {
         _board[r][c] = new Space();
       }
     }
-    tGen("o o o o o o o o m m m m m m m o f p p p p p p f f f f f f f f p p f f f f ", 0, len);
-    tGen("o o o o o o o o m m m m m m m o m f p p p p f f o o f f p p p p p p p f f ", 1, len);
-    tGen("o o o o o o o m m m m bbm p p o m m cbcbf f f f o o p p f p p p p p bbp f ", 2, len);
+    tGen("o o o o o o o o m m m m m m m m f p p p p p p f f f f f f f f p p f f f f ", 0, len);
+    tGen("o o o o o o o o m m m m m m m m m f p p p p f f o o f f p p p p p p p f f ", 1, len);
+    tGen("o o o o o o o m m m m bbm p p m m m cbcbf f f f o o p p f p p p p p bbp f ", 2, len);
     tGen("o o o o o o o m m p p rhrhrhrhrhrhrhrhrhrhrhrhrhrhrhcbcbrhrhrhrhabbbhbbbp ", 3, len);
-    tGen("o o o o o o o m p f abcbcbm p o m p p p bbp p p p p p f p o o o o p bbp p ", 4, len);
-    tGen("o o o o o o m m cbp o o o f m o m p p abp p p cbp p f p o o o o o p rvabf ", 5, len);
+    tGen("o o o o o o o m p f abcbcbm p m m p p p bbp p p p p p f p o o o o p bbp p ", 4, len);
+    tGen("o o o o o o m m cbp o o o f m m m p p abp p p cbp p f p o o o o o p rvabf ", 5, len);
     tGen("o o o o o o o o o o o o o o o o o o bbp p p p p m m m p o o o o o m rvm p ", 6, len);
     tGen("o o o o o o o o o o o o o o o o o o o p m p cbp m m m m o o o o o m rvm m ", 7, len);
     tGen("o o o o o m cncnp bnp p p m m o o o o o o o o o o o o o o o o o o m rvm m ", 8, len);
-    tGen("o o o o o m m m anp p p m m m o o o o o o o o o o o o o o o o o o o rvo o ", 9, len);
+    tGen("o o o o o m m m anp p p m m m o o o o o o o o o o o o o o o o o o m rvm m ", 9, len);
     tGen("o o o o o m m r0rhrhr1m m m m m m cnp p m m m p cncnm m o o o o o m rvm m ", 10, len);
     tGen("o o o o m m m rvf f rvm m m m m m p anm m m r0rhrhrhr1m m m cnm m m rvm m ", 11, len);
     tGen("o o o p p m m rvm m rvm m m r0rhrhrhr1m p m rvf p f rvm m r0rhrhrhrhrcm m ", 12, len);
