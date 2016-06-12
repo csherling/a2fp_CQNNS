@@ -50,13 +50,13 @@ void setup(){
   }
   for(int r = 0; r < _board._board.length; r++){
     for(int c = 0; c < _board._board[r].length; c++){
-      if(_board._board[r][c].terrain.building){
+      if(_board._board[r][c].terrain.building && _board._board[r][c].terrain.pNum < players.size()){
         players.get(_board._board[r][c].terrain.pNum).buildings.add(_board._board[r][c].terrain); 
       }
     }
   }
   f = createFont("Arial",16,true); // STEP 2 Create Font
-
+  curr.addMoney();
 }
 
 void draw(){
@@ -76,6 +76,7 @@ void draw(){
       airMenu();
     }
   }
+  System.out.println(curr.money);
 }
 
 void mouseClicked(){
@@ -161,6 +162,7 @@ void keyPressed(){
        curr.units.get(i).attacked = false;
      }
      System.out.println("Player#: " + playanum);
+     curr.addMoney();
    }
             
       
