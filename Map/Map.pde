@@ -262,6 +262,7 @@ void keyPressed(){
             if(_board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance < 10 && _board._board[_board.ycor/16][_board.xcor/16]._unitG == null){
               curr.selected.transported.x = _board.xcor;
               curr.selected.transported.y = _board.ycor;
+              curr.selected.transported.moved = true;
               curr.selected.moved = true;
               _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected.transported;
               curr.selected.transported = null;
