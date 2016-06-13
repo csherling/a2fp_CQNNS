@@ -11,14 +11,14 @@ class Board{
    int mapnum;
    float day;
    
-   Board(int rsize, int csize){
+   Board(int mapnum){
      //_board = new Space[rsize][csize];
      //  for(int r = 0; r< _board.length; r++){
      //      for(int c = 0; c < _board[r].length; c++){
      //        _board[r][c] = new Space();
      //      }
      //  }
-     MapMaker map = new MapMaker(11);
+     MapMaker map = new MapMaker(mapnum);
      day = 1.0;
      _board = map._board;
        //for(int r = 0; r< _board.length; r++){

@@ -33,7 +33,6 @@ PImage endscreen;
 
 void setup(){ 
 
-  _board = new Board(30,40);
   size(896 , 640 );
   startscreen = true;
   about =false;
@@ -59,51 +58,6 @@ void setup(){
   
   
 
-  
-  fill(255,255,255);
-  highlighted = false;
-  players = new CLL<Player>();
-  players.add(new Player(0));
-  players.add(new Player(1));
-  curr = players.get(0);
-  curr.addUnit(new Tank(2, 23, 0));
-  curr.addUnit(new Lander(1, 24, 0));
-  curr.addUnit(new Tank(2, 22, 0));
-  //curr.selected = curr.units.get(0);
-  curr.selectedNum = 0;
-  for(int i = 0; i < curr.units.size(); i++){
-    _board.addUnit(curr.units.get(i), curr.units.get(i).x/16, curr.units.get(i).y/16);
-  }
-  System.out.println(curr.units.size());
-
-  
-  curr = players.get(1);
-  curr.addUnit(new Tank(13, 13, 1));
-  //curr.selected = curr.units.get(0);
-  curr.selectedNum = 0;
-  for(int i = 0; i < curr.units.size(); i++){
-    _board.addUnit(curr.units.get(i), curr.units.get(i).x/16, curr.units.get(i).y/16);
-  }
-  System.out.println(curr.units.size());
-
-  curr = players.get(0);
-  playanum = 0;
-  for(int i = 0; i < curr.units.size(); i++){
-    curr.units.get(i).moved = false;
-  }
-  for(int i = 0; i < curr.units.size(); i++){
-    curr.units.get(i).attacked = false;
-  }
-  for(int r = 0; r < _board._board.length; r++){ //EDITED
-    for(int c = 0; c < _board._board[r].length; c++){
-      if(_board._board[r][c].terrain.building && _board._board[r][c].terrain.pNum < players.size()){
-        players.get(_board._board[r][c].terrain.pNum).numB += 1; 
-      }
-    }
-  }
-  f = createFont("Arial",16,true); // STEP 2 Create Font
-  _board.day = 1;
-  curr.addMoney();
 }
 
 
@@ -281,9 +235,37 @@ void mouseClicked(){
     }
   }
   else if(mapsel) {
-    //if next if(mapnum == 12) mapnum = 1 else mapnum++
-    //if prev if(mapnum == 1) mapnum = 12 else mapnum--
-    //if selectedMap mapMaker!!
+    if (mouseX >= 90 && mouseX <= 270 && mouseY >= 510 && mouseY <= 560)
+    {
+      if(mapNum == 11) mapNum = 0;
+      else mapNum++;
+    }
+    if(mouseX >= 690 && mouseX <= 790 && mouseY >= 510 && mouseY <= 560){
+      if(mapNum == 11) mapNum = 11;
+      else mapNum--;
+    }
+    if(mouseX >= 270 && mouseX <= 640 && mouseY >= 40 && mouseY <= 370){
+      _board = new Board(mapNum);  
+      fill(255,255,255);
+      highlighted = false;
+      players = new CLL<Player>();
+      players.add(new Player(0));
+      players.add(new Player(1));
+      curr = players.get(0);
+      curr.selectedNum = 0;
+      playanum = 0;
+      for(int r = 0; r < _board._board.length; r++){ //EDITED
+        for(int c = 0; c < _board._board[r].length; c++){
+          if(_board._board[r][c].terrain.building && _board._board[r][c].terrain.pNum < players.size()){
+            players.get(_board._board[r][c].terrain.pNum).numB += 1; 
+          }
+        }
+      }
+      f = createFont("Arial",16,true); // STEP 2 Create Font
+      _board.day = 1;
+      curr.addMoney();   
+      mapsel = false;
+    }
   }
   else if(about){
     
@@ -291,7 +273,7 @@ void mouseClicked(){
   else if(info){
   
   }
-  if (curr.selectedBuilding != null){
+  else if (curr.selectedBuilding != null){
     if(curr.selectedBuilding.ground){
       if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
         if( mouseX >= 640 && mouseX <=896 && mouseY >=24 && mouseY <=42 && curr.money >= 1000){
@@ -366,7 +348,7 @@ void mouseClicked(){
         }
       }
     }
-    if(curr.selectedBuilding.air){
+    else if(curr.selectedBuilding.air){
       System.out.println("hai");
       if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
         if( mouseX >= 640 && mouseX <=896 && mouseY >=24 && mouseY <=42 && curr.money >= 5000){
@@ -399,7 +381,7 @@ void mouseClicked(){
         }
       }
     }
-    if(curr.selectedBuilding.sea){
+    else if(curr.selectedBuilding.sea){
       System.out.println("hai");
       if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
         if( mouseX >= 640 && mouseX <=896 && mouseY >=24 && mouseY <=42 && curr.money >= 12000){
