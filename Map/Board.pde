@@ -18,7 +18,7 @@ class Board{
      //        _board[r][c] = new Space();
      //      }
      //  }
-     MapMaker map = new MapMaker(9);
+     MapMaker map = new MapMaker(11);
      day = 1.0;
      _board = map._board;
        //for(int r = 0; r< _board.length; r++){

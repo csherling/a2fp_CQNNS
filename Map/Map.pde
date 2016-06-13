@@ -142,6 +142,9 @@ void draw(){
         else if(curr.selectedBuilding.air){
           airMenu();
         }
+        else if(curr.selectedBuilding.sea){
+          seaMenu();
+        }
       }
       if(_board._board[_board.ycor/16][_board.xcor/16]._unitG != null){
         unitInfo();
@@ -297,6 +300,33 @@ void mouseClicked(){
         }
       }
     }
+    if(curr.selectedBuilding.sea){
+      System.out.println("hai");
+      if(_board._board[_board.ycor/16][_board.xcor/16]._unitG == null){ 
+        if( mouseX >= 640 && mouseX <=896 && mouseY >=24 && mouseY <=42 && curr.money >= 12000){
+          System.out.println("Lander");
+          Lander l = new Lander(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(l);
+          _board.addUnit(l,l.x/16,l.y/16);
+          curr.money -= 12000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=49 && mouseY <=67 && curr.money >= 18000){
+          System.out.println("Cruiser");
+          Cruiser c = new Cruiser(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(c);
+          _board.addUnit(c,c.x/16,c.y/16);
+          curr.money -=18000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=74 && mouseY <=92 && curr.money >= 28000){
+          System.out.println("Battleship");
+          Battleship b = new Battleship(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(b);
+          _board.addUnit(b,b.x/16,b.y/16);
+          curr.money -=28000;
+        }
+      }
+    }
+
     else{
       return;
     }
@@ -350,7 +380,12 @@ void keyPressed(){
         if(_board.moving == true && _board._board[_board.ycor/16][_board.xcor/16].movement > 0){
           if(_board._board[_board.ycor/16][_board.xcor/16]._unitG != null){
             _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
-            _board._board[_board.ycor/16][_board.xcor/16]._unitG.transported = curr.selected;
+            if(_board._board[_board.ycor/16][_board.xcor/16]._unitG.transported == null){
+              _board._board[_board.ycor/16][_board.xcor/16]._unitG.transported = curr.selected;
+            }
+            else if(_board._board[_board.ycor/16][_board.xcor/16]._unitG.transported2 == null){
+              _board._board[_board.ycor/16][_board.xcor/16]._unitG.transported2 = curr.selected;
+            }
             curr.selected = null;
             highlighted = false;
             System.out.println("Deselected.");
@@ -405,6 +440,22 @@ void keyPressed(){
               curr.selected.moved = true;
               _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected.transported;
               curr.selected.transported = null;
+            }
+          }
+        }
+      }
+    }
+    else if(key == 'i' || key == 'I'){
+      if(curr.selected != null){
+        if(curr.selected.canTransport && curr.selected.transported2 != null){
+          if((Math.abs(_board.xcor - curr.selected.x) == 16 && _board.ycor == curr.selected.y) || (Math.abs(_board.ycor - curr.selected.y) == 16 && _board.xcor == curr.selected.x)){
+            if(_board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance < 10 && _board._board[_board.ycor/16][_board.xcor/16]._unitG == null){
+              curr.selected.transported2.x = _board.xcor;
+              curr.selected.transported2.y = _board.ycor;
+              curr.selected.transported.moved = true;
+              curr.selected.moved = true;
+              _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected.transported2;
+              curr.selected.transported2 = null;
             }
           }
         }
@@ -589,6 +640,27 @@ void airMenu(){
 //}
 }
 
+void seaMenu(){
+  //if(t.ground){
+    fill(200, 200, 200);
+    rect(640, 0,256, 256);
+    fill(155, 0, 155);
+    rect(640, 24, 256, 18);
+    rect(640, 49, 256, 18);
+    rect(640, 74, 256, 18);
+    textFont(f, 20);                  
+    fill(0);               
+    text("Sea Units",642,18); 
+        textFont(f, 16);
+    text("      $"+ curr.money, 800,18); 
+    textFont(f, 16);
+    text("Lander: $12,000",642, 40);
+    text("Cruiser: $18,000", 642, 65);
+    text("Battleship: $28,000", 642, 90);
+//}
+}
+
+
 boolean p1turn(){
   return playanum ==0;
 }
@@ -607,6 +679,12 @@ void unitInfo(){
     }
     textFont(f, 16);
     image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.img, 800,374);
+    if(_board._board[_board.ycor/16][_board.xcor/16]._unitG.transported != null){
+      image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.transported.img, 768,374);      
+    }
+    if(_board._board[_board.ycor/16][_board.xcor/16]._unitG.transported2 != null){
+      image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.transported2.img, 784,374);      
+    }    
     text("HP: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.health,642, 396);
     text("Movement: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.movement, 642, 421);
     text("UnitType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.uType, 642, 446);

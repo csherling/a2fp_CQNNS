@@ -28,6 +28,7 @@ abstract class Unit{
   float troopA, vehA, airA, waterA;
   boolean canTransport;
   Unit transported;
+  Unit transported2;
   int minR = 0;
   int maxR = 0;
   boolean range;
@@ -48,6 +49,7 @@ abstract class Unit{
     canAttack = true;
     canTransport = false;
     transported = null;
+    transported2 = null;
     health1 = loadImage("hp1.png");
     health2 = loadImage("hp2.png");
     health3 = loadImage("hp3.png");
@@ -78,6 +80,7 @@ abstract class Unit{
     canAttack = true;
     canTransport = false;
     transported = null;
+    transported2 = null;
     health1 = loadImage("hp1.png");
     health2 = loadImage("hp2.png");
     health3 = loadImage("hp3.png");
@@ -308,11 +311,20 @@ abstract class Unit{
     }
     else {
       if (space._unitG.pNum == pNum){
-        if(space._unitG.canTransport && space._unitG.transported == null && uType.equals("troop")){
-          if (space.movement > moves || space.movement == 0) {
-            space.movement = moves;
+        if(space._unitG.uType.equals("vehicle")){
+          if(space._unitG.canTransport && space._unitG.transported == null && uType.equals("troop")){
+            if (space.movement > moves || space.movement == 0) {
+              space.movement = moves;
+            }
           }
-        } 
+        }
+        if(space._unitG.mvType.equals("lander")){
+          if(space._unitG.canTransport && (space._unitG.transported == null || space._unitG.transported2 == null) && (uType.equals("troop") || uType.equals("vehicle"))){
+            if (space.movement > moves || space.movement == 0) {
+              space.movement = moves;
+            }
+          }          
+        }
         if(space.movement > moves || space.movement == 0) {
           space.movement = 0;
         }

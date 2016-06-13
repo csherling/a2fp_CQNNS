@@ -4,6 +4,8 @@ class Seaport extends Building{
     footHindrance = 1;
     wheelHindrance = 1;
     treadHindrance = 1;
+    waterHindrance = 1;
+    landerHindrance = 1;
     defense = 3;
     img = loadImage("46sea.png");
     sea = true;

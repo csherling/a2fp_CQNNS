@@ -4,6 +4,7 @@ class Shoal extends Terrain{
     footHindrance = 1;
     wheelHindrance = 1;
     treadHindrance = 1;
+    landerHindrance = 1;
     defense = 0;
     img = loadImage("shoalid.png");
   }
