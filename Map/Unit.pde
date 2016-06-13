@@ -160,13 +160,16 @@ abstract class Unit{
         else if(canCopter && target.uType.equals("copter")){
           dmg = (airA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;          
         }
-        else{
+        else if(canGround && (target.uType.equals("vehicle") || target.uType.equals("troop"))){
           if(target.uType.equals("vehicle")){
             dmg = (vehA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;
           }
           else if(target.uType.equals("troop")){
             dmg = (troopA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;         
           }
+        }
+        else if(canWater && target.uType.equals("ship")){
+          dmg = (waterA * 100.0/100.0 + Math.random()) * (health/10.0) * ( (600.0 - (100.0 + B._board[target.y/16][target.x/16].terrain.defense * target.health) )/100.0 )/(5 - Math.pow(B._board[target.y/16][target.x/16].terrain.defense, 0.5)) - 0.25;          
         }
         System.out.println("Damage: " + dmg);
         target.defend(B, dmg);
@@ -179,13 +182,16 @@ abstract class Unit{
           else if(target.canCopter && uType.equals("copter")){
             edmg = (target.airA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
           }
-          else{
+          else if(target.canGround && (uType.equals("vehicles") || uType.equals("troop"))){
             if(uType.equals("vehicle")){
               edmg = (target.vehA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
             }
             else if(uType.equals("troop")){
-              edmg = (target.airA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
+              edmg = (target.troopA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;
             }
+          }
+          else if(target.canWater && uType.equals("ship")){
+            edmg = (target.waterA * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (600.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 )/(5 - Math.pow(B._board[y/16][x/16].terrain.defense, 0.5)) - 0.25;            
           }
           //dmg = (target.attack * 100.0/100.0 + Math.random()) * (target.health/10.0) * ( (200.0 - (100.0 + B._board[y/16][x/16].terrain.defense * health) )/100.0 );
           System.out.println("Damage Taken: " + edmg);
