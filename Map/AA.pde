@@ -1,7 +1,7 @@
 class AA extends Ground{
 
   AA(){
-    super(0, 0, 6, 7, 4, 6, 8000);
+    super(0, 0, 6, 7, 4, 6, 0, 8000);
     img = loadImage(0 + "ant.png");
     mvType = "tread";
     uType = "vehicle";
@@ -9,7 +9,7 @@ class AA extends Ground{
 }
 
   AA(int newx, int newy, int PNum){
-    super(newx, newy, 6, 7, 4, 6, 8000);
+    super(newx, newy, 6, 7, 4, 6, 0, 8000);
     pNum = PNum;
     movement = 6;
     img = loadImage(PNum + "ant.png");

@@ -1,7 +1,7 @@
 class APC extends Ground{
 
   APC(){
-    super(0, 0, 6, 0, 0, 0, 5000);
+    super(0, 0, 6, 0, 0, 0, 0, 5000);
     img = loadImage(0 + "apc.png");
     mvType = "tread";
     uType = "vehicle";
@@ -9,7 +9,7 @@ class APC extends Ground{
 }
 
   APC(int newx, int newy, int PNum){
-    super(newx, newy, 6, 0, 0, 0, 5000);
+    super(newx, newy, 6, 0, 0, 0, 0, 5000);
     pNum = PNum;
     movement = 6;
     img = loadImage(PNum + "apc.png");

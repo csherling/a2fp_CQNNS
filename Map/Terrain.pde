@@ -3,6 +3,8 @@ abstract class Terrain{
   int wheelHindrance;
   int treadHindrance;
   int airHindrance;
+  int waterHindrance;
+  int landerHindrance;
   int defense;
   int x;
   int y;
@@ -24,6 +26,8 @@ abstract class Terrain{
     wheelHindrance = 1;
     treadHindrance = 1;
     airHindrance = 1;
+    waterHindrance = 10;
+    landerHindrance = 10;
     defense = 0;
     building = false;
     pNum = 4;
@@ -40,6 +44,8 @@ abstract class Terrain{
     wheelHindrance = wH;
     treadHindrance = tH;
     airHindrance = 1;
+    waterHindrance = 10;
+    landerHindrance = 10;
     defense = def;
     building = false;
     pNum = PNum;

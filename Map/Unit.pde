@@ -23,9 +23,9 @@ abstract class Unit{
   PImage health9;
   String mvType;
   String uType;
-  boolean canGround, canCopter, canPlane;
+  boolean canGround, canCopter, canPlane, canWater;
   int cost;
-  float troopA, vehA, airA;
+  float troopA, vehA, airA, waterA;
   boolean canTransport;
   Unit transported;
   int minR = 0;
@@ -59,7 +59,7 @@ abstract class Unit{
     health9 = loadImage("hp9.png");
   }
   
-  Unit(int newx, int newy, int newMovement, float ta, float va, float aa, int newCost){
+  Unit(int newx, int newy, int newMovement, float ta, float va, float aa, float wa, int newCost){
     x = newx * 16;
     y = newy * 16;
     edge = 16;
@@ -74,6 +74,7 @@ abstract class Unit{
     troopA = ta;
     vehA = va;
     airA = aa;
+    waterA = wa;
     canAttack = true;
     canTransport = false;
     transported = null;
