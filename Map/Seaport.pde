@@ -15,6 +15,8 @@ class Seaport extends Building{
     super(newx, newy, 3, type);
     img = loadImage(type + "6sea.png");
     sea = true;
+    landerHindrance = 1;
+    waterHindrance = 1;
   }
   
   void draw(){

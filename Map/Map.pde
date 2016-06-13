@@ -33,6 +33,9 @@ void setup(){
   players.add(new Player(0));
   players.add(new Player(1));
   curr = players.get(0);
+  curr.addUnit(new Tank(2, 23, 0));
+  curr.addUnit(new Lander(1, 24, 0));
+  curr.addUnit(new Tank(2, 22, 0));
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -42,6 +45,7 @@ void setup(){
 
   
   curr = players.get(1);
+  curr.addUnit(new Tank(13, 13, 1));
   //curr.selected = curr.units.get(0);
   curr.selectedNum = 0;
   for(int i = 0; i < curr.units.size(); i++){
@@ -399,6 +403,11 @@ void keyPressed(){
             highlighted = false;
             System.out.println("Deselected.");
             _board.moving = false;
+            for(int r = 0; r< _board._board.length; r++){
+              for(int c = 0; c < _board._board[r].length; c++){
+                _board._board[r][c].movement = 0;
+              }
+            }
           }
           else{
             if (_board._board[_board.ycor/16][_board.xcor/16].terrain.building && _board._board[_board.ycor/16][_board.xcor/16].terrain.pNum != playanum) {
