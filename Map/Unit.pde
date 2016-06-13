@@ -207,7 +207,9 @@ abstract class Unit{
       dead = true;
     }
     else{
-      health -= damage;
+      if (damage > 0) {
+        health -= damage;
+      }
     }
   }
   
