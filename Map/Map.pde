@@ -237,15 +237,15 @@ void mouseClicked(){
   else if(mapsel) {
     if (mouseX >= 90 && mouseX <= 270 && mouseY >= 510 && mouseY <= 560)
     {
-      if(mapNum == 11) mapNum = 0;
-      else mapNum++;
-    }
-    if(mouseX >= 690 && mouseX <= 790 && mouseY >= 510 && mouseY <= 560){
-      if(mapNum == 11) mapNum = 11;
+      if(mapNum == 1) mapNum = 12;
       else mapNum--;
     }
+    if(mouseX >= 690 && mouseX <= 790 && mouseY >= 510 && mouseY <= 560){
+      if(mapNum == 12) mapNum = 1;
+      else mapNum++;
+    }
     if(mouseX >= 270 && mouseX <= 640 && mouseY >= 40 && mouseY <= 370){
-      _board = new Board(mapNum);  
+      _board = new Board(mapNum-1);  
       fill(255,255,255);
       highlighted = false;
       players = new CLL<Player>();
