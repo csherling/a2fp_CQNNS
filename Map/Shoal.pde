@@ -11,6 +11,11 @@ class Shoal extends Terrain{
   
   Shoal(int newx, int newy, int type){
     super(newx, newy, 1, 1, 1, 0, 4);
+    footHindrance = 1;
+    wheelHindrance = 1;
+    treadHindrance = 1;
+    landerHindrance = 1;
+    defense = 0;
     if(type == 0) img = loadImage("shoaltl.png");
     else if(type == 1) img = loadImage("shoaltm.png");
     else if(type == 2) img = loadImage("shoaltr.png");
