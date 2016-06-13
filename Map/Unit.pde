@@ -256,31 +256,29 @@ abstract class Unit{
   
   
   void moves(Board B, int x, int y, String hindrance, int movesLeft, int moves) {
-    System.out.println("y: " + (B._board[0].length - 1) * 16);
-    if (movesLeft != 0) {
-      int H;
-      if (y != 0 && getHindrance(B, x, y-16, hindrance) <= movesLeft && (B._board[y/16 - 1][x/16]._unitG == null || B._board[y/16-1][x/16]._unitG.pNum == pNum)) {
-        H = getHindrance(B, x, y-16, hindrance);
-        setSpace(B, x, y-16, moves + H);
-        moves(B, x, y-16, hindrance, movesLeft - H, moves + H); 
-      }
-      if (y != (B._board.length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft && (B._board[y/16 + 1][x/16]._unitG == null || B._board[y/16 + 1][x/16]._unitG.pNum == pNum)) {
-        H = getHindrance(B, x, y+16, hindrance);
-        setSpace(B, x, y+16, moves + H);
-        moves(B, x, y+16, hindrance, movesLeft - H, moves + H); 
-      }
-      if (x != 0 && getHindrance(B, x-16, y, hindrance) <= movesLeft && (B._board[y/16][x/16 - 1]._unitG == null || B._board[y/16][x/16 - 1]._unitG.pNum == pNum)) {
-        H = getHindrance(B, x-16, y, hindrance);
-        setSpace(B, x-16, y, moves + H);
-        moves(B, x-16, y, hindrance, movesLeft - H, moves + H); 
-      }
-      if (x != (B._board[0].length - 1) * 16 && getHindrance(B, x+16, y, hindrance) <= movesLeft && (B._board[y/16][x/16 + 1]._unitG == null || B._board[y/16][x/16 + 1]._unitG.pNum == pNum)) {
-        H = getHindrance(B, x+16, y, hindrance);
-        setSpace(B, x+16, y, moves + H);
-        moves(B, x+16, y, hindrance, movesLeft - H, moves + H); 
-      }
-    }
-    
+      if (movesLeft != 0) {
+        int H;
+        if (y != 0 && getHindrance(B, x, y-16, hindrance) <= movesLeft && (B._board[y/16 - 1][x/16]._unitG == null || B._board[y/16-1][x/16]._unitG.pNum == pNum)) {
+          H = getHindrance(B, x, y-16, hindrance);
+          setSpace(B, x, y-16, moves + H);
+          moves(B, x, y-16, hindrance, movesLeft - H, moves + H); 
+        }
+        if (y != (B._board.length - 1) * 16 && getHindrance(B, x, y+16, hindrance) <= movesLeft && (B._board[y/16 + 1][x/16]._unitG == null || B._board[y/16 + 1][x/16]._unitG.pNum == pNum)) {
+          H = getHindrance(B, x, y+16, hindrance);
+          setSpace(B, x, y+16, moves + H);
+          moves(B, x, y+16, hindrance, movesLeft - H, moves + H); 
+        }
+        if (x != 0 && getHindrance(B, x-16, y, hindrance) <= movesLeft && (B._board[y/16][x/16 - 1]._unitG == null || B._board[y/16][x/16 - 1]._unitG.pNum == pNum)) {
+          H = getHindrance(B, x-16, y, hindrance);
+          setSpace(B, x-16, y, moves + H);
+          moves(B, x-16, y, hindrance, movesLeft - H, moves + H); 
+        }
+        if (x != (B._board[0].length - 1) * 16 && getHindrance(B, x+16, y, hindrance) <= movesLeft && (B._board[y/16][x/16 + 1]._unitG == null || B._board[y/16][x/16 + 1]._unitG.pNum == pNum)) {
+          H = getHindrance(B, x+16, y, hindrance);
+          setSpace(B, x+16, y, moves + H);
+          moves(B, x+16, y, hindrance, movesLeft - H, moves + H); 
+        }
+      }    
   }
   
   int getHindrance(Board B, int x, int y, String hindrance) {
@@ -289,8 +287,11 @@ abstract class Unit{
     else if (hindrance.equals("wheel")) H = B._board[y/16][x/16].terrain.wheelHindrance;
     else if (hindrance.equals("tread")) H = B._board[y/16][x/16].terrain.treadHindrance;
     else if (hindrance.equals("air")) H = B._board[y/16][x/16].terrain.airHindrance;
+    else if (hindrance.equals("water")) H = B._board[y/16][x/16].terrain.waterHindrance;
+    else if (hindrance.equals("lander")) H = B._board[y/16][x/16].terrain.landerHindrance;
     return H;
   }
+  
   
   void setSpace(Board B, int x, int y, int moves) {
     Space space = B._board[y/16][x/16];

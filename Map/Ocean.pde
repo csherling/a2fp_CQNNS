@@ -4,6 +4,8 @@ class Ocean extends Terrain{
     footHindrance = 10;
     wheelHindrance = 10;
     treadHindrance = 10;
+    waterHindrance = 1;
+    landerHindrance = 1;
     defense = 0;
     img = loadImage("ocean.png");
   }
@@ -29,5 +31,7 @@ class Ocean extends Terrain{
     else if(type == 16) img = loadImage("cliffih.png");
     else if(type == 17) img = loadImage("cliffiv.png");
     else img = loadImage("ocean.png");
+    waterHindrance = 1;
+    landerHindrance = 1;
   }
 }
