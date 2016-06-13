@@ -27,6 +27,7 @@ void setup(){
   info = false;
   screen = loadImage("Draft.png");
   endscreen = loadImage("endscreen.jpg");
+  endscreen.resize(896,640);
   fill(255,255,255);
   highlighted = false;
   players = new CLL<Player>();
@@ -81,7 +82,7 @@ boolean isGameOver() {
 int noBase() {
   for(int r = 0; r < _board._board.length; r++){ //EDITED
     for(int c = 0; c < _board._board[r].length; c++){
-      if(_board._board[r][c].terrain.base) return (_board._board[r][c].terrain.pNum + 1) % 2;
+      if(_board._board[r][c].terrain.base) return _board._board[r][c].terrain.pNum % 2;
     }
   }
   return -1;
@@ -131,11 +132,12 @@ void draw(){
   }
   
   else{
-    if ( isGameOver() ) {
+   if ( isGameOver() ) {
       System.out.println(":)");
       image(endscreen, 0, 0);
-      textFont(f, 20);  
-      text("Player " + getWinner() + " has won!!" , 300,125);
+      textFont(f, 30);  
+      fill(0, 0, 255);
+      text("Player " + (getWinner() + 1) + " has won!!" , 360,100);
     }
     else {
       
