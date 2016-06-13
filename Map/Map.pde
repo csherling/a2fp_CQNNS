@@ -7,14 +7,14 @@ int playanum;
 Board _board; //work out space pixel size, how many spaces, rework balance for movement
 boolean highlighted;
 PFont f;
-
-
 boolean startscreen;
 boolean about;
 boolean info;
+
 boolean mapsel;
 int mapnum;
 PImage[] maps;
+
 
 
 
@@ -133,8 +133,40 @@ void draw(){
   else if(about){
     fill(255,255,255);
     rect(0,0,width,height);
-    textFont(f, 20);  
-    text("Insert Text Here ", 0,0);
+    textFont(f, 20); 
+    fill(0);
+    text("About:",0,20);
+    textFont(f, 16);
+    text("About the game:",0,50);
+    textFont(f, 12);
+    text("Less Advanced Wars TBS is a turn-based strategy game in which two players compete to eliminate the other's units or capture the other's headquarters.",20,70);
+    textFont(f, 16);
+    text("Gameplay:",0,100);
+    textFont(f, 12);
+    text("Each turn, players get money based on how many buildings they own in order to build units. ",20,120);
+    textFont(f, 14);
+    text("Units:",20,140);
+    textFont(f, 12);
+    text("There are three main types of units: Ground, air, and water. Units are can move and attack, and are used to destroy enemy units, or capture buildings. Units may",40,160);
+    text("move and attack once per turn, but must move before they attack. Only a single unit may occupy a given space, but units are allowed to pass through friendly units. ",20,172);
+    text("In special cases,units may 'load into' other units for transport and then unload to attack. Units may not attack or move on the turn they are built.",20,184);
+    textFont(f, 14);
+    text("Buildings:",20,204);
+    textFont(f, 12);
+    text("There are four types of buildings: Headquarters, bases, airports, seaports, and cities.",40,224);
+    text("Headquarters: The main objective of the game -must be protected at all costs. Each player has only one, and when it is captured, the game ends.",20,236);
+    text("Base: Used to build ground units.",20,248);
+    text("Airports: Used to build air units.",20,260);
+    text("Seaports: Used to build sea units.",20,272);
+    text("Cities: Can be captured for additional income.",20,284);
+    text("As players take turns, they can capture more airports, bases, and seaports to increase their building capacity, and capture more cities to increase their income.", 20, 304);
+    text("Eventually if a player becomes strong enough, he can move towards the enemy territory to end the game by destroying all enemy units, or capturing the headquarters.",20,316);
+    textFont(f,16);
+    text("About the project:",0,346);
+    textFont(f,12);
+    text("This is the APCS2 final project of Team CQNNS (Chris Sher, Nick Ng, and Kevin 'Q' Hwang). This project incorporates data structures and algorithms learned this",20,366);
+    text("term such as circularly linked lists for storing units and pathfinding algorithms for determining where a unit may move. We hope that enjoy our game and memes.",20,378);
+    
   }
   else if(info){
     fill(255,255,255);
