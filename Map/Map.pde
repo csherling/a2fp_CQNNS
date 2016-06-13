@@ -13,6 +13,8 @@ boolean startscreen;
 boolean about;
 boolean info;
 boolean mapsel;
+int mapnum;
+PImage[] maps;
 
 
 
@@ -30,6 +32,11 @@ void setup(){
   screen = loadImage("Draft.png");
   endscreen = loadImage("endscreen.jpg");
   endscreen.resize(896,640);
+  PImage[] maps = new PImage[12];
+  for(int i = 1; i <= 12; i++) {
+    maps[i-1] = loadImage("map"+i+".png");  
+  }
+  
   fill(255,255,255);
   highlighted = false;
   players = new CLL<Player>();
@@ -121,10 +128,7 @@ void draw(){
     image(screen, 0,0);
   }
   else if (mapsel) {
-    fill(255,255,255);
-    rect(0,0,width,height);
-    textFont(f, 20);  
-    text("Insert Text Here ", 0,0);
+     image(maps[mapnum], 0, 0);
   }
   else if(about){
     fill(255,255,255);
@@ -211,7 +215,9 @@ void mouseClicked(){
     }
   }
   else if(mapsel) {
-      
+    //if next if(mapnum == 12) mapnum = 1 else mapnum++
+    //if prev if(mapnum == 1) mapnum = 12 else mapnum--
+    //if selectedMap mapMaker!!
   }
   else if(about){
     
