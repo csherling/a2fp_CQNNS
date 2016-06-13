@@ -28,6 +28,9 @@ abstract class Unit{
   float troopA, vehA, airA;
   boolean canTransport;
   Unit transported;
+  int minR = 0;
+  int maxR = 0;
+  boolean range;
   
   Unit(){
     x = ((int)random(width - 2*16))/16 * 16 + 16;
@@ -207,6 +210,47 @@ abstract class Unit{
       health -= damage;
     }
   }
+  
+  void rangeAttack(Board B, int x, int y, int moves) {
+    if (moves <= maxR) {
+      setAttackSpace(B, x, y, moves); 
+      if (y != 0) {
+        rangeAttack(B, x, y-16, moves+1);
+      }
+      if (y != (B._board.length - 1) * 16) { 
+        rangeAttack(B, x, y+16, moves+1);
+      }
+      if (x != 0) {  
+        rangeAttack(B, x-16, y, moves+1);
+      }
+      if (x != (B._board[0].length - 1) * 16) { 
+        rangeAttack(B, x+16, y, moves+1);
+      }
+    }
+  }
+  
+  void setAttackSpace(Board B, int x, int y, int moves) {
+    Space space = B._board[y/16][x/16];
+    if (space.movement == 0 || moves < space.movement) {
+      space.movement = moves;
+    }
+  }
+  
+  void checkSpaces(Board B) {
+    for(int r = 0; r < B._board.length; r++){
+      for(int c = 0; c < B._board[r].length; c++){
+         if (B._board[r][c].movement >= minR) {
+           //System.out.println(_board._board[r][c].movement);
+           B._board[r][c].movement = -1;  
+         }
+         else {
+           B._board[r][c].movement = 0;  
+         }
+      }
+    }
+    B._board[y/16][x/16].movement = 0;
+  }
+  
   
   void moves(Board B, int x, int y, String hindrance, int movesLeft, int moves) {
     System.out.println("y: " + (B._board[0].length - 1) * 16);

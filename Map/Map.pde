@@ -352,6 +352,7 @@ void keyPressed(){
             _board._board[curr.selected.y/16][curr.selected.x/16]._unitG = null;
             _board._board[_board.ycor/16][_board.xcor/16]._unitG = curr.selected;
             curr.selected.moving(_board,_board.xcor,_board.ycor);
+            _board.moving = false;
           }
         }
         else if(_board.attacking && _board._board[_board.ycor/16][_board.xcor/16].movement == -1){
@@ -474,19 +475,26 @@ void keyPressed(){
         
         if(key == 'a' && ! _board.moving) {
           if (! _board.attacking) {
-            if (curr.selected.y != 0) {
-               _board._board[curr.selected.y/16 - 1][curr.selected.x/16].movement = -1; 
+            if (! curr.selected.range) {
+              if (curr.selected.y != 0) {
+                 _board._board[curr.selected.y/16 - 1][curr.selected.x/16].movement = -1; 
+              }
+              if (curr.selected.y != (_board._board[0].length - 1) * 16 ) {
+                 _board._board[curr.selected.y/16 + 1][curr.selected.x/16].movement = -1; 
+              }
+              if (curr.selected.x != 0) {
+                 _board._board[curr.selected.y/16][curr.selected.x/16 - 1].movement = -1; 
+              }
+              if (curr.selected.x != (_board._board[0].length - 1) * 16 ) {
+                 _board._board[curr.selected.y/16][curr.selected.x/16 + 1].movement = -1; 
+              }
+              _board.attacking = true;
             }
-            if (curr.selected.y != (_board._board[0].length - 1) * 16 ) {
-               _board._board[curr.selected.y/16 + 1][curr.selected.x/16].movement = -1; 
+            else {
+              curr.selected.rangeAttack(_board, curr.selected.x, curr.selected.y, 0);
+              curr.selected.checkSpaces(_board);
+              _board.attacking = true;
             }
-            if (curr.selected.x != 0) {
-               _board._board[curr.selected.y/16][curr.selected.x/16 - 1].movement = -1; 
-            }
-            if (curr.selected.x != (_board._board[0].length - 1) * 16 ) {
-               _board._board[curr.selected.y/16][curr.selected.x/16 + 1].movement = -1; 
-            }
-            _board.attacking = true;
           }
           else {
             _board.attacking = false;
