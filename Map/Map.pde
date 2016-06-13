@@ -16,6 +16,7 @@ boolean info;
 
 
 PImage screen;
+PImage endscreen;
 
 void setup(){ 
 
@@ -25,6 +26,7 @@ void setup(){
   about =false;
   info = false;
   screen = loadImage("Draft.png");
+  endscreen = loadImage("endscreen.jpg");
   fill(255,255,255);
   highlighted = false;
   players = new CLL<Player>();
