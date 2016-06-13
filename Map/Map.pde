@@ -69,16 +69,16 @@ void setup(){
 
 
 boolean isGameOver() {
-  return noUnits() || noBase();
+  return noUnits() || (noBase() != -1);
 }
 
-boolean noBase() {
+int noBase() {
   for(int r = 0; r < _board._board.length; r++){ //EDITED
     for(int c = 0; c < _board._board[r].length; c++){
-      if(_board._board[r][c].terrain.base) return true;
+      if(_board._board[r][c].terrain.base) return (_board._board[r][c].terrain.pNum + 1) % 2;
     }
   }
-  return false;
+  return -1;
 }
 
 boolean noUnits() {
@@ -98,6 +98,12 @@ int numUnits(int p){
     }
   }
   return ret;
+}
+
+int getWinner() {
+  if (numUnits(0) == 0) return 1;
+  if (numUnits(1) == 0) return 0;
+  return noBase();
 }
 
 
@@ -121,8 +127,9 @@ void draw(){
   else{
     if ( isGameOver() ) {
       System.out.println(":)");
-      fill(255,255,255);
-      rect(0,0, width, height);
+      image(endscreen, 0, 0);
+      textFont(f, 20);  
+      text("Player " + getWinner() + " has won!!" , 300,125);
     }
     else {
       
