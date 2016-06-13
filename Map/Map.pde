@@ -420,6 +420,7 @@ void mouseClicked(){
   }
 
 void keyPressed(){
+  if (! (mapsel || startscreen || info || about)) {
   if (keyCode == UP){
     _board.moveSS(0,-16);
     curr.selectedBuilding = null;    
@@ -668,6 +669,7 @@ void keyPressed(){
      }
    }
   }
+}
 }
 
 void groundMenu(){
