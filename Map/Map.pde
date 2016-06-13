@@ -516,7 +516,7 @@ void keyPressed(){
       //else if (key == 'a' || key == 'A') {
       //  if (curr.selected.x != 0 && _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG != null) {
       //    //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG.pNum);
-      //    curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG);
+      //    curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG );
       //  }
       //  else System.out.println("No unit to attack.");
       //}
@@ -645,13 +645,22 @@ void airMenu(){
 //}
 }
 
+boolean p1turn(){
+  return playanum ==0;
+}
 void unitInfo(){
   //if(t.ground){
     fill(200);
     rect(640, 256,256, 128);
     //textFont(f, 20);                  
     fill(0);               
-    //text("Selected",642,18); 
+    //text("Selected",642,18);
+        if (p1turn()){
+      fill(255,0,0);
+    }
+    else{
+      fill(0,0,255);
+    }
     textFont(f, 16);
     image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.img, 800,274);
     text("HP: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.health,642, 296);
@@ -667,7 +676,13 @@ void terrainInfo(){
     fill(200);
     rect(640, 256+128,256, 128);
     //textFont(f, 20);                  
-    fill(0);               
+    fill(0);
+        if (p1turn()){
+      fill(255,0,0);
+    }
+    else{
+      fill(0,0,255);
+    }
     //text("Selected",642,18); 
     textFont(f, 16);
     image(_board._board[_board.ycor/16][_board.xcor/16].terrain.img, 800,274+128); 
@@ -675,6 +690,10 @@ void terrainInfo(){
     text("Foot Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance,642,296+128+25);
     text("Wheel Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.wheelHindrance, 642, 321+128+25);
     text("Tread Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.treadHindrance, 642, 346+128+25);
-    text("Air Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.airHindrance, 642, 371+128+25);
+    //text("Air Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.airHindrance, 642, 371+128+25);
 //}
+}
+
+void gameInfo(){
+    
 }
