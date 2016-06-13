@@ -12,6 +12,7 @@ PFont f;
 boolean startscreen;
 boolean about;
 boolean info;
+boolean mapsel;
 
 
 
@@ -25,6 +26,7 @@ void setup(){
   startscreen = true;
   about =false;
   info = false;
+  mapsel = false;
   screen = loadImage("Draft.png");
   endscreen = loadImage("endscreen.jpg");
   endscreen.resize(896,640);
@@ -118,6 +120,12 @@ void draw(){
   if (startscreen){
     image(screen, 0,0);
   }
+  else if (mapsel) {
+    fill(255,255,255);
+    rect(0,0,width,height);
+    textFont(f, 20);  
+    text("Insert Text Here ", 0,0);
+  }
   else if(about){
     fill(255,255,255);
     rect(0,0,width,height);
@@ -191,6 +199,7 @@ void mouseClicked(){
   if(startscreen){
     if( mouseX >= 100 && mouseX <=305 && mouseY >=530 && mouseY <=583){
       startscreen = false;
+      mapsel = true;
     }
     else if(mouseX >= 365 && mouseX <=483 && mouseY >=530 && mouseY <=583){
       startscreen = false;
@@ -200,6 +209,9 @@ void mouseClicked(){
       startscreen = false;
       info = true;
     }
+  }
+  else if(mapsel) {
+      
   }
   else if(about){
     
