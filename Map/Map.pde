@@ -150,18 +150,18 @@ void draw(){
       if(curr.selected != null){
         textFont(f, 20);                  
         fill(0);               
-        text("Selected",642,274); 
+        text("Selected",642,274+100); 
       }
       else if(curr.selectedBuilding != null){
         textFont(f, 20);                  
         fill(0);               
-        text("Selected",642,274+128); 
+        text("Selected",642,274+128+100); 
       }
       else{
         textFont(f, 20);                  
         fill(0);               
-        text("Deselected",642,274);   
-        text("Deselected",642,274+128);   
+        text("Deselected",642,274+100);   
+        text("Deselected",642,274+128+100);   
       }
     }
   }
@@ -221,11 +221,11 @@ void mouseClicked(){
          curr.money -=5000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=124 && mouseY <=142 && curr.money >= 6000){
-         //System.out.println("artillery");
-         // Infantry i = new Infantry(_board.xcor/16, _board.ycor/16, playanum);
-         // curr.addUnit(i);
-         // _board.addUnit(i,i.x/16,i.y/16);
-         //curr.money -=6000;
+         System.out.println("artillery");
+          Artillery a= new Artillery(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(a);
+          _board.addUnit(a,a.x/16,a.y/16);
+         curr.money -=6000;
         }
         else if( mouseX >= 640 && mouseX <=896 && mouseY >=149 && mouseY <=167 && curr.money >= 7000){
           System.out.println("tank");
@@ -234,14 +234,28 @@ void mouseClicked(){
           _board.addUnit(t,t.x/16,t.y/16);
           curr.money -=7000;
         }
-        else if( mouseX >= 640 && mouseX <=896 && mouseY >=174 && mouseY <=192 ){
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=174 && mouseY <=192 && curr.money >= 8000){
          System.out.println("aa");
           AA a = new AA(_board.xcor/16, _board.ycor/16, playanum);
           curr.addUnit(a);
           _board.addUnit(a,a.x/16,a.y/16);
          curr.money -=8000;
         }
-        else if( mouseX >= 640 && mouseX <=896 && mouseY >=199 && mouseY <=217 && curr.money >= 16000){
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=199 && mouseY <=217 && curr.money >= 12000){
+          System.out.println("Missiles");
+          Missile m = new Missile(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(m);
+          _board.addUnit(m,m.x/16,m.y/16);
+          curr.money -=12000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=224 && mouseY <=217+25 && curr.money >= 15000){
+          System.out.println("Rocket");
+          Rocket r= new Rocket(_board.xcor/16, _board.ycor/16, playanum);
+          curr.addUnit(r);
+          _board.addUnit(r,r.x/16,r.y/16);
+          curr.money -=15000;
+        }
+        else if( mouseX >= 640 && mouseX <=896 && mouseY >=199+50 && mouseY <=217+50 && curr.money >= 16000){
           System.out.println("medtank");
           MedTank m = new MedTank(_board.xcor/16, _board.ycor/16, playanum);
           curr.addUnit(m);
@@ -396,7 +410,7 @@ void keyPressed(){
         }
       }
     }
-    else if(keyCode == SHIFT){
+    else if(keyCode == ENTER){
        if(playanum == players.size() - 1){
          playanum = 0;
        }
@@ -505,59 +519,7 @@ void keyPressed(){
             }
           }
         }
-    
-      //else if (key == 'w' || key == 'W') {
-      //    if (curr.selected.y != 0 && _board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG != null) {
-      //    //Player opponent = players.get(_board._board[(curr.selected.y - 16)/16][curr.selected.x/16]._unitG.pNum);
-      //      curr.selected.attack(_board, _board._board[ (curr.selected.y - 16)/16][curr.selected.x/16]._unitG);
-      //    }
-      //    else System.out.println("No unit to attack.");
-      //}
-      //else if (key == 'a' || key == 'A') {
-      //  if (curr.selected.x != 0 && _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG != null) {
-      //    //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG.pNum);
-      //    curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x - 16)/16]._unitG );
-      //  }
-      //  else System.out.println("No unit to attack.");
-      //}
-      //else if (key == 's' || key == 'S') {
-      //  if (curr.selected.y != (_board._board.length - 1) * 16 && _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG != null) {
-      //    //Player opponent = players.get(_board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG.pNum);
-      //    curr.selected.attack(_board, _board._board[(curr.selected.y + 16)/16][curr.selected.x/16]._unitG);
-      //  }
-      //  else System.out.println("No unit to attack.");
-      //}  
-      //else if (key == 'd' || key == 'D') {
-      //  if (curr.selected.x != (_board._board[0].length - 1) * 16 && _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG != null) {
-      //    //Player opponent = players.get(_board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG.pNum);
-      //    curr.selected.attack(_board, _board._board[curr.selected.y/16][(curr.selected.x + 16)/16]._unitG);
-      //  }
-      //  else System.out.println("No unit to attack.");
-      //}
    }
-      
-  
-   
-    if(keyCode == BACKSPACE){
-      for(int r = 0; r < _board._board.length; r++){
-        for(int c = 0; c < _board._board[0].length; c++){
-          if(_board._board[r][c]._unitG == null){
-            if(playanum == 0){
-              Unit newUnit = new Infantry(c,r, playanum);
-              curr.units.add(newUnit);
-              _board.addUnit(newUnit, c, r);
-            }
-            else if(playanum == 1){
-              Unit newUnit = new Tank(c,r,playanum);
-              curr.units.add(newUnit);
-              _board.addUnit(newUnit, c, r);
-             } 
-            return;
-          }
-        }
-      }
-   }
- 
    if(curr.selected == null){
      if(curr.units.size() == 0){
        System.out.println("No units");
@@ -569,28 +531,6 @@ void keyPressed(){
      }
    }
   }
-    //if(keyCode == ENTER){
-  //  curr.cycle();
-  //}
-  //for(int p = 0; p < players.size(); p++){
-  //  if(players.get(p).units.size() == 0){
-  //    break;
-  //  }
-  //  else{
-  //    for(int u = 0; u < players.get(p).units.size(); u++){
-  //      if(players.get(p).units.get(u).dead){
-  //        System.out.println("Before: "+ players.get(p).units);
-          
-  //        players.get(p).removeUnit(_board, u); //remove
-          
-  //        System.out.println("After: "+players.get(p).units);
-          
-  //        System.out.println(curr.units.size());
-  //        System.out.println("true");
-  //      }
-  //    }
-  //   }
-  //  } 
 }
 
 void groundMenu(){
@@ -605,6 +545,8 @@ void groundMenu(){
     rect(640, 149, 256, 18);
     rect(640, 174, 256, 18);
     rect(640, 199, 256, 18);
+    rect(640, 224, 256, 18);
+    rect(640, 249, 256, 18);
     textFont(f, 20);                  
     fill(0);               
     text("Ground Units ", 642, 18);
@@ -618,9 +560,11 @@ void groundMenu(){
     text("Artillery: $6,000", 642, 140);
     text("Tank: $7,000", 642, 165);
     text("Anti-Air: $8,000", 642, 190);
-    text("Medium Tank: $16,000", 642, 215);
-    //text("Missiles: $12,000", 642, 240);
-    //text("Rockets: $15,000", 642 , 265);
+    text("Missiles: $12,000", 642, 215);
+    text("Rockets: $15,000", 642 , 240);
+    text("Medium Tank: $16,000", 642, 265);
+
+
 }
 
 void airMenu(){
@@ -651,7 +595,7 @@ boolean p1turn(){
 void unitInfo(){
   //if(t.ground){
     fill(200);
-    rect(640, 256,256, 128);
+    rect(640, 356,256, 128);
     //textFont(f, 20);                  
     fill(0);               
     //text("Selected",642,18);
@@ -662,11 +606,11 @@ void unitInfo(){
       fill(0,0,255);
     }
     textFont(f, 16);
-    image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.img, 800,274);
-    text("HP: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.health,642, 296);
-    text("Movement: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.movement, 642, 321);
-    text("UnitType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.uType, 642, 346);
-    text("DriveType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.mvType, 642, 371);    
+    image(_board._board[_board.ycor/16][_board.xcor/16]._unitG.img, 800,374);
+    text("HP: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.health,642, 396);
+    text("Movement: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.movement, 642, 421);
+    text("UnitType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.uType, 642, 446);
+    text("DriveType: " + _board._board[_board.ycor/16][_board.xcor/16]._unitG.mvType, 642, 471);    
     //text("Bomber: ", 642, 115);
 //}
 }
@@ -674,7 +618,7 @@ void unitInfo(){
 void terrainInfo(){
   //if(t.ground){
     fill(200);
-    rect(640, 256+128,256, 128);
+    rect(640, 256+128+100,256, 128);
     //textFont(f, 20);                  
     fill(0);
         if (p1turn()){
@@ -685,15 +629,11 @@ void terrainInfo(){
     }
     //text("Selected",642,18); 
     textFont(f, 16);
-    image(_board._board[_board.ycor/16][_board.xcor/16].terrain.img, 800,274+128); 
-    text("Defense: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.defense, 642,274+128+25); 
-    text("Foot Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance,642,296+128+25);
-    text("Wheel Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.wheelHindrance, 642, 321+128+25);
-    text("Tread Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.treadHindrance, 642, 346+128+25);
+    image(_board._board[_board.ycor/16][_board.xcor/16].terrain.img, 800,274+128+100); 
+    text("Defense: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.defense, 642,274+128+100+25); 
+    text("Foot Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.footHindrance,642,296+128+25+100);
+    text("Wheel Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.wheelHindrance, 642, 321+128+25+100);
+    text("Tread Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.treadHindrance, 642, 346+128+25+100);
     //text("Air Hindrance: " + _board._board[_board.ycor/16][_board.xcor/16].terrain.airHindrance, 642, 371+128+25);
 //}
-}
-
-void gameInfo(){
-    
 }
