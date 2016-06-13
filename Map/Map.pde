@@ -12,9 +12,19 @@ boolean about;
 boolean info;
 
 boolean mapsel;
-int mapnum;
-PImage[] maps;
-
+int mapNum;
+PImage map1;
+PImage map2;
+PImage map3;
+PImage map4;
+PImage map5;
+PImage map6;
+PImage map7;
+PImage map8;
+PImage map9;
+PImage map10;
+PImage map11;
+PImage map12; 
 
 
 
@@ -29,13 +39,26 @@ void setup(){
   about =false;
   info = false;
   mapsel = false;
+  mapNum = 1;
   screen = loadImage("Draft.png");
   endscreen = loadImage("endscreen.jpg");
   endscreen.resize(896,640);
-  PImage[] maps = new PImage[12];
-  for(int i = 1; i <= 12; i++) {
-    maps[i-1] = loadImage("map"+i+".png");  
-  }
+  
+  map1 = loadImage("map1.png"); 
+  map2 = loadImage("map2.png");
+  map3 = loadImage("map3.png");
+  map4 = loadImage("map4.png");
+  map5 = loadImage("map5.png");
+  map6 = loadImage("map6.png");
+  map7 = loadImage("map7.png");
+  map8 = loadImage("map8.png");
+  map9 = loadImage("map9.png");
+  map10 = loadImage("map10.png");
+  map11 = loadImage("map11.png");
+  map12 = loadImage("map12.png");
+  
+  
+
   
   fill(255,255,255);
   highlighted = false;
@@ -125,10 +148,21 @@ int getWinner() {
 
 void draw(){
   if (startscreen){
-    image(screen, 0,0);
+    image(screen, 0,0); 
   }
-  else if (mapsel) {
-     image(maps[mapnum], 0, 0);
+  else if (mapsel) { 
+     if (mapNum == 1) image(map1, 0, 0); 
+     else if (mapNum == 2) image(map2, 0, 0);
+     else if (mapNum == 3) image(map3, 0, 0);
+     else if (mapNum == 4) image(map4, 0, 0);
+     else if (mapNum == 5) image(map5, 0, 0);
+     else if (mapNum == 6) image(map6, 0, 0);
+     else if (mapNum == 7) image(map7, 0, 0);
+     else if (mapNum == 8) image(map8, 0, 0);
+     else if (mapNum == 9) image(map9, 0, 0);
+     else if (mapNum == 10) image(map10, 0, 0);
+     else if (mapNum == 11) image(map11, 0, 0);
+     else if (mapNum == 12) image(map12, 0, 0);
   }
   else if(about){
     fill(255,255,255);
